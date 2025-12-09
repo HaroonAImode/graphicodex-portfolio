@@ -11,11 +11,11 @@ const TeamPage: React.FC = () => {
     {
       id: 1,
       name: "Haroon",
-      role: "Lead AI Engineer & Founder",
+      role: "Full Stack AI Developer",
       photo: "/team1.jpg",
-      expertise: ["AI Agents", "LLM Fine-tuning", "MLOps", "System Architecture"],
-      description: "10+ years in AI/ML with expertise in building production-ready AI systems and leading technical teams.",
-      experience: "12+",
+      expertise: ["Full Stack Development", "AI Integration", "System Architecture", "API Development"],
+      description: "Specialized in end-to-end AI application development with expertise in integrating AI models into production-ready systems.",
+      experience: "2 years",
       gradient: "from-purple-500 to-blue-500",
       linkedin: "#",
       github: "#"
@@ -23,11 +23,11 @@ const TeamPage: React.FC = () => {
     {
       id: 2,
       name: "Fassih Shahzad",
-      role: "Frontend Developer",
+      role: "Automation & Integration Specialist",
       photo: "/team2.jpg",
-      expertise: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-      description: "Specialized in building responsive, high-performance web interfaces for AI applications.",
-      experience: "6 years",
+      expertise: ["Workflow Automation", "n8n", "Make", "System Integration"],
+      description: "Expert in building complex automation workflows and seamless integrations between AI systems and business applications.",
+      experience: "2 years",
       gradient: "from-blue-500 to-cyan-500",
       linkedin: "#",
       github: "#"
@@ -35,11 +35,11 @@ const TeamPage: React.FC = () => {
     {
       id: 3,
       name: "Atif Khawaja",
-      role: "Backend Developer",
+      role: "Backend & AI API Developer",
       photo: "/team3.jpg",
-      expertise: ["Node.js", "Python", "FastAPI", "PostgreSQL"],
-      description: "Expert in scalable backend systems and API development for AI-powered applications.",
-      experience: "8 years",
+      expertise: ["FastAPI Development", "Model Training", "Database Design", "API Architecture"],
+      description: "Focused on building scalable backend systems and APIs for AI models with expertise in model deployment and optimization.",
+      experience: "2 years",
       gradient: "from-cyan-500 to-teal-500",
       linkedin: "#",
       github: "#"
@@ -47,48 +47,24 @@ const TeamPage: React.FC = () => {
     {
       id: 4,
       name: "Abdul Wassey",
-      role: "ML Specialist",
+      role: "AI Agents & Automation Developer",
       photo: "/team4.jpg",
-      expertise: ["Computer Vision", "NLP", "PyTorch", "Research"],
-      description: "PhD in Machine Learning with focus on advanced model architectures and research applications.",
-      experience: "9 years",
+      expertise: ["AI Agents", "LangChain", "RAG Systems", "Process Automation"],
+      description: "Specialized in developing intelligent AI agents and automating complex business processes using cutting-edge AI technologies.",
+      experience: "2 years",
       gradient: "from-teal-500 to-green-500",
       linkedin: "#",
       github: "#"
     },
     {
-      id: 5,
-      name: "Khawaja saab",
-      role: "n8n Automation Expert",
-      photo: "/team5.jpg",
-      expertise: ["n8n", "Make", "Zapier", "Workflow Automation"],
-      description: "Specialized in creating complex automation workflows and integration pipelines for businesses.",
-      experience: "5 years",
-      gradient: "from-green-500 to-emerald-500",
-      linkedin: "#",
-      github: "#"
-    },
-    {
       id: 6,
-      name: "Mian taha",
-      role: "Full Stack Developer",
+      name: "Mian Taha",
+      role: "Project Manager & Full Stack Developer",
       photo: "/team6.jpg",
-      expertise: ["React Native", "Firebase", "AWS", "Mobile Apps"],
-      description: "Full stack developer focused on mobile applications and cross-platform AI solutions.",
-      experience: "7 years",
+      expertise: ["Project Management", "React Development", "Team Leadership", "Client Communication"],
+      description: "Manages project timelines and client relationships while contributing to full-stack development with focus on delivery excellence.",
+      experience: "2 years",
       gradient: "from-emerald-500 to-blue-500",
-      linkedin: "#",
-      github: "#"
-    },
-    {
-      id: 7,
-      name: "Raja Haroon",
-      role: "AI Applications Developer",
-      photo: "/team7.jpg",
-      expertise: ["LangChain", "Vector DBs", "AI Agents", "RAG Systems"],
-      description: "Specialized in developing intelligent AI applications and agent-based systems.",
-      experience: "4 years",
-      gradient: "from-blue-500 to-purple-500",
       linkedin: "#",
       github: "#"
     }
@@ -96,16 +72,28 @@ const TeamPage: React.FC = () => {
 
   const stats = [
     { number: "50+", label: "Projects Completed", description: "Successful AI implementations" },
-    { number: "12+", label: "Years Experience", description: "Collective team experience" },
+    { number: "10+", label: "Years Experience", description: "Collective team experience" },
     { number: "15+", label: "Technologies", description: "Mastered tools & frameworks" },
     { number: "100%", label: "Client Satisfaction", description: "Based on project delivery" }
   ];
 
   const technologies = [
-    { category: "AI & ML", items: ["OpenAI", "LangChain", "PyTorch", "Hugging Face", "TensorFlow"] },
-    { category: "Development", items: ["React", "Next.js", "Node.js", "Python", "TypeScript"] },
-    { category: "Automation", items: ["n8n", "Make", "Zapier", "Airflow", "FastAPI"] },
-    { category: "Infrastructure", items: ["AWS", "Docker", "Kubernetes", "PostgreSQL", "Redis"] }
+    { 
+      category: "AI & ML", 
+      items: ["OpenAI", "LangChain", "PyTorch", "Hugging Face", "TensorFlow", "AI Agents"] 
+    },
+    { 
+      category: "Development", 
+      items: ["React", "Next.js", "Node.js", "Python", "TypeScript", "FastAPI"] 
+    },
+    { 
+      category: "Automation", 
+      items: ["n8n", "Make", "Zapier", "Workflow Design", "System Integration"] 
+    },
+    { 
+      category: "Infrastructure", 
+      items: ["AWS", "Docker", "PostgreSQL", "Redis", "API Gateways", "Cloud Deployment"] 
+    }
   ];
 
   return (
@@ -229,7 +217,7 @@ const TeamPage: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {teamMembers.map((member, index) => (
               <motion.div
                 key={member.id}
@@ -259,7 +247,13 @@ const TeamPage: React.FC = () => {
                       </div>
                       
                       {/* Experience Badge */}
-                      
+                      <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2">
+                        <div className="px-3 py-1 bg-slate-800 border border-slate-600 rounded-full">
+                          <span className="text-xs font-medium text-blue-400">
+                            {member.experience}
+                          </span>
+                        </div>
+                      </div>
                     </div>
 
                     <h3 className="text-xl font-bold text-white mb-1 group-hover:text-blue-400 transition-colors">

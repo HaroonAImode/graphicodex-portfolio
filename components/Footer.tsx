@@ -1,274 +1,314 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
 
-  const quickLinks = [
-    { name: "Home", href: "/" },
-    { name: "AI Services", href: "/ai-services" },
-    { name: "Portfolio", href: "/portfolio" },
-    { name: "Team", href: "/team" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
-  ];
-
-  const services = [
-    "AI Agents & Assistants",
-    "Custom Model Development",
-    "AI Integrations",
-    "Production & MLOps",
-    "Graphic Design",
-    "Web Development",
-  ];
-
-  const contactInfo = [
-    {
-      icon: "📧",
-      text: "muhammadharoon374052005@gmail.com",
-      href: "mailto:muhammadharoon374052005@gmail.com"
-    },
-    {
-      icon: "📱",
-      text: "+92 335 5955526",
-      href: "https://wa.me/923355955526"
-    },
-    {
-      icon: "🎨",
-      text: "Design Portfolio",
-      href: "https://newdesignerhere.my.canva.site/graphicodexportfolio"
-    }
-  ];
+  const footerLinks = {
+    Services: [
+      { name: "AI Services", href: "/ai-services" },
+      { name: "Other Services", href: "/other-services" },
+      { name: "Portfolio", href: "/portfolio" },
+      { name: "Team", href: "/team" },
+    ],
+    Company: [
+      { name: "About Us", href: "/about" },
+      { name: "Contact", href: "/contact" },
+      { name: "Privacy Policy", href: "/privacy" },
+      { name: "Terms of Service", href: "/terms" },
+    ],
+    Contact: [
+      { 
+        name: "muhammadharoon3740502005@gmail.com", 
+        href: "mailto:muhammadharoon3740502005@gmail.com",
+        type: "email"
+      },
+      { 
+        name: "+92 335 5955525", 
+        href: "tel:+923355955525",
+        type: "phone"
+      },
+    ],
+  };
 
   const socialLinks = [
-    {
-      name: "LinkedIn",
-      icon: "💼",
-      href: "#",
-      color: "hover:text-blue-400"
-    },
-    {
-      name: "GitHub",
-      icon: "⚡",
-      href: "#",
-      color: "hover:text-purple-400"
-    },
-    {
-      name: "Twitter",
-      icon: "🐦",
-      href: "#",
-      color: "hover:text-cyan-400"
-    },
-    {
-      name: "Instagram",
-      icon: "📸",
-      href: "#",
-      color: "hover:text-pink-400"
-    }
+    { name: "Twitter", href: "#", icon: "🐦" },
+    { name: "LinkedIn", href: "#", icon: "💼" },
+    { name: "GitHub", href: "#", icon: "💻" },
+    { name: "Instagram", href: "#", icon: "📷" },
   ];
 
+  const copyToClipboard = async (text: string, type: 'email' | 'phone') => {
+    try {
+      await navigator.clipboard.writeText(text);
+      
+      if (type === 'email') {
+        setCopiedEmail(true);
+        setTimeout(() => setCopiedEmail(false), 2000);
+      } else {
+        setCopiedPhone(true);
+        setTimeout(() => setCopiedPhone(false), 2000);
+      }
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  };
+
   return (
-    <footer className="bg-slate-900 border-t border-slate-700/50">
-      {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          
-          {/* Brand Column */}
+    <footer className="bg-slate-900 border-t border-slate-700/50 pt-12 pb-8 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Logo and Description - Updated with larger logo */}
           <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-1"
+            className="space-y-4"
           >
-            {/* Enhanced Logo */}
-            <div className="flex flex-col items-start mb-6">
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="relative">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/30">
-                    <span className="text-white font-bold text-2xl">AI</span>
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl blur-md opacity-50"></div>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-bold text-2xl bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-                    AI Portfolio
-                  </span>
-                  <span className="text-sm text-cyan-400 font-medium">Enterprise Solutions</span>
+            <Link href="/">
+              <div className="flex items-center space-x-3 cursor-pointer group">
+                <div className="relative w-64 h-20"> {/* Increased size */}
+                  <Image
+                    src="/logo2005.png"
+                    alt="AI Portfolio Logo"
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 256px, 256px"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl blur-sm group-hover:blur-md transition-all duration-300 opacity-0 group-hover:opacity-70"></div>
                 </div>
               </div>
-            </div>
-
-            <p className="text-gray-400 mb-6 leading-relaxed font-light">
-              Building intelligent AI solutions and stunning designs that drive business growth and innovation for forward-thinking organizations worldwide.
+            </Link>
+            <p className="text-gray-400 text-sm leading-relaxed mt-4">
+              Leading AI solutions provider delivering cutting-edge technology 
+              and enterprise-grade artificial intelligence services to transform 
+              businesses worldwide.
             </p>
-
+            
             {/* Social Links */}
-            <div className="flex space-x-4">
-              {socialLinks.map((social, index) => (
+            <div className="flex space-x-4 pt-4">
+              {socialLinks.map((social) => (
                 <motion.a
                   key={social.name}
                   href={social.href}
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.2, y: -2 }}
-                  className={`w-10 h-10 bg-slate-800 rounded-xl flex items-center justify-center text-lg border border-slate-700 transition-all duration-300 ${social.color} hover:shadow-lg hover:border-slate-600`}
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-10 h-10 flex items-center justify-center bg-slate-800 rounded-lg border border-slate-700 hover:border-blue-500/50 hover:bg-slate-700/50 transition-all duration-300"
+                  aria-label={social.name}
                 >
-                  {social.icon}
+                  <span className="text-lg">{social.icon}</span>
                 </motion.a>
               ))}
             </div>
           </motion.div>
 
-          {/* Quick Links */}
+          {/* Services Links */}
           <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
+            className="space-y-4"
           >
-            <h3 className="text-lg font-bold text-white mb-6 flex items-center">
-              <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-              Quick Links
+            <h3 className="text-white font-semibold text-lg bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              Services
             </h3>
             <ul className="space-y-3">
-              {quickLinks.map((link, index) => (
-                <motion.li
-                  key={link.name}
-                  initial={{ x: -20, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                >
+              {footerLinks.Services.map((link) => (
+                <li key={link.name}>
                   <Link href={link.href}>
                     <motion.div
                       whileHover={{ x: 5 }}
-                      className="flex items-center text-gray-400 hover:text-blue-400 transition-all duration-300 group"
+                      className="flex items-center space-x-2 group cursor-pointer"
                     >
-                      <span className="w-1 h-1 bg-gray-600 rounded-full mr-3 group-hover:bg-blue-400 group-hover:scale-150 transition-all duration-300"></span>
-                      {link.name}
+                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                      <span className="text-gray-400 hover:text-white transition-colors duration-300 text-sm">
+                        {link.name}
+                      </span>
                     </motion.div>
                   </Link>
-                </motion.li>
+                </li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Services */}
+          {/* Company Links */}
           <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            className="space-y-4"
           >
-            <h3 className="text-lg font-bold text-white mb-6 flex items-center">
-              <span className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>
-              Our Services
+            <h3 className="text-white font-semibold text-lg bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              Company
             </h3>
             <ul className="space-y-3">
-              {services.map((service, index) => (
-                <motion.li
-                  key={service}
-                  initial={{ x: -20, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="flex items-center text-gray-400 group"
-                >
-                  <span className="w-1 h-1 bg-cyan-500 rounded-full mr-3 group-hover:scale-150 transition-all duration-300"></span>
-                  {service}
-                </motion.li>
+              {footerLinks.Company.map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href}>
+                    <motion.div
+                      whileHover={{ x: 5 }}
+                      className="flex items-center space-x-2 group cursor-pointer"
+                    >
+                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                      <span className="text-gray-400 hover:text-white transition-colors duration-300 text-sm">
+                        {link.name}
+                      </span>
+                    </motion.div>
+                  </Link>
+                </li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Contact Info */}
+          {/* Contact Links - Updated with copy functionality */}
           <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
+            className="space-y-4"
           >
-            <h3 className="text-lg font-bold text-white mb-6 flex items-center">
-              <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-              Get In Touch
+            <h3 className="text-white font-semibold text-lg bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              Contact
             </h3>
-            <div className="space-y-4">
-              {contactInfo.map((contact, index) => (
-                <motion.a
-                  key={contact.text}
-                  href={contact.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ x: -20, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  whileHover={{ x: 5 }}
-                  className="flex items-center space-x-3 text-gray-400 hover:text-white transition-all duration-300 group"
-                >
-                  <span className="text-lg group-hover:scale-110 transition-transform duration-300">
-                    {contact.icon}
-                  </span>
-                  <span className="text-sm group-hover:text-blue-400 transition-colors duration-300">
-                    {contact.text}
-                  </span>
-                </motion.a>
+            <ul className="space-y-4">
+              {footerLinks.Contact.map((link) => (
+                <li key={link.name}>
+                  <motion.div
+                    whileHover={{ x: 5 }}
+                    className="group cursor-pointer"
+                    onClick={() => copyToClipboard(link.name.replace(/\s+/g, ''), link.type as 'email' | 'phone')}
+                  >
+                    <div className="flex items-center justify-between p-3 bg-slate-800/50 rounded-xl border border-slate-700 hover:border-blue-500/50 transition-all duration-300 group">
+                      <div className="flex items-center space-x-3">
+                        <div className="relative">
+                          <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
+                            {link.type === 'email' ? (
+                              <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                              </svg>
+                            ) : (
+                              <svg className="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                              </svg>
+                            )}
+                          </div>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium text-white truncate">
+                            {link.name}
+                          </p>
+                          <p className="text-xs text-gray-400">
+                            {link.type === 'email' ? 'Email Address' : 'Phone Number'}
+                          </p>
+                        </div>
+                      </div>
+                      
+                      {/* Copy Button */}
+                      <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        className="ml-2 p-2 rounded-lg bg-slate-700/50 hover:bg-slate-600/50 transition-colors duration-300"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          copyToClipboard(link.name.replace(/\s+/g, ''), link.type as 'email' | 'phone');
+                        }}
+                        aria-label={`Copy ${link.type}`}
+                      >
+                        {link.type === 'email' && copiedEmail ? (
+                          <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          </svg>
+                        ) : link.type === 'phone' && copiedPhone ? (
+                          <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          </svg>
+                        ) : (
+                          <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                          </svg>
+                        )}
+                      </motion.button>
+                    </div>
+                    
+                    {/* Click to copy hint */}
+                    <div className="mt-1 text-xs text-gray-500 pl-11">
+                      Click to copy
+                    </div>
+                  </motion.div>
+                </li>
               ))}
-            </div>
-
-            {/* CTA Button */}
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-6"
-            >
-              <Link href="/contact">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 transition-all duration-300 text-sm"
-                >
-                  Start Your Project
-                </motion.button>
-              </Link>
-            </motion.div>
+            </ul>
           </motion.div>
         </div>
-      </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-slate-700/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6 }}
-              className="text-gray-400 text-sm font-light"
-            >
-              © {currentYear} <span className="text-blue-400">AI Portfolio</span>. All rights reserved.
-            </motion.p>
-            
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex items-center space-x-6 text-sm text-gray-400"
-            >
-              <Link href="/privacy" className="hover:text-blue-400 transition-colors duration-300">
+        {/* Divider */}
+        <div className="my-8 h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent"></div>
+
+        {/* Copyright */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+        >
+          <p className="text-gray-500 text-sm">
+            © {new Date().getFullYear()} AI Portfolio. All rights reserved.
+          </p>
+          <div className="flex items-center space-x-6">
+            <Link href="/privacy">
+              <span className="text-gray-400 hover:text-white text-sm transition-colors duration-300 cursor-pointer">
                 Privacy Policy
-              </Link>
-              <Link href="/terms" className="hover:text-blue-400 transition-colors duration-300">
+              </span>
+            </Link>
+            <Link href="/terms">
+              <span className="text-gray-400 hover:text-white text-sm transition-colors duration-300 cursor-pointer">
                 Terms of Service
-              </Link>
-              <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span>Available for new projects</span>
-              </div>
-            </motion.div>
+              </span>
+            </Link>
+            <Link href="/cookies">
+              <span className="text-gray-400 hover:text-white text-sm transition-colors duration-300 cursor-pointer">
+                Cookie Policy
+              </span>
+            </Link>
           </div>
-        </div>
+        </motion.div>
+
+        {/* CTA Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-12 p-6 rounded-2xl bg-gradient-to-r from-slate-800 to-slate-900 border border-slate-700/50 shadow-xl"
+        >
+          <div className="flex flex-col lg:flex-row items-center justify-between space-y-6 lg:space-y-0">
+            <div>
+              <h3 className="text-white font-bold text-xl mb-2">
+                Ready to Transform Your Business with AI?
+              </h3>
+              <p className="text-gray-400">
+                Lets build something amazing together. Get in touch today!
+              </p>
+            </div>
+            <Link href="/contact">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 transition-all duration-300 border border-blue-500/30 whitespace-nowrap"
+              >
+                Start Your Project
+              </motion.button>
+            </Link>
+          </div>
+        </motion.div>
       </div>
 
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_100%,black,transparent)] pointer-events-none"></div>
+      {/* Background Glow Effects */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"></div>
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent"></div>
     </footer>
   );
 };
