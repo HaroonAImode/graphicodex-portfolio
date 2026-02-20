@@ -4,11 +4,13 @@ import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import AIServiceCard from "../components/AIServiceCard";
 import Link from "next/link";
 
 const AIServicesPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
+  const [hoveredServiceId, setHoveredServiceId] = useState<string | null>(null);
 
   const services = useMemo(() => [
     {
@@ -29,6 +31,7 @@ const AIServicesPage: React.FC = () => {
       technologies: ["OpenAI GPT-4", "Anthropic Claude", "LangChain", "Vector Databases", "WebSocket APIs", "Speech Recognition", "Twilio", "Dialogflow"],
       href: "/services/agents",
       gradient: "from-purple-500 to-blue-500",
+      color: "#a78bfa",
       category: "agents",
       keywords: ["chatbot", "conversational", "assistant", "voice", "messaging", "support", "customer service", "virtual agent"]
     },
@@ -50,6 +53,7 @@ const AIServicesPage: React.FC = () => {
       technologies: ["PyTorch", "TensorFlow", "Hugging Face", "Custom Datasets", "MLflow", "Weights & Biases", "Keras", "Transformers"],
       href: "/services/models",
       gradient: "from-blue-500 to-cyan-500",
+      color: "#38bdf8",
       category: "models",
       keywords: ["fine-tuning", "training", "machine learning", "neural networks", "custom model", "ai model", "transfer learning"]
     },
@@ -71,6 +75,7 @@ const AIServicesPage: React.FC = () => {
       technologies: ["n8n", "Make", "Zapier", "FastAPI", "WebSocket", "GraphQL", "PostgreSQL", "Redis"],
       href: "/services/integrations",
       gradient: "from-cyan-500 to-teal-500",
+      color: "#34d399",
       category: "integrations",
       keywords: ["automation", "workflow", "api", "integration", "connectors", "webhook", "n8n", "make", "zapier"]
     },
@@ -92,6 +97,7 @@ const AIServicesPage: React.FC = () => {
       technologies: ["Docker", "Kubernetes", "AWS/GCP/Azure", "Prometheus", "Grafana", "Terraform", "Jenkins", "GitHub Actions"],
       href: "/services/production",
       gradient: "from-teal-500 to-green-500",
+      color: "#10b981",
       category: "production",
       keywords: ["deployment", "mlops", "monitoring", "scaling", "infrastructure", "cloud", "devops", "kubernetes"]
     },
@@ -113,6 +119,7 @@ const AIServicesPage: React.FC = () => {
       technologies: ["React", "Next.js", "Vue.js", "Flutter", "React Native", "Node.js", "FastAPI", "WebRTC"],
       href: "/services/web-app-integration",
       gradient: "from-indigo-500 to-purple-500",
+      color: "#8b5cf6",
       category: "integration",
       keywords: ["website", "web app", "mobile app", "integration", "frontend", "react", "nextjs", "api", "real-time"]
     },
@@ -134,6 +141,7 @@ const AIServicesPage: React.FC = () => {
       technologies: ["Prompt Libraries", "A/B Testing", "User Analytics", "Quality Metrics", "Feedback Systems", "Hotjar", "Mixpanel"],
       href: "/services/prompt-engineering",
       gradient: "from-green-500 to-emerald-500",
+      color: "#22c55e",
       category: "prompt-engineering",
       keywords: ["prompt", "conversational", "ux", "user experience", "optimization", "testing", "design", "persona"]
     },
@@ -155,6 +163,7 @@ const AIServicesPage: React.FC = () => {
       technologies: ["Python", "Apache Spark", "Airflow", "SQL", "Data Lakes", "Label Studio", "Beautiful Soup", "Scrapy"],
       href: "/services/data",
       gradient: "from-emerald-500 to-blue-500",
+      color: "#06b6d4",
       category: "data",
       keywords: ["data", "labeling", "preprocessing", "cleaning", "collection", "pipeline", "etl", "scraping"]
     },
@@ -176,6 +185,7 @@ const AIServicesPage: React.FC = () => {
       technologies: ["OpenCV", "YOLO", "TensorFlow", "PyTorch", "CNN", "GAN", "Tesseract", "MediaPipe"],
       href: "/services/computer-vision",
       gradient: "from-red-500 to-pink-500",
+      color: "#f472b6",
       category: "vision",
       keywords: ["computer vision", "image processing", "object detection", "facial recognition", "ocr", "video analysis"]
     },
@@ -197,6 +207,7 @@ const AIServicesPage: React.FC = () => {
       technologies: ["spaCy", "NLTK", "BERT", "GPT", "Transformers", "CoreNLP", "OpenNLP", "AllenNLP"],
       href: "/services/nlp",
       gradient: "from-orange-500 to-yellow-500",
+      color: "#fb923c",
       category: "nlp",
       keywords: ["nlp", "natural language", "text analysis", "sentiment", "translation", "summarization", "ner"]
     },
@@ -218,6 +229,7 @@ const AIServicesPage: React.FC = () => {
       technologies: ["Prophet", "ARIMA", "XGBoost", "LightGBM", "Scikit-learn", "Pandas", "NumPy", "Statsmodels"],
       href: "/services/predictive-analytics",
       gradient: "from-yellow-500 to-amber-500",
+      color: "#fbbf24",
       category: "analytics",
       keywords: ["predictive", "forecasting", "analytics", "time series", "prediction", "trends", "risk assessment"]
     },
@@ -239,6 +251,7 @@ const AIServicesPage: React.FC = () => {
       technologies: ["Strategy Frameworks", "Business Analysis", "ROI Modeling", "Training Programs", "Ethical Guidelines", "Vendor Evaluation"],
       href: "/services/ai-consulting",
       gradient: "from-gray-500 to-slate-500",
+      color: "#64748b",
       category: "consulting",
       keywords: ["consulting", "strategy", "roadmap", "business case", "training", "ethics", "implementation"]
     },
@@ -260,6 +273,7 @@ const AIServicesPage: React.FC = () => {
       technologies: ["DALL-E", "Midjourney", "Stable Diffusion", "GPT-4", "Claude", "RunwayML", "Synthesia", "Jukebox"],
       href: "/services/generative-ai",
       gradient: "from-pink-500 to-rose-500",
+      color: "#ec4899",
       category: "generative",
       keywords: ["generative ai", "content creation", "design", "code generation", "creative", "multi-modal"]
     }
@@ -587,71 +601,23 @@ const AIServicesPage: React.FC = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8"
+                className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6"
               >
                 {filteredServices.map((service) => (
-                  <motion.div
+                  <AIServiceCard
                     key={service.id}
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.6 }}
-                    whileHover={{ scale: 1.02 }}
-                    className="group"
-                  >
-                    <Link href={service.href}>
-                      <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700 shadow-lg hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 cursor-pointer h-full">
-                        <div className={`w-16 h-16 bg-gradient-to-r ${service.gradient} rounded-2xl flex items-center justify-center text-2xl mb-6 transition-transform duration-300 group-hover:scale-110`}>
-                          {service.icon}
-                        </div>
-                        
-                        <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
-                          {service.title}
-                        </h3>
-                        
-                        <p className="text-gray-400 mb-6 leading-relaxed font-light">
-                          {service.description}
-                        </p>
-
-                        <div className="mb-6">
-                          <h4 className="font-semibold text-white mb-3 text-lg">Key Features:</h4>
-                          <ul className="space-y-2">
-                            {service.features.slice(0, 4).map((feature, idx) => (
-                              <li key={idx} className="flex items-center text-sm text-gray-400">
-                                <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                                {feature}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <div className="mb-6">
-                          <h4 className="font-semibold text-white mb-3 text-lg">Technologies:</h4>
-                          <div className="flex flex-wrap gap-2">
-                            {service.technologies.slice(0, 4).map((tech, idx) => (
-                              <span 
-                                key={idx}
-                                className="px-3 py-1 bg-slate-700/50 text-gray-300 text-sm rounded-full border border-slate-600"
-                              >
-                                {tech}
-                              </span>
-                            ))}
-                            {service.technologies.length > 4 && (
-                              <span className="px-3 py-1 bg-slate-700/50 text-gray-400 text-sm rounded-full border border-slate-600">
-                                +{service.technologies.length - 4} more
-                              </span>
-                            )}
-                          </div>
-                        </div>
-
-                        <div className="flex items-center gap-2 text-blue-400 font-medium group-hover:text-blue-300 transition-colors">
-                          <span>Learn more</span>
-                          <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                      </div>
-                    </Link>
-                  </motion.div>
+                    id={service.id}
+                    title={service.title}
+                    description={service.description}
+                    icon={service.icon}
+                    features={service.features}
+                    technologies={service.technologies}
+                    gradient={service.gradient}
+                    color={service.color}
+                    dimmed={hoveredServiceId !== null && hoveredServiceId !== service.id}
+                    onHoverStart={() => setHoveredServiceId(service.id)}
+                    onHoverEnd={() => setHoveredServiceId(null)}
+                  />
                 ))}
               </motion.div>
             ) : (

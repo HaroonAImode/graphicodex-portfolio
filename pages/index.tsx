@@ -339,6 +339,10 @@ const HomePage: React.FC = () => {
                   width={80}
                   height={40}
                   className="h-9 w-auto object-contain transition-all duration-500 group-hover:scale-110"
+                  style={{ 
+                    mixBlendMode: 'multiply',
+                    filter: 'contrast(1.1) saturate(1.2)'
+                  }}
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';
@@ -375,6 +379,10 @@ const HomePage: React.FC = () => {
                   width={80}
                   height={40}
                   className="h-9 w-auto object-contain transition-all duration-500 group-hover:scale-110"
+                  style={{ 
+                    mixBlendMode: 'multiply',
+                    filter: 'contrast(1.1) saturate(1.2)'
+                  }}
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';
@@ -411,6 +419,10 @@ const HomePage: React.FC = () => {
                   width={80}
                   height={40}
                   className="h-9 w-auto object-contain transition-all duration-500 group-hover:scale-110"
+                  style={{ 
+                    mixBlendMode: 'multiply',
+                    filter: 'contrast(1.1) saturate(1.2)'
+                  }}
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';
