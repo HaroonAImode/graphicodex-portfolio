@@ -15,11 +15,11 @@ const MIN_OPACITY_FALLBACK = 0.3;
 const PROXIMITY_MULTIPLIER = 1.2;
 const PROXIMITY_OPACITY_BOOST = 0.8;
 
-// Snake configuration
-const SNAKE_LENGTH = 20;
-const SEGMENT_SIZE = 12;
-const SEGMENT_SPACING = 8;
-const SNAKE_SPRING_CONFIG = { stiffness: 150, damping: 25, mass: 0.3 };
+// Snake configuration - Game-like realistic snake
+const SNAKE_LENGTH = 25;
+const SEGMENT_SIZE = 24;
+const SEGMENT_SPACING = 4;
+const SNAKE_SPRING_CONFIG = { stiffness: 200, damping: 20, mass: 0.2 };
 
 interface Dot {
   id: string;
@@ -224,19 +224,19 @@ function SnakeSegment({ index, totalSegments, targetX, targetY, prevX, prevY }: 
   const x = useMotionValue(targetX);
   const y = useMotionValue(targetY);
 
-  // Calculate delay based on segment position
-  const delay = index * 0.02;
-  const stiffness = 150 - (index * 3); // Gradually decrease stiffness for trailing effect
+  // Faster, more responsive spring config
+  const stiffness = 250 - (index * 4);
+  const damping = 22 - (index * 0.3);
 
   const animatedX = useSpring(x, { 
     stiffness, 
-    damping: 25 - index, 
-    mass: 0.3 + (index * 0.02) 
+    damping, 
+    mass: 0.2 + (index * 0.015) 
   });
   const animatedY = useSpring(y, { 
     stiffness, 
-    damping: 25 - index, 
-    mass: 0.3 + (index * 0.02) 
+    damping, 
+    mass: 0.2 + (index * 0.015) 
   });
 
   useEffect(() => {
@@ -249,54 +249,136 @@ function SnakeSegment({ index, totalSegments, targetX, targetY, prevX, prevY }: 
     }
   }, [targetX, targetY, prevX, prevY, index, x, y]);
 
-  // Size decreases along the snake body
-  const size = SEGMENT_SIZE - (index * 0.4);
+  // Size decreases gradually - bigger head, smaller tail
+  const size = SEGMENT_SIZE - (index * 0.6);
   const progress = index / totalSegments;
   
-  // Calculate 3D rotation based on position
-  const rotateX = useTransform([animatedX, animatedY], ([x, y]) => {
-    return ((y as number) / 10) % 360;
-  });
+  // Calculate direction for rotation
+  const prevSegmentX = prevX !== undefined ? prevX : targetX;
+  const prevSegmentY = prevY !== undefined ? prevY : targetY;
+  const angle = Math.atan2(targetY - prevSegmentY, targetX - prevSegmentX) * (180 / Math.PI);
+
+  // Enhanced 3D effect with better colors
+  const isHead = index === 0;
+  const isTail = index > totalSegments - 5;
   
-  const rotateY = useTransform([animatedX, animatedY], ([x, y]) => {
-    return ((x as number) / 10) % 360;
-  });
-
-  // Scale animation for 3D effect
-  const scale = useTransform([animatedX, animatedY], () => {
-    return 1 + Math.sin(Date.now() * 0.001 + index * 0.5) * 0.1;
-  });
-
-  // Color gradient from head to tail
-  const hue = 200 + (progress * 60); // Blue to cyan gradient
-  const saturation = 100 - (progress * 30);
-  const lightness = 50 + (progress * 20);
+  // Color gradient - vibrant blue to cyan
+  const hue = 200 - (progress * 40); // Blue to deeper blue
+  const saturation = 90 - (progress * 20);
+  const lightness = 55 + (progress * 10);
+  
+  // Glow intensity
+  const glowSize = Math.max(30 - index * 1.2, 10);
+  const glowIntensity = 1 - (progress * 0.6);
 
   return (
     <motion.div
-      className="absolute rounded-full will-change-transform pointer-events-none"
+      className="absolute will-change-transform pointer-events-none"
       style={{
         x: animatedX,
         y: animatedY,
         width: size,
         height: size,
-        rotateX,
-        rotateY,
-        scale,
-        background: `radial-gradient(circle at 30% 30%, hsl(${hue}, ${saturation}%, ${lightness + 20}%), hsl(${hue}, ${saturation}%, ${lightness}%))`,
-        boxShadow: `0 0 ${20 - index}px hsl(${hue}, ${saturation}%, ${lightness}%), 0 0 ${40 - index * 2}px hsl(${hue}, ${saturation}%, ${lightness}%)`,
-        opacity: 1 - (progress * 0.5),
+        rotate: angle,
         transformStyle: 'preserve-3d',
-        zIndex: totalSegments - index,
+        zIndex: 100 + (totalSegments-index),
       }}
     >
-      {/* Inner glow */}
-      <motion.div
-        className="absolute inset-0 rounded-full"
+      {/* Outer glow */}
+      <div
+        className="absolute inset-0 rounded-full blur-md"
         style={{
-          background: `radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.6), transparent 70%)`,
+          background: `radial-gradient(circle, hsla(${hue}, ${saturation}%, ${lightness}%, ${glowIntensity * 0.8}), transparent 70%)`,
+          transform: `scale(${1.5 + (isHead ? 0.5 : 0)})`,
         }}
       />
+      
+      {/* Main body segment */}
+      <div
+        className="absolute inset-0 rounded-full"
+        style={{
+          background: isHead 
+            ? `radial-gradient(circle at 35% 35%, #60d0ff, #3b9eff 40%, #1e7ad9 100%)`
+            : `radial-gradient(circle at 35% 35%, 
+                hsl(${hue}, ${saturation}%, ${lightness + 15}%), 
+                hsl(${hue}, ${saturation}%, ${lightness}%) 50%, 
+                hsl(${hue}, ${saturation}%, ${lightness - 10}%) 100%)`,
+          boxShadow: `
+            0 0 ${glowSize}px hsla(${hue}, ${saturation}%, ${lightness}%, ${glowIntensity}),
+            inset 0 0 ${size * 0.3}px rgba(255, 255, 255, 0.3),
+            inset -2px -2px ${size * 0.2}px rgba(0, 0, 0, 0.3)
+          `,
+          border: isHead ? '2px solid rgba(255, 255, 255, 0.5)' : 'none',
+        }}
+      >
+        {/* Shiny highlight */}
+        <div
+          className="absolute rounded-full"
+          style={{
+            top: '15%',
+            left: '20%',
+            width: '40%',
+            height: '40%',
+            background: 'radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent 60%)',
+          }}
+        />
+        
+        {/* Head eyes (only on first segment) */}
+        {isHead && (
+          <>
+            <div
+              className="absolute rounded-full bg-white"
+              style={{
+                top: '30%',
+                left: '25%',
+                width: '20%',
+                height: '20%',
+                boxShadow: 'inset 0 0 3px rgba(0, 0, 0, 0.5)',
+              }}
+            >
+              <div
+                className="absolute rounded-full bg-black"
+                style={{
+                  top: '30%',
+                  left: '30%',
+                  width: '40%',
+                  height: '40%',
+                }}
+              />
+            </div>
+            <div
+              className="absolute rounded-full bg-white"
+              style={{
+                top: '30%',
+                right: '25%',
+                width: '20%',
+                height: '20%',
+                boxShadow: 'inset 0 0 3px rgba(0, 0, 0, 0.5)',
+              }}
+            >
+              <div
+                className="absolute rounded-full bg-black"
+                style={{
+                  top: '30%',
+                  left: '30%',
+                  width: '40%',
+                  height: '40%',
+                }}
+              />
+            </div>
+          </>
+        )}
+        
+        {/* Tail fade effect */}
+        {isTail && (
+          <div
+            className="absolute inset-0 rounded-full"
+            style={{
+              background: `radial-gradient(circle, transparent 30%, rgba(30, 58, 138, ${(totalSegments - index) / 5}) 100%)`,
+            }}
+          />
+        )}
+      </div>
     </motion.div>
   );
 }
@@ -308,6 +390,7 @@ export default function HeroMouseEffect() {
   const [dots, setDots] = useState<Dot[]>([]);
   const [snakePositions, setSnakePositions] = useState<Array<{ x: number; y: number }>>([]);
   const snakeHistoryRef = useRef<Array<{ x: number; y: number }>>([]);
+  const [isMouseInside, setIsMouseInside] = useState(false);
 
   useEffect(() => {
     const updateDots = () => {
@@ -315,6 +398,18 @@ export default function HeroMouseEffect() {
       const rect = containerRef.current.getBoundingClientRect();
       const newDots = generateDots(rect.width, rect.height, 24);
       setDots(newDots);
+      
+      // Initialize snake at center
+      if (snakeHistoryRef.current.length === 0) {
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const initialPositions: Array<{ x: number; y: number }> = [];
+        for (let i = 0; i < SNAKE_LENGTH; i++) {
+          initialPositions.push({ x: centerX, y: centerY });
+        }
+        setSnakePositions(initialPositions);
+        snakeHistoryRef.current = Array(SNAKE_LENGTH * 2).fill({ x: centerX, y: centerY });
+      }
     };
 
     updateDots();
@@ -365,20 +460,31 @@ export default function HeroMouseEffect() {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
+    setIsMouseInside(true);
     mouseX.set(x);
     mouseY.set(y);
   };
 
+  const handleMouseEnter = () => {
+    setIsMouseInside(true);
+  };
+
   const handleMouseLeave = () => {
-    mouseX.set(Number.POSITIVE_INFINITY);
-    mouseY.set(Number.POSITIVE_INFINITY);
-    snakeHistoryRef.current = [];
-    setSnakePositions([]);
+    setIsMouseInside(false);
+    // Keep snake visible but reset to center
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      mouseX.set(centerX);
+      mouseY.set(centerY);
+    }
   };
 
   return (
     <div
       className="absolute inset-0 overflow-hidden"
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
       ref={containerRef}
@@ -398,8 +504,8 @@ export default function HeroMouseEffect() {
         />
       ))}
 
-      {/* 3D Snake Following Cursor */}
-      {snakePositions.map((pos, index) => (
+      {/* 3D Game Snake Following Cursor - Always visible */}
+      {snakePositions.length > 0 && snakePositions.map((pos, index) => (
         <SnakeSegment
           index={index}
           key={`snake-${index}`}
