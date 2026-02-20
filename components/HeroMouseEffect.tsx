@@ -86,6 +86,61 @@ function generateDots(width: number, height: number, spacing: number): Dot[] {
   return dots;
 }
 
+function DotComponent({ 
+  dot, 
+  mouseXSpring, 
+  mouseYSpring 
+}: { 
+  dot: Dot; 
+  mouseXSpring: ReturnType<typeof useSpring>;
+  mouseYSpring: ReturnType<typeof useSpring>;
+}) {
+  const x = useTransform(mouseXSpring, (mx) => {
+    const dx = dot.baseX - mx;
+    const dy = dot.baseY - mouseYSpring.get();
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    if (distance < 150) {
+      const force = (1 - distance / 150) * 15;
+      return Math.cos(Math.atan2(dy, dx)) * force;
+    }
+    return 0;
+  });
+
+  const y = useTransform(mouseYSpring, (my) => {
+    const dx = dot.baseX - mouseXSpring.get();
+    const dy = dot.baseY - my;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    if (distance < 150) {
+      const force = (1 - distance / 150) * 15;
+      return Math.sin(Math.atan2(dy, dx)) * force;
+    }
+    return 0;
+  });
+
+  const opacity = useTransform(mouseXSpring, (mx) => {
+    const dx = dot.baseX - mx;
+    const dy = dot.baseY - mouseYSpring.get();
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    const proximityFactor = Math.max(0, 1 - distance / 200);
+    return Math.min(dot.opacity + proximityFactor * 0.4, 0.8);
+  });
+
+  return (
+    <motion.div
+      className="absolute rounded-full bg-blue-400/20 will-change-transform"
+      style={{
+        width: 2 * dot.scale,
+        height: 2 * dot.scale,
+        left: dot.baseX,
+        top: dot.baseY,
+        x,
+        y,
+        opacity,
+      }}
+    />
+  );
+}
+
 function SnakeSegment3D({ 
   index, 
   segment, 
@@ -519,43 +574,12 @@ export default function HeroMouseEffect() {
       }}
     >
       {/* Animated background particles */}
-      {dots.map((dot, index) => (
-        <motion.div
+      {dots.map((dot) => (
+        <DotComponent
           key={dot.id}
-          className="absolute rounded-full bg-blue-400/20 will-change-transform"
-          style={{
-            width: 2 * dot.scale,
-            height: 2 * dot.scale,
-            left: dot.baseX,
-            top: dot.baseY,
-            x: useTransform(mouseXSpring, (mx) => {
-              const dx = dot.baseX - mx;
-              const dy = dot.baseY - mouseYSpring.get();
-              const distance = Math.sqrt(dx * dx + dy * dy);
-              if (distance < 150) {
-                const force = (1 - distance / 150) * 15;
-                return Math.cos(Math.atan2(dy, dx)) * force;
-              }
-              return 0;
-            }),
-            y: useTransform(mouseYSpring, (my) => {
-              const dx = dot.baseX - mouseXSpring.get();
-              const dy = dot.baseY - my;
-              const distance = Math.sqrt(dx * dx + dy * dy);
-              if (distance < 150) {
-                const force = (1 - distance / 150) * 15;
-                return Math.sin(Math.atan2(dy, dx)) * force;
-              }
-              return 0;
-            }),
-            opacity: useTransform(mouseXSpring, (mx) => {
-              const dx = dot.baseX - mx;
-              const dy = dot.baseY - mouseYSpring.get();
-              const distance = Math.sqrt(dx * dx + dy * dy);
-              const proximityFactor = Math.max(0, 1 - distance / 200);
-              return Math.min(dot.opacity + proximityFactor * 0.4, 0.8);
-            }),
-          }}
+          dot={dot}
+          mouseXSpring={mouseXSpring}
+          mouseYSpring={mouseYSpring}
         />
       ))}
 
