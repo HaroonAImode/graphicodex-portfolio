@@ -18,7 +18,7 @@ const PROXIMITY_OPACITY_BOOST = 0.8;
 // Snake configuration - Game-like realistic snake
 const SNAKE_LENGTH = 25;
 const SEGMENT_SIZE = 24;
-const SEGMENT_SPACING = 4;
+const SEGMENT_SPACING = 3; // Reduced for tighter following
 const SNAKE_SPRING_CONFIG = { stiffness: 200, damping: 20, mass: 0.2 };
 
 interface Dot {
@@ -224,30 +224,26 @@ function SnakeSegment({ index, totalSegments, targetX, targetY, prevX, prevY }: 
   const x = useMotionValue(targetX);
   const y = useMotionValue(targetY);
 
-  // Faster, more responsive spring config
-  const stiffness = 250 - (index * 4);
-  const damping = 22 - (index * 0.3);
+  // More aggressive spring config for immediate following
+  const stiffness = 300 - (index * 5);
+  const damping = 20 - (index * 0.2);
 
   const animatedX = useSpring(x, { 
     stiffness, 
     damping, 
-    mass: 0.2 + (index * 0.015) 
+    mass: 0.1 + (index * 0.01) 
   });
   const animatedY = useSpring(y, { 
     stiffness, 
     damping, 
-    mass: 0.2 + (index * 0.015) 
+    mass: 0.1 + (index * 0.01) 
   });
 
+  // Update position immediately when target changes
   useEffect(() => {
-    if (prevX !== undefined && prevY !== undefined && index > 0) {
-      x.set(prevX);
-      y.set(prevY);
-    } else {
-      x.set(targetX);
-      y.set(targetY);
-    }
-  }, [targetX, targetY, prevX, prevY, index, x, y]);
+    x.set(targetX);
+    y.set(targetY);
+  }, [targetX, targetY, x, y]);
 
   // Size decreases gradually - bigger head, smaller tail
   const size = SEGMENT_SIZE - (index * 0.6);
@@ -285,8 +281,17 @@ function SnakeSegment({ index, totalSegments, targetX, targetY, prevX, prevY }: 
       }}
     >
       {/* Outer glow */}
-      <div
+      <motion.div
         className="absolute inset-0 rounded-full blur-md"
+        animate={isHead ? {
+          scale: [1.5, 2, 1.5],
+          opacity: [glowIntensity * 0.8, glowIntensity * 1.2, glowIntensity * 0.8]
+        } : {}}
+        transition={isHead ? {
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut"
+        } : {}}
         style={{
           background: `radial-gradient(circle, hsla(${hue}, ${saturation}%, ${lightness}%, ${glowIntensity * 0.8}), transparent 70%)`,
           transform: `scale(${1.5 + (isHead ? 0.5 : 0)})`,
@@ -294,8 +299,16 @@ function SnakeSegment({ index, totalSegments, targetX, targetY, prevX, prevY }: 
       />
       
       {/* Main body segment */}
-      <div
+      <motion.div
         className="absolute inset-0 rounded-full"
+        animate={isHead ? {
+          scale: [1, 1.1, 1]
+        } : {}}
+        transition={isHead ? {
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut"
+        } : {}}
         style={{
           background: isHead 
             ? `radial-gradient(circle at 35% 35%, #60d0ff, #3b9eff 40%, #1e7ad9 100%)`
@@ -378,20 +391,20 @@ function SnakeSegment({ index, totalSegments, targetX, targetY, prevX, prevY }: 
             }}
           />
         )}
-      </div>
+      </motion.div>
     </motion.div>
   );
 }
 
 export default function HeroMouseEffect() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const mouseX = useMotionValue(Number.POSITIVE_INFINITY);
-  const mouseY = useMotionValue(Number.POSITIVE_INFINITY);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
   const [dots, setDots] = useState<Dot[]>([]);
   const [snakePositions, setSnakePositions] = useState<Array<{ x: number; y: number }>>([]);
   const snakeHistoryRef = useRef<Array<{ x: number; y: number }>>([]);
-  const [isMouseInside, setIsMouseInside] = useState(false);
 
+  // Initialize dots and snake
   useEffect(() => {
     const updateDots = () => {
       if (!containerRef.current) return;
@@ -404,11 +417,21 @@ export default function HeroMouseEffect() {
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
         const initialPositions: Array<{ x: number; y: number }> = [];
-        for (let i = 0; i < SNAKE_LENGTH; i++) {
+        for (let i = 0; i < SNAKE_LENGTH * 3; i++) {
           initialPositions.push({ x: centerX, y: centerY });
         }
-        setSnakePositions(initialPositions);
-        snakeHistoryRef.current = Array(SNAKE_LENGTH * 2).fill({ x: centerX, y: centerY });
+        snakeHistoryRef.current = initialPositions;
+        
+        // Set initial snake positions
+        const initialSnake: Array<{ x: number; y: number }> = [];
+        for (let i = 0; i < SNAKE_LENGTH; i++) {
+          initialSnake.push({ x: centerX, y: centerY });
+        }
+        setSnakePositions(initialSnake);
+        
+        // Set initial mouse position
+        mouseX.set(centerX);
+        mouseY.set(centerY);
       }
     };
 
@@ -422,35 +445,6 @@ export default function HeroMouseEffect() {
     return () => {
       resizeObserver.disconnect();
     };
-  }, []);
-
-  // Update snake positions with trailing effect
-  useEffect(() => {
-    const unsubscribe = mouseX.on("change", (x) => {
-      const y = mouseY.get();
-      if (Number.isFinite(x) && Number.isFinite(y)) {
-        snakeHistoryRef.current.unshift({ x, y });
-        if (snakeHistoryRef.current.length > SNAKE_LENGTH * 2) {
-          snakeHistoryRef.current.pop();
-        }
-
-        // Sample positions for each segment with spacing
-        const newPositions: Array<{ x: number; y: number }> = [];
-        for (let i = 0; i < SNAKE_LENGTH; i++) {
-          const historyIndex = i * SEGMENT_SPACING;
-          if (historyIndex < snakeHistoryRef.current.length) {
-            newPositions.push(snakeHistoryRef.current[historyIndex]);
-          } else if (newPositions.length > 0) {
-            newPositions.push(newPositions[newPositions.length - 1]);
-          } else {
-            newPositions.push({ x, y });
-          }
-        }
-        setSnakePositions(newPositions);
-      }
-    });
-
-    return unsubscribe;
   }, [mouseX, mouseY]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -460,25 +454,52 @@ export default function HeroMouseEffect() {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    setIsMouseInside(true);
+    // Update mouse position
     mouseX.set(x);
     mouseY.set(y);
+
+    // Add current position to history
+    snakeHistoryRef.current.unshift({ x, y });
+    
+    // Keep history limited
+    const maxHistory = SNAKE_LENGTH * 10;
+    if (snakeHistoryRef.current.length > maxHistory) {
+      snakeHistoryRef.current = snakeHistoryRef.current.slice(0, maxHistory);
+    }
+
+    // Calculate snake segment positions with smooth trailing
+    const newPositions: Array<{ x: number; y: number }> = [];
+    for (let i = 0; i < SNAKE_LENGTH; i++) {
+      const historyIndex = i * SEGMENT_SPACING;
+      if (historyIndex < snakeHistoryRef.current.length) {
+        newPositions.push({ ...snakeHistoryRef.current[historyIndex] });
+      } else if (newPositions.length > 0) {
+        newPositions.push({ ...newPositions[newPositions.length - 1] });
+      } else {
+        newPositions.push({ x, y });
+      }
+    }
+    
+    setSnakePositions(newPositions);
   };
 
   const handleMouseEnter = () => {
-    setIsMouseInside(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsMouseInside(false);
-    // Keep snake visible but reset to center
+    // Reset history when entering
     if (containerRef.current) {
       const rect = containerRef.current.getBoundingClientRect();
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
-      mouseX.set(centerX);
-      mouseY.set(centerY);
+      
+      const initialPositions: Array<{ x: number; y: number }> = [];
+      for (let i = 0; i < SNAKE_LENGTH * 3; i++) {
+        initialPositions.push({ x: centerX, y: centerY });
+      }
+      snakeHistoryRef.current = initialPositions;
     }
+  };
+
+  const handleMouseLeave = () => {
+    // Keep snake visible at last position
   };
 
   return (
