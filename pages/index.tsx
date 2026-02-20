@@ -8,38 +8,38 @@ import Link from "next/link";
 import Image from "next/image";
 
 const HomePage: React.FC = () => {
-  // AI Platform logos for continuous marquee - Updated to .png
+  // AI Platform logos for continuous marquee - Updated to match actual filenames
   const aiLogosRow1 = [
     { name: "OpenAI", path: "/logos/openai.png" },
     { name: "ChatGPT", path: "/logos/chatgpt.png" },
     { name: "Hugging Face", path: "/logos/huggingface.png" },
     { name: "LangChain", path: "/logos/langchain.png" },
     { name: "Anthropic", path: "/logos/anthropic.png" },
-    { name: "Pinecone", path: "/logos/pinecone.png" },
-    { name: "Weaviate", path: "/logos/weaviate.png" },
-    { name: "Cohere", path: "/logos/cohere.png" },
+    { name: "Pinecone", path: "/logos/Pinecone.png" },
+    { name: "Weaviate", path: "/logos/Weaviate.png" },
+    { name: "Cohere", path: "/logos/Cohere.png" },
   ];
 
   const aiLogosRow2 = [
-    { name: "TensorFlow", path: "/logos/tensorflow.png" },
-    { name: "PyTorch", path: "/logos/pytorch.png" },
+    { name: "TensorFlow", path: "/logos/TensorFlow.png" },
+    { name: "PyTorch", path: "/logos/PyTorch.png" },
     { name: "n8n", path: "/logos/n8n.png" },
-    { name: "Make", path: "/logos/make.png" },
-    { name: "Zapier", path: "/logos/zapier.png" },
-    { name: "React", path: "/logos/react.png" },
+    { name: "Make", path: "/logos/Make.png" },
+    { name: "Zapier", path: "/logos/Zapier.png" },
+    { name: "React", path: "/logos/React.png" },
     { name: "Next.js", path: "/logos/nextjs.png" },
-    { name: "FastAPI", path: "/logos/fastapi.png" },
+    { name: "FastAPI", path: "/logos/FastAPI.png" },
   ];
 
   const aiLogosRow3 = [
-    { name: "AWS", path: "/logos/aws.png" },
+    { name: "AWS", path: "/logos/AWS.png" },
     { name: "Google Cloud", path: "/logos/gcp.png" },
-    { name: "Azure", path: "/logos/azure.png" },
-    { name: "Docker", path: "/logos/docker.png" },
-    { name: "Kubernetes", path: "/logos/kubernetes.png" },
-    { name: "PostgreSQL", path: "/logos/postgresql.png" },
-    { name: "MongoDB", path: "/logos/mongodb.png" },
-    { name: "Redis", path: "/logos/redis.png" },
+    { name: "Azure", path: "/logos/Azure.png" },
+    { name: "Docker", path: "/logos/Docker.png" },
+    { name: "Kubernetes", path: "/logos/Kubernetes.png" },
+    { name: "PostgreSQL", path: "/logos/PostgreSQL.png" },
+    { name: "MongoDB", path: "/logos/MongoDB.png" },
+    { name: "Redis", path: "/logos/Redis.png" },
   ];
 
   const services = [
