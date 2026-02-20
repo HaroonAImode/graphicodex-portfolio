@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ServiceCardFlip from "../components/ServiceCardFlip";
+import HeroMouseEffect from "../components/HeroMouseEffect";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -187,8 +188,11 @@ const HomePage: React.FC = () => {
       
       {/* Premium Hero Section - Dark Theme */}
       <section className="relative min-h-[70vh] lg:min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-4 lg:pt-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
+        {/* Hero Mouse Effect with Dots and Snake */}
+        <HeroMouseEffect />
+        
         {/* Animated Background Elements */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 pointer-events-none">
           <motion.div 
             className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"
             animate={{
