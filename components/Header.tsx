@@ -85,14 +85,14 @@ const Header: React.FC = () => {
                 <Link href="/">
                   <div className="flex items-center space-x-3 cursor-pointer group">
                     <div className="relative">
-                      <div className="w-56 h-auto flex items-center justify-center">
-                        <div className="relative w-full h-16">
+                      <div className="w-36 sm:w-48 lg:w-56 h-auto flex items-center justify-center">
+                        <div className="relative w-full h-12 sm:h-14 lg:h-16">
                           <Image
                             src="/logo2005.png"
                             alt="AI Portfolio Logo"
                             fill
                             className="object-contain"
-                            sizes="(max-width: 768px) 140px, 224px"
+                            sizes="(max-width: 640px) 144px, (max-width: 1024px) 192px, 224px"
                             priority
                           />
                           <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl blur-sm group-hover:blur-md transition-all duration-300 opacity-0 group-hover:opacity-70"></div>

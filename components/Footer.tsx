@@ -70,20 +70,20 @@ const Footer: React.FC = () => {
           >
             <Link href="/">
               <div className="flex items-center space-x-3 cursor-pointer group">
-                <div className="relative w-64 h-20"> {/* Increased size */}
+                <div className="relative w-40 sm:w-52 lg:w-64 h-14 sm:h-16 lg:h-20">
                   <Image
                     src="/logo2005.png"
                     alt="AI Portfolio Logo"
                     fill
                     className="object-contain"
-                    sizes="(max-width: 768px) 256px, 256px"
+                    sizes="(max-width: 640px) 160px, (max-width: 1024px) 208px, 256px"
                     priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl blur-sm group-hover:blur-md transition-all duration-300 opacity-0 group-hover:opacity-70"></div>
                 </div>
               </div>
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed mt-4">
+            <p className="text-gray-400 text-xs sm:text-sm leading-relaxed mt-4">
               Leading AI solutions provider delivering cutting-edge technology 
               and enterprise-grade artificial intelligence services to transform 
               businesses worldwide.

@@ -2,11 +2,54 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import Link from "next/link";
 
 const AboutPage: React.FC = () => {
+  const quickLinks = [
+    {
+      icon: "🏠",
+      title: "Home",
+      description: "Return to homepage",
+      href: "/",
+      color: "from-blue-500 to-cyan-500"
+    },
+    {
+      icon: "💡",
+      title: "AI Services",
+      description: "Explore our AI solutions",
+      href: "/ai-services",
+      color: "from-purple-500 to-blue-500"
+    },
+    {
+      icon: "🎯",
+      title: "Other Services",
+      description: "Web, Mobile & More",
+      href: "/other-services",
+      color: "from-cyan-500 to-teal-500"
+    },
+    {
+      icon: "💼",
+      title: "Portfolio",
+      description: "View our work",
+      href: "/portfolio",
+      color: "from-teal-500 to-green-500"
+    },
+    {
+      icon: "👥",
+      title: "Our Team",
+      description: "Meet the experts",
+      href: "/team",
+      color: "from-orange-500 to-red-500"
+    },
+    {
+      icon: "📧",
+      title: "Contact Us",
+      description: "Get in touch",
+      href: "/contact",
+      color: "from-pink-500 to-purple-500"
+    }
+  ];
+
   const values = [
     {
       icon: "🎯",
@@ -67,10 +110,56 @@ const AboutPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-900 text-white font-sans">
-      <Header />
+      
+      {/* Quick Navigation Section - Mobile Only */}
+      <section className="lg:hidden py-8 px-4 bg-slate-900">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-6"
+          >
+            <h2 className="text-2xl font-bold text-white mb-2">
+              <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Quick Navigation</span>
+            </h2>
+            <p className="text-sm text-gray-400">
+              Explore all sections
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 gap-3">
+            {quickLinks.map((link, index) => (
+              <motion.div
+                key={index}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <Link href={link.href}>
+                  <motion.div
+                    className="group bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer h-full active:scale-95"
+                    style={{ touchAction: "manipulation" }}
+                  >
+                    <div className={`w-10 h-10 bg-gradient-to-r ${link.color} rounded-lg flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                      {link.icon}
+                    </div>
+                    <h3 className="text-sm font-bold text-white mb-1 group-hover:text-blue-400 transition-colors">
+                      {link.title}
+                    </h3>
+                    <p className="text-xs text-gray-400">
+                      {link.description}
+                    </p>
+                  </motion.div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900 overflow-hidden">
+      <section className="relative py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-indigo-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -385,8 +474,6 @@ const AboutPage: React.FC = () => {
           </motion.div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

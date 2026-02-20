@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Link from "next/link";
@@ -233,12 +234,13 @@ const TeamPage: React.FC = () => {
                     <div className="relative inline-block">
                       {/* Profile Picture Container */}
                       <div className="w-24 h-24 mx-auto mb-4 rounded-2xl overflow-hidden border-2 border-slate-600 group-hover:border-blue-500 transition-colors duration-300">
-                        <div className={`w-full h-full bg-gradient-to-r ${member.gradient} flex items-center justify-center text-white text-2xl font-bold`}>
+                        <div className={`w-full h-full bg-gradient-to-r ${member.gradient} flex items-center justify-center text-white text-2xl font-bold relative`}>
                           {member.photo ? (
-                            <img 
+                            <Image 
                               src={member.photo} 
                               alt={member.name}
-                              className="w-full h-full object-cover"
+                              fill
+                              className="object-cover"
                             />
                           ) : (
                             member.name.split(' ').map(n => n[0]).join('')

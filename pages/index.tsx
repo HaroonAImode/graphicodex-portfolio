@@ -133,7 +133,7 @@ const HomePage: React.FC = () => {
       <Header />
       
       {/* Premium Hero Section - Dark Theme */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
+      <section className="relative min-h-[70vh] lg:min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-4 lg:pt-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
         {/* Animated Background Elements */}
         <div className="absolute inset-0">
           <motion.div 
@@ -183,14 +183,14 @@ const HomePage: React.FC = () => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/10 backdrop-blur-sm border border-blue-500/20 shadow-lg mb-8"
+            className="inline-flex items-center gap-2 lg:gap-3 px-4 lg:px-6 py-2 lg:py-3 rounded-full bg-white/10 backdrop-blur-sm border border-blue-500/20 shadow-lg mb-6 lg:mb-8"
           >
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-              <span className="text-sm font-semibold text-blue-300">Enterprise AI Solutions</span>
+              <span className="text-xs lg:text-sm font-semibold text-blue-300">Enterprise AI Solutions</span>
             </div>
-            <div className="w-px h-4 bg-blue-400/30"></div>
-            <span className="text-sm text-blue-200/80">Trusted by industry leaders</span>
+            <div className="hidden sm:block w-px h-4 bg-blue-400/30"></div>
+            <span className="hidden sm:inline text-xs lg:text-sm text-blue-200/80">Trusted by industry leaders</span>
           </motion.div>
 
           {/* Main Heading */}
@@ -198,7 +198,7 @@ const HomePage: React.FC = () => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 lg:mb-6 leading-tight px-4 sm:px-0"
           >
             <span className="bg-gradient-to-r from-white via-blue-200 to-cyan-200 bg-clip-text text-transparent">
               Intelligent
@@ -216,7 +216,7 @@ const HomePage: React.FC = () => {
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed font-light"
+            className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-300 mb-6 lg:mb-8 max-w-4xl mx-auto leading-relaxed font-light px-4 sm:px-6"
           >
             We architect, build, and scale production-ready AI systems that drive measurable business outcomes 
             for forward-thinking organizations worldwide.
@@ -227,17 +227,17 @@ const HomePage: React.FC = () => {
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 lg:mb-16 px-4 sm:px-0"
           >
             <Link href="/contact">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl text-white font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/30"
+                className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl text-white font-semibold text-sm sm:text-base lg:text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/30 w-full sm:w-auto max-w-xs sm:max-w-none"
               >
-                <span className="relative z-10 flex items-center gap-3">
+                <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
                   Get Free AI Audit
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </span>
@@ -247,11 +247,11 @@ const HomePage: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group px-8 py-4 border-2 border-gray-600 rounded-xl font-semibold text-lg transition-all duration-300 hover:border-blue-400 hover:bg-blue-500/10"
+                className="group px-6 sm:px-8 py-3 sm:py-4 border-2 border-gray-600 rounded-xl font-semibold text-sm sm:text-base lg:text-lg transition-all duration-300 hover:border-blue-400 hover:bg-blue-500/10 w-full sm:w-auto max-w-xs sm:max-w-none"
               >
-                <span className="flex items-center gap-3 text-gray-300 group-hover:text-blue-300">
+                <span className="flex items-center justify-center gap-2 sm:gap-3 text-gray-300 group-hover:text-blue-300">
                   View Live Demos
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                   </svg>
                 </span>
@@ -261,19 +261,19 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 {/* Continuous Moving Logos Section - Dark Theme */}
-<section className="py-16 bg-slate-800/50 border-y border-slate-700 overflow-hidden">
+<section className="py-8 lg:py-16 bg-slate-800/50 border-y border-slate-700 overflow-hidden">
   <div className="max-w-7xl mx-auto">
     <motion.p
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="text-center text-gray-400 text-sm uppercase tracking-widest mb-12 font-medium"
+      className="text-center text-gray-400 text-xs lg:text-sm uppercase tracking-widest mb-6 lg:mb-12 font-medium px-4"
     >
       Powered by Industry-Leading Technologies
     </motion.p>
     
     {/* First Row - Left to Right */}
-    <div className="flex overflow-hidden mb-8">
+    <div className="flex overflow-hidden mb-4 lg:mb-8">
       <div className="flex animate-marquee whitespace-nowrap">
         {[...aiLogosRow1, ...aiLogosRow1].map((logo, index) => (
           <div key={index} className="mx-5 flex items-center justify-center group">
@@ -383,26 +383,26 @@ const HomePage: React.FC = () => {
 </section>
 
       {/* Services Section - Dark Theme */}
-      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-900">
+      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-900">
        <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-8 lg:mb-16"
           >
-            <div className="inline-block px-4 py-2 bg-blue-500/10 rounded-full text-blue-400 text-sm font-medium mb-4 border border-blue-500/20">
+            <div className="inline-block px-3 py-1.5 lg:px-4 lg:py-2 bg-blue-500/10 rounded-full text-blue-400 text-xs lg:text-sm font-medium mb-3 lg:mb-4 border border-blue-500/20">
               Our Expertise
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-3 lg:mb-6">
               Comprehensive <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">AI Services</span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto font-light">
+            <p className="text-sm lg:text-xl text-gray-400 max-w-3xl mx-auto font-light">
               End-to-end AI development services designed to solve complex business challenges and drive innovation at scale.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={index}
@@ -412,29 +412,29 @@ const HomePage: React.FC = () => {
                 whileHover={{ scale: 1.02 }}
               >
                 <Link href={service.href}>
-                  <div className="group bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700 shadow-lg hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 cursor-pointer h-full">
-                    <div className="flex items-start gap-6">
-                      <div className={`w-16 h-16 bg-gradient-to-r ${service.gradient} rounded-2xl flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110`}>
+                  <div className="group bg-slate-800/50 backdrop-blur-sm rounded-xl lg:rounded-2xl p-4 lg:p-8 border border-slate-700 shadow-lg hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 cursor-pointer h-full">
+                    <div className="flex flex-col lg:flex-row items-start gap-3 lg:gap-6">
+                      <div className={`w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-r ${service.gradient} rounded-xl lg:rounded-2xl flex items-center justify-center text-xl lg:text-2xl transition-transform duration-300 group-hover:scale-110 flex-shrink-0`}>
                         {service.icon}
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
+                        <h3 className="text-lg lg:text-2xl font-bold text-white mb-2 lg:mb-4 group-hover:text-blue-400 transition-colors">
                           {service.title}
                         </h3>
-                        <p className="text-gray-400 leading-relaxed mb-4 font-light">
+                        <p className="text-xs lg:text-base text-gray-400 leading-relaxed mb-3 lg:mb-4 font-light">
                           {service.description}
                         </p>
-                        <ul className="space-y-2">
+                        <ul className="space-y-1.5 lg:space-y-2">
                           {service.features.map((feature, idx) => (
-                            <li key={idx} className="flex items-center text-sm text-gray-400">
-                              <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                            <li key={idx} className="flex items-center text-xs lg:text-sm text-gray-400">
+                              <span className="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-blue-500 rounded-full mr-2 lg:mr-3 flex-shrink-0"></span>
                               {feature}
                             </li>
                           ))}
                         </ul>
-                        <div className="flex items-center gap-2 mt-4 text-blue-400 font-medium">
+                        <div className="flex items-center gap-2 mt-3 lg:mt-4 text-blue-400 font-medium text-xs lg:text-sm">
                           <span>Learn more</span>
-                          <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-3 h-3 lg:w-4 lg:h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
                         </div>
@@ -449,9 +449,9 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Stats Section - Dark Theme */}
-      <section className="py-16 sm:py-20 bg-slate-800/30">
+      <section className="py-8 lg:py-20 bg-slate-800/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-8">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
@@ -461,14 +461,14 @@ const HomePage: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 className="text-center group"
               >
-                <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700 shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10">
-                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-3">
+                <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl lg:rounded-2xl p-4 lg:p-8 border border-slate-700 shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10">
+                  <div className="text-2xl lg:text-5xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2 lg:mb-3">
                     {stat.number}
                   </div>
-                  <div className="text-lg font-semibold text-white mb-2">
+                  <div className="text-xs lg:text-lg font-semibold text-white mb-1 lg:mb-2">
                     {stat.label}
                   </div>
-                  <div className="text-sm text-gray-400 font-light">
+                  <div className="text-[10px] lg:text-sm text-gray-400 font-light">
                     {stat.description}
                   </div>
                 </div>
@@ -479,26 +479,26 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Case Studies Section - Dark Theme */}
-      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-900">
+      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-900">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-8 lg:mb-16"
           >
-            <div className="inline-block px-4 py-2 bg-green-500/10 rounded-full text-green-400 text-sm font-medium mb-4 border border-green-500/20">
+            <div className="inline-block px-3 py-1.5 lg:px-4 lg:py-2 bg-green-500/10 rounded-full text-green-400 text-xs lg:text-sm font-medium mb-3 lg:mb-4 border border-green-500/20">
               Success Stories
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-3 lg:mb-6">
               Proven <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">Results</span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto font-light">
+            <p className="text-sm lg:text-xl text-gray-400 max-w-3xl mx-auto font-light">
               Real-world AI implementations delivering tangible business value across industries.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8">
             {caseStudies.map((study, index) => (
               <motion.div
                 key={index}
@@ -506,17 +506,17 @@ const HomePage: React.FC = () => {
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
-                className="group bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700 shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-green-500/10"
+                className="group bg-slate-800/50 backdrop-blur-sm rounded-xl lg:rounded-2xl p-4 lg:p-8 border border-slate-700 shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-green-500/10"
               >
-                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center text-white text-lg font-bold mb-6">
+                <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl lg:rounded-2xl flex items-center justify-center text-white text-base lg:text-lg font-bold mb-3 lg:mb-6">
                   {index + 1}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors">
+                <h3 className="text-base lg:text-xl font-bold text-white mb-2 lg:mb-3 group-hover:text-green-400 transition-colors">
                   {study.title}
                 </h3>
-                <div className="text-sm text-gray-400 font-medium mb-4">{study.company}</div>
-                <div className="text-2xl font-bold text-green-400 mb-4">{study.result}</div>
-                <p className="text-gray-400 leading-relaxed font-light">
+                <div className="text-xs lg:text-sm text-gray-400 font-medium mb-2 lg:mb-4">{study.company}</div>
+                <div className="text-lg lg:text-2xl font-bold text-green-400 mb-2 lg:mb-4">{study.result}</div>
+                <p className="text-xs lg:text-base text-gray-400 leading-relaxed font-light">
                   {study.description}
                 </p>
               </motion.div>
@@ -526,23 +526,23 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Process Section - Dark Theme */}
-      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
+      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-8 lg:mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-3 lg:mb-6">
               Our <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Process</span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto font-light">
+            <p className="text-sm lg:text-xl text-gray-400 max-w-2xl mx-auto font-light">
               A structured approach that ensures successful AI implementation from concept to production.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-8">
             {processSteps.map((step, index) => (
               <motion.div
                 key={index}
@@ -550,15 +550,15 @@ const HomePage: React.FC = () => {
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
-                className="relative text-center bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700 shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10"
+                className="relative text-center bg-slate-800/50 backdrop-blur-sm rounded-xl lg:rounded-2xl p-4 lg:p-8 border border-slate-700 shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10"
               >
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center text-white text-xl font-bold mb-6 mx-auto">
+                <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl lg:rounded-2xl flex items-center justify-center text-white text-base lg:text-xl font-bold mb-3 lg:mb-6 mx-auto">
                   {step.step}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4">
+                <h3 className="text-sm lg:text-xl font-bold text-white mb-2 lg:mb-4">
                   {step.title}
                 </h3>
-                <p className="text-gray-400 leading-relaxed font-light">
+                <p className="text-xs lg:text-base text-gray-400 leading-relaxed font-light">
                   {step.description}
                 </p>
                 {/* Connecting line for desktop */}
@@ -572,29 +572,29 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Final CTA Section - Dark Theme */}
-      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-900">
+      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-900">
         <div className="max-w-5xl mx-auto text-center">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-4 lg:mb-6">
               Ready to Transform Your Business with AI?
             </h2>
-            <p className="text-lg sm:text-xl text-blue-200 mb-8 max-w-2xl mx-auto leading-relaxed font-light">
+            <p className="text-sm lg:text-xl text-blue-200 mb-6 lg:mb-8 max-w-2xl mx-auto leading-relaxed font-light">
               Lets discuss your vision and build AI solutions that drive real competitive advantage.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center">
               <Link href="/contact">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group relative px-8 py-4 bg-white rounded-xl text-slate-900 font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-white/20"
+                  className="group relative px-6 lg:px-8 py-3 lg:py-4 bg-white rounded-xl text-slate-900 font-semibold text-base lg:text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-white/20 w-full sm:w-auto"
                 >
-                  <span className="relative z-10 flex items-center gap-3">
+                  <span className="relative z-10 flex items-center justify-center gap-2 lg:gap-3">
                     Start Your Project
-                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 lg:w-5 lg:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
                   </span>
@@ -604,11 +604,10 @@ const HomePage: React.FC = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group px-8 py-4 border-2 border-white/30 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-white/10 hover:border-white/50"
-                >
-                  <span className="flex items-center gap-3 text-white">
+                  className="group px-6 lg:px-8 py-3 lg:py-4 border-2 border-white/30 rounded-xl font-semibold text-base lg:text-lg transition-all duration-300 hover:bg-white/10 hover:border-white/50 w-full sm:w-auto">
+                  <span className="flex items-center justify-center gap-2 lg:gap-3 text-white">
                     Schedule Demo Call
-                    <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 lg:w-5 lg:h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                   </span>

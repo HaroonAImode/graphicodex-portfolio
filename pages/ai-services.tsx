@@ -10,7 +10,7 @@ const AIServicesPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
 
-  const services = [
+  const services = useMemo(() => [
     {
       id: "agents",
       title: "AI Agents & Conversational AI",
@@ -263,7 +263,7 @@ const AIServicesPage: React.FC = () => {
       category: "generative",
       keywords: ["generative ai", "content creation", "design", "code generation", "creative", "multi-modal"]
     }
-  ];
+  ], []);
 
   const categories = [
     { id: "all", name: "All Services", icon: "🌟", count: services.length },
@@ -280,6 +280,8 @@ const AIServicesPage: React.FC = () => {
     { id: "consulting", name: "Consulting", icon: "💡", count: services.filter(s => s.category === "consulting").length }
   ];
 
+  // Commenting out unused processSteps variable
+  /*
   const processSteps = [
     {
       step: "01",
@@ -302,6 +304,7 @@ const AIServicesPage: React.FC = () => {
       description: "Production deployment with ongoing maintenance"
     }
   ];
+  */
 
   const technologies = [
     { category: "AI Frameworks", items: ["OpenAI", "Anthropic", "Hugging Face", "LangChain", "LlamaIndex", "TensorFlow", "PyTorch"] },

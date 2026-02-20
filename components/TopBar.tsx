@@ -60,7 +60,7 @@ const TopBar: React.FC = () => {
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 border-b border-blue-500/30 shadow-xl"
+      className="hidden lg:block fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 border-b border-blue-500/30 shadow-xl"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
@@ -70,12 +70,12 @@ const TopBar: React.FC = () => {
 
       <div className="relative z-10">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between py-2 gap-2">
+          <div className="flex flex-col sm:flex-row items-center justify-between py-2 sm:py-2.5 gap-2 sm:gap-3">
             {/* Left: Announcement with Typing Animation */}
             <div className="flex items-center justify-center sm:justify-start w-full sm:w-auto">
-              <div className="flex items-center space-x-2 px-3 py-1 bg-blue-500/10 rounded-full border border-blue-500/20">
-                <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-                <span className="text-xs font-medium text-blue-300">Limited Offer</span>
+              <div className="flex items-center space-x-2 px-2.5 py-1 sm:px-3 sm:py-1.5 bg-blue-500/10 rounded-full border border-blue-500/20">
+                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400 rounded-full animate-pulse"></div>
+                <span className="text-[10px] sm:text-xs font-medium text-blue-300">Limited Offer</span>
               </div>
 
               {/* Desktop: Typing Animation */}
@@ -92,44 +92,48 @@ const TopBar: React.FC = () => {
               </div>
               
               {/* Mobile: Simplified message */}
-              <div className="sm:hidden ml-3 text-xs text-white font-medium text-center flex-1 min-h-[20px] flex items-center justify-center">
-                <span className="text-blue-300 font-semibold">Free Demo Available</span>
+              <div className="sm:hidden ml-2 text-[10px] sm:text-xs text-white font-medium text-center flex-1 min-h-[16px] flex items-center justify-center">
+                <span className="text-blue-300 font-semibold">Free Demo Available!</span>
                 <motion.span
                   animate={{ opacity: [0, 1, 0] }}
                   transition={{ duration: 0.8, repeat: Infinity }}
-                  className="inline-block w-[1px] h-3 bg-blue-400 ml-[1px]"
+                  className="inline-block w-[1px] h-2.5 bg-blue-400 ml-[1px]"
                 />
               </div>
             </div>
 
             {/* Center: Phone Number for mobile */}
-            <div className="sm:hidden flex items-center justify-center w-full">
-              <div className="flex items-center space-x-2 group cursor-pointer" onClick={copyPhoneNumber}>
+            <div className="sm:hidden flex items-center justify-center w-full py-1">
+              <a href="tel:+923355955525" className="flex items-center space-x-2 group">
                 <div className="relative">
-                  <div className="w-7 h-7 rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 flex items-center justify-center border border-blue-500/30">
-                    <svg className="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-6 h-6 rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 flex items-center justify-center border border-blue-500/30">
+                    <svg className="w-3 h-3 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
-                  {copied && (
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center"
-                    >
-                      <svg className="w-2 h-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </motion.div>
-                  )}
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xs font-semibold text-white">+92 335 5955525</span>
-                  <span className="text-[10px] text-blue-300 group-hover:text-cyan-300 transition-colors">
-                    {copied ? "Copied!" : "Tap to call/copy"}
+                  <span className="text-[11px] font-semibold text-white">+92 335 5955525</span>
+                  <span className="text-[9px] text-blue-300 group-hover:text-cyan-300 transition-colors">
+                    Tap to call
                   </span>
                 </div>
-              </div>
+              </a>
+              <button
+                onClick={copyPhoneNumber}
+                className="ml-2 p-1.5 rounded-lg bg-blue-500/20 hover:bg-blue-500/30 transition-colors"
+                aria-label="Copy phone number"
+              >
+                {copied ? (
+                  <svg className="w-3.5 h-3.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                ) : (
+                  <svg className="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                  </svg>
+                )}
+              </button>
             </div>
 
             {/* Right: Desktop Contact & Actions */}
@@ -179,14 +183,14 @@ const TopBar: React.FC = () => {
             </div>
 
             {/* Mobile: Book Demo Button */}
-            <div className="sm:hidden flex items-center justify-center w-full mt-1">
-              <Link href="/contact" className="w-full max-w-xs">
+            <div className="sm:hidden flex items-center justify-center w-full">
+              <Link href="/contact" className="w-full max-w-[280px]">
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-xs font-semibold rounded-lg border border-blue-500/30 shadow-sm text-center"
+                  className="w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-[11px] font-semibold rounded-lg border border-blue-500/30 shadow-sm text-center"
                 >
-                  Book Free Demo
+                  📅 Book Free Demo
                 </motion.button>
               </Link>
             </div>

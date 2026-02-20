@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Link from "next/link";
@@ -295,10 +296,11 @@ const OtherServicesPage: React.FC = () => {
                     </div>
                     {/* Image placeholder - replace with actual image */}
                     {service.image && (
-                      <img 
+                      <Image 
                         src={service.image} 
                         alt={service.name}
-                        className="w-full h-full object-cover opacity-30"
+                        fill
+                        className="object-cover opacity-30"
                       />
                     )}
                   </div>
