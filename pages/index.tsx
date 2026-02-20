@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ServiceCardFlip from "../components/ServiceCardFlip";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -45,35 +46,87 @@ const HomePage: React.FC = () => {
   const services = [
     {
       title: "AI Agents & Assistants",
-      description: "Intelligent conversational agents with memory, context awareness, and multi-modal capabilities for enterprise applications.",
+      subtitle: "Intelligent conversational agents with memory, context awareness, and multi-modal capabilities.",
+      description: "Build intelligent AI agents that understand context, remember conversations, and integrate seamlessly with your business processes.",
       icon: "🤖",
       features: ["Custom chatbot development", "RAG implementation", "Voice interface integration", "Real-time knowledge base"],
-      href: "/services/agents",
-      gradient: "from-purple-500 to-blue-500"
+      href: "/ai-services",
+      gradient: "from-purple-500 to-blue-500",
+      examples: [
+        {
+          title: "Customer Support Bot",
+          description: "24/7 automated customer support with 85% resolution rate",
+          image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=400&h=300&fit=crop"
+        },
+        {
+          title: "Virtual Sales Assistant",
+          description: "AI-powered sales agent handling lead qualification and follow-ups",
+          image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=300&fit=crop"
+        }
+      ]
     },
     {
       title: "Custom Model Development",
-      description: "Tailored AI models fine-tuned on your specific data to solve unique business challenges with maximum accuracy.",
+      subtitle: "Tailored AI models fine-tuned on your specific data to solve unique business challenges.",
+      description: "Domain-specific AI models trained on your data for maximum accuracy and performance in your industry.",
       icon: "⚡",
       features: ["LLM fine-tuning", "Domain-specific training", "Performance optimization", "Model evaluation"],
-      href: "/services/models",
-      gradient: "from-blue-500 to-cyan-500"
+      href: "/ai-services",
+      gradient: "from-blue-500 to-cyan-500",
+      examples: [
+        {
+          title: "Medical Diagnosis AI",
+          description: "Custom model achieving 94% accuracy in disease detection",
+          image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=300&fit=crop"
+        },
+        {
+          title: "Financial Fraud Detector",
+          description: "Real-time transaction monitoring with 99% precision",
+          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop"
+        }
+      ]
     },
     {
       title: "AI Integrations & Automation",
-      description: "Seamless integration of AI capabilities into your existing workflows and automation of business processes.",
+      subtitle: "Seamless integration of AI capabilities into your existing workflows.",
+      description: "Connect AI to your existing systems and automate complex business processes with intelligent workflows.",
       icon: "🔗",
       features: ["n8n/Make workflows", "Custom API development", "CRM/ERP integration", "Real-time data processing"],
-      href: "/services/integrations",
-      gradient: "from-cyan-500 to-teal-500"
+      href: "/ai-services",
+      gradient: "from-cyan-500 to-teal-500",
+      examples: [
+        {
+          title: "Smart CRM Automation",
+          description: "Automated lead scoring and email campaigns with 40% conversion boost",
+          image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop"
+        },
+        {
+          title: "Invoice Processing AI",
+          description: "Extract and process invoices 10x faster with 99.5% accuracy",
+          image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=400&h=300&fit=crop"
+        }
+      ]
     },
     {
       title: "Production & MLOps",
-      description: "Enterprise-grade deployment, monitoring, and maintenance of AI systems with guaranteed performance SLAs.",
+      subtitle: "Enterprise-grade deployment, monitoring, and maintenance of AI systems.",
+      description: "Deploy and scale AI models with confidence using our enterprise MLOps infrastructure.",
       icon: "🚀",
       features: ["Cloud deployment", "Performance monitoring", "CI/CD pipelines", "Cost optimization"],
-      href: "/services/production",
-      gradient: "from-teal-500 to-green-500"
+      href: "/ai-services",
+      gradient: "from-teal-500 to-green-500",
+      examples: [
+        {
+          title: "Auto-Scaling AI Infrastructure",
+          description: "Handle 10M+ requests/day with 99.9% uptime guarantee",
+          image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop"
+        },
+        {
+          title: "Real-time Monitoring Dashboard",
+          description: "Track model performance and costs with live alerts",
+          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop"
+        }
+      ]
     }
   ];
 
@@ -382,7 +435,7 @@ const HomePage: React.FC = () => {
   </div>
 </section>
 
-      {/* Services Section - Dark Theme */}
+      {/* Services Section - Dark Theme with Flip Cards */}
       <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-900">
        <div className="max-w-7xl mx-auto">
           <motion.div
@@ -402,46 +455,24 @@ const HomePage: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={index}
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ scale: 1.02 }}
               >
-                <Link href={service.href}>
-                  <div className="group bg-slate-800/50 backdrop-blur-sm rounded-xl lg:rounded-2xl p-4 lg:p-8 border border-slate-700 shadow-lg hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 cursor-pointer h-full">
-                    <div className="flex flex-col lg:flex-row items-start gap-3 lg:gap-6">
-                      <div className={`w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-r ${service.gradient} rounded-xl lg:rounded-2xl flex items-center justify-center text-xl lg:text-2xl transition-transform duration-300 group-hover:scale-110 flex-shrink-0`}>
-                        {service.icon}
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-lg lg:text-2xl font-bold text-white mb-2 lg:mb-4 group-hover:text-blue-400 transition-colors">
-                          {service.title}
-                        </h3>
-                        <p className="text-xs lg:text-base text-gray-400 leading-relaxed mb-3 lg:mb-4 font-light">
-                          {service.description}
-                        </p>
-                        <ul className="space-y-1.5 lg:space-y-2">
-                          {service.features.map((feature, idx) => (
-                            <li key={idx} className="flex items-center text-xs lg:text-sm text-gray-400">
-                              <span className="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-blue-500 rounded-full mr-2 lg:mr-3 flex-shrink-0"></span>
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                        <div className="flex items-center gap-2 mt-3 lg:mt-4 text-blue-400 font-medium text-xs lg:text-sm">
-                          <span>Learn more</span>
-                          <svg className="w-3 h-3 lg:w-4 lg:h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
+                <ServiceCardFlip
+                  title={service.title}
+                  subtitle={service.subtitle}
+                  icon={service.icon}
+                  description={service.description}
+                  features={service.features}
+                  gradient={service.gradient}
+                  examples={service.examples}
+                  href={service.href}
+                />
               </motion.div>
             ))}
           </div>
