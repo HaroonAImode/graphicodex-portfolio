@@ -1,15 +1,9 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { memo } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-
-// ─── Constants ──────────────────────────────────────────────────────────────────
-
-const TILT_MAX = 8;
-const TILT_SPRING = { stiffness: 300, damping: 28 } as const;
-const GLOW_SPRING = { stiffness: 180, damping: 22 } as const;
 
 // ─── Types ──────────────────────────────────────────────────────────────────────
 
@@ -29,7 +23,7 @@ export interface AIServiceCardProps {
 
 // ─── Card Component ─────────────────────────────────────────────────────────────
 
-export default function AIServiceCard({
+function AIServiceCard({
   id,
   title,
   description,
@@ -42,39 +36,6 @@ export default function AIServiceCard({
   onHoverStart,
   onHoverEnd,
 }: AIServiceCardProps) {
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  const normX = useMotionValue(0.5);
-  const normY = useMotionValue(0.5);
-
-  const rawRotateX = useTransform(normY, [0, 1], [TILT_MAX, -TILT_MAX]);
-  const rawRotateY = useTransform(normX, [0, 1], [-TILT_MAX, TILT_MAX]);
-
-  const rotateX = useSpring(rawRotateX, TILT_SPRING);
-  const rotateY = useSpring(rawRotateY, TILT_SPRING);
-  const glowOpacity = useSpring(0, GLOW_SPRING);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const el = cardRef.current;
-    if (!el) return;
-    
-    const rect = el.getBoundingClientRect();
-    normX.set((e.clientX - rect.left) / rect.width);
-    normY.set((e.clientY - rect.top) / rect.height);
-  };
-
-  const handleMouseEnter = () => {
-    glowOpacity.set(1);
-    onHoverStart();
-  };
-
-  const handleMouseLeave = () => {
-    normX.set(0.5);
-    normY.set(0.5);
-    glowOpacity.set(0);
-    onHoverEnd();
-  };
-
   return (
     <Link href={`/services/${id}`}>
       <motion.div
@@ -86,18 +47,15 @@ export default function AIServiceCard({
           "group relative flex flex-col gap-5 overflow-hidden rounded-2xl border p-6 cursor-pointer",
           "bg-slate-800/50 backdrop-blur-sm border-slate-700",
           "shadow-lg transition-all duration-300",
-          "hover:shadow-xl hover:border-slate-600"
+          "hover:shadow-xl hover:border-slate-600 hover:-translate-y-1"
         )}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onMouseMove={handleMouseMove}
-        ref={cardRef}
         style={{
-          rotateX,
-          rotateY,
-          transformPerspective: 900,
+          willChange: dimmed ? "transform, opacity" : "auto",
+          contain: "layout style paint",
         }}
-        transition={{ duration: 0.18, ease: "easeOut" }}
+        onMouseEnter={onHoverStart}
+        onMouseLeave={onHoverEnd}
+        transition={{ duration: 0.2, ease: "easeOut" }}
       >
         {/* Static accent tint — always visible */}
         <div
@@ -108,20 +66,20 @@ export default function AIServiceCard({
           }}
         />
 
-        {/* Hover glow layer */}
-        <motion.div
+        {/* Hover glow layer - CSS only */}
+        <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 rounded-2xl"
+          className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           style={{
-            opacity: glowOpacity,
             background: `radial-gradient(ellipse at 20% 20%, ${color}2e, transparent 65%)`,
           }}
         />
 
-        {/* Shimmer sweep */}
+        {/* Shimmer sweep - simplified */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 left-0 w-[55%] -translate-x-full -skew-x-12 bg-gradient-to-r from-transparent via-white/[0.045] to-transparent transition-transform duration-700 ease-out group-hover:translate-x-[280%]"
+          className="pointer-events-none absolute inset-y-0 left-0 w-[55%] -translate-x-full -skew-x-12 bg-gradient-to-r from-transparent via-white/[0.03] to-transparent transition-transform duration-500 ease-out group-hover:translate-x-[280%]"
+          style={{ willChange: "transform" }}
         />
 
         {/* Icon badge */}
@@ -194,7 +152,13 @@ export default function AIServiceCard({
         {/* View Details indicator */}
         <div className="relative z-10 flex items-center gap-2 text-sm font-medium pt-2" style={{ color }}>
           <span>View Details</span>
-          <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg 
+            className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" 
+            style={{ willChange: "transform" }}
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </div>
@@ -202,3 +166,6 @@ export default function AIServiceCard({
     </Link>
   );
 }
+
+// Export memoized version for performance
+export default memo(AIServiceCard);

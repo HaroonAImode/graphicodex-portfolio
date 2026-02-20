@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,24 +8,32 @@ const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+  const ticking = useRef(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      // Check if scrolled more than 20px for background effect
-      setIsScrolled(currentScrollY > 20);
-      
-      // Hide/show header based on scroll direction
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down and past 100px - hide header
-        setIsVisible(false);
-      } else if (currentScrollY < lastScrollY) {
-        // Scrolling up - show header
-        setIsVisible(true);
+      if (!ticking.current) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          
+          // Check if scrolled more than 20px for background effect
+          setIsScrolled(currentScrollY > 20);
+          
+          // Hide/show header based on scroll direction
+          if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            // Scrolling down and past 100px - hide header
+            setIsVisible(false);
+          } else if (currentScrollY < lastScrollY) {
+            // Scrolling up - show header
+            setIsVisible(true);
+          }
+          
+          setLastScrollY(currentScrollY);
+          ticking.current = false;
+        });
+        
+        ticking.current = true;
       }
-      
-      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -56,19 +64,19 @@ const Header: React.FC = () => {
             y: 0, 
             opacity: 1,
             transition: { 
-              type: "spring",
-              stiffness: 100,
-              damping: 20 
+              type: "tween",
+              duration: 0.3,
+              ease: "easeOut"
             }
           }}
           exit={{ 
             y: -100, 
             opacity: 0,
             transition: { 
-              duration: 0.3 
+              duration: 0.2 
             }
           }}
-          className={`fixed top-[60px] left-0 right-0 z-50 transition-all duration-300 ${
+          className={`fixed top-[60px] left-0 right-0 z-50 transition-all duration-200 ${
             isScrolled
               ? "bg-slate-900/95 backdrop-blur-xl shadow-2xl shadow-blue-500/20 border-b border-slate-700/50"
               : "bg-slate-900 border-b border-slate-700/30"

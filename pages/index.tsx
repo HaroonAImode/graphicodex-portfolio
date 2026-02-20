@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -10,8 +10,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 const HomePage: React.FC = () => {
-  // AI Platform logos for continuous marquee - Updated to match actual filenames
-  const aiLogosRow1 = [
+  // Memoize static data to prevent recreating on every render
+  const aiLogosRow1 = useMemo(() => [
     { name: "OpenAI", path: "/logos/openai.png" },
     { name: "ChatGPT", path: "/logos/chatgpt.png" },
     { name: "Hugging Face", path: "/logos/huggingface.png" },
@@ -20,9 +20,9 @@ const HomePage: React.FC = () => {
     { name: "Pinecone", path: "/logos/Pinecone.png" },
     { name: "Weaviate", path: "/logos/Weaviate.png" },
     { name: "Cohere", path: "/logos/Cohere.png" },
-  ];
+  ], []);
 
-  const aiLogosRow2 = [
+  const aiLogosRow2 = useMemo(() => [
     { name: "TensorFlow", path: "/logos/TensorFlow.png" },
     { name: "PyTorch", path: "/logos/PyTorch.png" },
     { name: "n8n", path: "/logos/n8n.png" },
@@ -31,9 +31,9 @@ const HomePage: React.FC = () => {
     { name: "React", path: "/logos/React.png" },
     { name: "Next.js", path: "/logos/nextjs.png" },
     { name: "FastAPI", path: "/logos/FastAPI.png" },
-  ];
+  ], []);
 
-  const aiLogosRow3 = [
+  const aiLogosRow3 = useMemo(() => [
     { name: "AWS", path: "/logos/AWS.png" },
     { name: "Google Cloud", path: "/logos/gcp.png" },
     { name: "Azure", path: "/logos/Azure.png" },
@@ -42,9 +42,9 @@ const HomePage: React.FC = () => {
     { name: "PostgreSQL", path: "/logos/PostgreSQL.png" },
     { name: "MongoDB", path: "/logos/MongoDB.png" },
     { name: "Redis", path: "/logos/Redis.png" },
-  ];
+  ], []);
 
-  const services = [
+  const services = useMemo(() => [
     {
       title: "AI Agents & Assistants",
       subtitle: "Intelligent conversational agents with memory, context awareness, and multi-modal capabilities.",
@@ -129,16 +129,16 @@ const HomePage: React.FC = () => {
         }
       ]
     }
-  ];
+  ], []);
 
-  const stats = [
+  const stats = useMemo(() => [
     { number: "50+", label: "AI Projects Deployed", description: "Across multiple industries" },
     { number: "40%", label: "Avg. Efficiency Gain", description: "For our enterprise clients" },
     { number: "24/7", label: "Production Monitoring", description: "Enterprise-grade reliability" },
     { number: "99.9%", label: "Uptime SLA", description: "Guaranteed performance" }
-  ];
+  ], []);
 
-  const caseStudies = [
+  const caseStudies = useMemo(() => [
     {
       title: "Enterprise Customer Support Automation",
       company: "Fortune 500 Retail",
@@ -157,9 +157,9 @@ const HomePage: React.FC = () => {
       result: "32% conversion lift",
       description: "AI-driven recommendations and personalized experiences"
     }
-  ];
+  ], []);
 
-  const processSteps = [
+  const processSteps = useMemo(() => [
     {
       step: "01",
       title: "Discovery & Strategy",
@@ -180,7 +180,7 @@ const HomePage: React.FC = () => {
       title: "Support & Evolution",
       description: "Ongoing maintenance and continuous improvement"
     }
-  ];
+  ], []);
 
   return (
     <div className="min-h-screen bg-slate-900 text-white font-sans overflow-hidden">
@@ -191,44 +191,11 @@ const HomePage: React.FC = () => {
         {/* Hero Mouse Effect with Dots and Snake */}
         <HeroMouseEffect />
         
-        {/* Animated Background Elements */}
+        {/* Optimized Background Elements - Static gradients instead of animated */}
         <div className="absolute inset-0 pointer-events-none">
-          <motion.div 
-            className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              repeatType: "reverse"
-            }}
-          />
-          <motion.div 
-            className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"
-            animate={{
-              scale: [1.2, 1, 1.2],
-              opacity: [0.4, 0.2, 0.4],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              repeatType: "reverse"
-            }}
-          />
-          <motion.div 
-            className="absolute top-1/2 left-1/2 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl"
-            animate={{
-              scale: [1, 1.1, 1],
-              opacity: [0.2, 0.4, 0.2],
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              repeatType: "reverse"
-            }}
-          />
+          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl opacity-40" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl opacity-30" />
+          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl opacity-20" />
           
           {/* Grid Pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
