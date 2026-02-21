@@ -189,7 +189,7 @@ const AboutPage: React.FC = () => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
+            className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight"
           >
             Pioneering{" "}
             <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
@@ -202,7 +202,7 @@ const AboutPage: React.FC = () => {
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed font-light"
+            className="text-base sm:text-xl lg:text-2xl text-gray-300 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed font-light"
           >
             We are a dedicated team of AI engineers, developers, and innovators committed to 
             transforming businesses through cutting-edge artificial intelligence solutions 
@@ -213,22 +213,22 @@ const AboutPage: React.FC = () => {
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
           >
-            <Link href="/contact">
+            <Link href="/contact" className="w-full sm:w-auto">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-violet-600 rounded-xl text-white font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/30"
+                className="w-full sm:w-auto px-8 py-3 sm:py-4 bg-gradient-to-r from-indigo-600 to-violet-600 rounded-xl text-white font-semibold text-base sm:text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/30"
               >
                 Start Your Journey
               </motion.button>
             </Link>
-            <Link href="/portfolio">
+            <Link href="/portfolio" className="w-full sm:w-auto">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 border-2 border-gray-600 rounded-xl font-semibold text-lg transition-all duration-300 hover:border-indigo-400 hover:bg-indigo-500/10"
+                className="w-full sm:w-auto px-8 py-3 sm:py-4 border-2 border-gray-600 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 hover:border-indigo-400 hover:bg-indigo-500/10"
               >
                 View Our Work
               </motion.button>
@@ -238,7 +238,7 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-900">
+      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-900">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Mission */}
@@ -328,7 +328,7 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-900">
+      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-900">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
@@ -375,61 +375,61 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
+      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-10 lg:mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
               Our{" "}
               <span className="bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">
                 Journey
               </span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto font-light">
+            <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto font-light">
               From our foundation to becoming a trusted AI solutions provider.
             </p>
           </motion.div>
 
           <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-indigo-500 to-violet-500"></div>
+            {/* Timeline Line - left-aligned on mobile, centered on desktop */}
+            <div className="absolute left-5 sm:left-1/2 sm:-translate-x-1/2 w-0.5 top-0 bottom-0 bg-gradient-to-b from-indigo-500 to-violet-500"></div>
             
             {/* Timeline Items */}
-            <div className="space-y-12">
+            <div className="space-y-6 sm:space-y-12">
               {milestones.map((milestone, index) => (
                 <motion.div
                   key={index}
-                  initial={{ x: index % 2 === 0 ? -20 : 20, opacity: 0 }}
+                  initial={{ x: -20, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className={`relative flex items-center ${
-                    index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
-                  }`}
+                  className={`relative flex items-start sm:items-center ${
+                    index % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'
+                  } flex-row`}
                 >
+                  {/* Timeline Dot */}
+                  <div className="absolute left-5 sm:left-1/2 sm:-translate-x-1/2 mt-6 sm:mt-0 w-3 h-3 sm:w-4 sm:h-4 bg-indigo-500 rounded-full border-4 border-slate-900 z-10 flex-shrink-0"></div>
+
                   {/* Content */}
-                  <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
-                    <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300">
-                      <div className="text-sm font-semibold text-indigo-400 mb-2">
+                  <div className={`w-full pl-12 sm:pl-0 sm:w-1/2 ${index % 2 === 0 ? 'sm:pr-8' : 'sm:pl-8'}`}>
+                    <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300">
+                      <div className="text-sm font-semibold text-indigo-400 mb-1 sm:mb-2">
                         {milestone.year}
                       </div>
-                      <h3 className="text-xl font-bold text-white mb-2">
+                      <h3 className="text-base sm:text-xl font-bold text-white mb-1 sm:mb-2">
                         {milestone.title}
                       </h3>
-                      <p className="text-gray-400 font-light">
+                      <p className="text-sm sm:text-base text-gray-400 font-light">
                         {milestone.description}
                       </p>
                     </div>
                   </div>
 
-                  {/* Timeline Dot */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-indigo-500 rounded-full border-4 border-slate-900 z-10"></div>
-
-                  {/* Spacer for the other side */}
-                  <div className="w-1/2"></div>
+                  {/* Spacer for desktop alternating layout */}
+                  <div className="hidden sm:block w-1/2"></div>
                 </motion.div>
               ))}
             </div>
@@ -438,7 +438,7 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-indigo-900 to-violet-900">
+      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-indigo-900 to-violet-900">
         <div className="max-w-5xl mx-auto text-center">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
@@ -451,21 +451,21 @@ const AboutPage: React.FC = () => {
             <p className="text-lg sm:text-xl text-indigo-200 mb-8 max-w-2xl mx-auto leading-relaxed font-light">
               Join us in creating intelligent solutions that transform businesses and shape tomorrow.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <Link href="/contact" className="w-full sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-white rounded-xl text-slate-900 font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-white/20"
+                  className="w-full sm:w-auto px-8 py-3 sm:py-4 bg-white rounded-xl text-slate-900 font-semibold text-base sm:text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-white/20"
                 >
                   Start Collaboration
                 </motion.button>
               </Link>
-              <Link href="/services">
+              <Link href="/services" className="w-full sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 border-2 border-white/30 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-white/10 hover:border-white/50"
+                  className="w-full sm:w-auto px-8 py-3 sm:py-4 border-2 border-white/30 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 hover:bg-white/10 hover:border-white/50"
                 >
                   Explore Services
                 </motion.button>

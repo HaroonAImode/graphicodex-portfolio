@@ -379,7 +379,7 @@ const AIServicesPage: React.FC = () => {
       <Header />
       
       {/* Hero Section with Search */}
-      <section className="relative py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
+      <section className="relative pt-24 pb-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -401,7 +401,7 @@ const AIServicesPage: React.FC = () => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
+            className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight"
           >
             Find Your Perfect{" "}
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
@@ -536,16 +536,16 @@ const AIServicesPage: React.FC = () => {
       </section>
 
       {/* Category Filters */}
-      <section className="py-12 bg-slate-900 border-b border-slate-700">
+      <section className="py-8 bg-slate-900 border-b border-slate-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap gap-3 justify-center">
+          <div className="flex gap-2 sm:gap-3 overflow-x-auto pb-2 lg:flex-wrap lg:justify-center scrollbar-none">
             {categories.map((category) => (
               <motion.button
                 key={category.id}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setActiveCategory(category.id)}
-                className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 ${
+                className={`flex-shrink-0 px-3 sm:px-6 py-2.5 sm:py-3 rounded-xl font-medium transition-all duration-300 flex items-center gap-1.5 sm:gap-2 text-xs sm:text-base ${
                   activeCategory === category.id
                     ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/25"
                     : "bg-slate-800/50 text-gray-300 hover:bg-slate-700/50 hover:text-white border border-slate-600"
@@ -565,7 +565,7 @@ const AIServicesPage: React.FC = () => {
       </section>
 
       {/* Services Grid with Search Results */}
-      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-900">
+      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-900">
         <div className="max-w-7xl mx-auto">
           {/* Results Header */}
           <motion.div
@@ -649,7 +649,7 @@ const AIServicesPage: React.FC = () => {
       </section>
 
       {/* Technologies Section */}
-      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-900">
+      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-900">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ y: 20, opacity: 0 }}

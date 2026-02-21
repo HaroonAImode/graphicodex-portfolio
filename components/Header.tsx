@@ -76,7 +76,7 @@ const Header: React.FC = () => {
               duration: 0.2 
             }
           }}
-          className={`fixed top-[60px] left-0 right-0 z-50 transition-all duration-200 ${
+          className={`fixed top-0 lg:top-[60px] left-0 right-0 z-50 transition-all duration-200 ${
             isScrolled
               ? "bg-slate-900/95 backdrop-blur-xl shadow-2xl shadow-blue-500/20 border-b border-slate-700/50"
               : "bg-slate-900 border-b border-slate-700/30"

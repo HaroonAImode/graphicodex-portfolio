@@ -108,7 +108,7 @@ const ContactPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white font-sans overflow-hidden relative">
+    <div className="min-h-screen bg-slate-900 text-white font-sans relative">
       <Header />
 
       {/* ✅ Success Popup */}
@@ -132,7 +132,7 @@ const ContactPage: React.FC = () => {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
+      <section className="relative py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
         <div className="absolute inset-0">
           <motion.div
             className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"
@@ -197,7 +197,7 @@ const ContactPage: React.FC = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900">
+      <section className="py-12 lg:py-20 px-4 sm:px-6 lg:px-8 bg-slate-900">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Side Info */}
           <motion.div

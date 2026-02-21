@@ -120,6 +120,15 @@ body {
   touch-action: manipulation;
 }
 
+/* Hide scrollbar while keeping scroll functionality */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 /* Prevent double-tap zoom on buttons */
 button, a[role="button"], [role="button"] {
   touch-action: manipulation;

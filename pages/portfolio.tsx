@@ -120,7 +120,7 @@ const PortfolioPage: React.FC = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
+      <section className="relative pt-24 pb-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -142,7 +142,7 @@ const PortfolioPage: React.FC = () => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
+            className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight"
           >
             Our{" "}
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
@@ -155,7 +155,7 @@ const PortfolioPage: React.FC = () => {
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed font-light"
+            className="text-base sm:text-xl lg:text-2xl text-gray-300 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed font-light"
           >
             Explore our portfolio of successful AI implementations that have delivered measurable business results 
             across various industries and use cases.
@@ -165,22 +165,22 @@ const PortfolioPage: React.FC = () => {
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
           >
-            <Link href="/contact">
+            <Link href="/contact" className="w-full sm:w-auto">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl text-white font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/30"
+                className="w-full sm:w-auto px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl text-white font-semibold text-base sm:text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/30"
               >
                 Start Your Project
               </motion.button>
             </Link>
-            <Link href="/services">
+            <Link href="/services" className="w-full sm:w-auto">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 border-2 border-gray-600 rounded-xl font-semibold text-lg transition-all duration-300 hover:border-blue-400 hover:bg-blue-500/10"
+                className="w-full sm:w-auto px-8 py-3 sm:py-4 border-2 border-gray-600 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 hover:border-blue-400 hover:bg-blue-500/10"
               >
                 View All Services
               </motion.button>
@@ -247,7 +247,7 @@ const PortfolioPage: React.FC = () => {
 </section>
 
       {/* Projects Grid */}
-      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-900">
+      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-900">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ y: 20, opacity: 0 }}

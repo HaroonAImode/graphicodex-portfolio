@@ -154,7 +154,7 @@ const OtherServicesPage: React.FC = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
+      <section className="relative pt-24 pb-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -176,7 +176,7 @@ const OtherServicesPage: React.FC = () => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
+            className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight"
           >
             Creative{" "}
             <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -189,7 +189,7 @@ const OtherServicesPage: React.FC = () => {
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed font-light"
+            className="text-base sm:text-xl lg:text-2xl text-gray-300 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed font-light"
           >
             Professional design services that transform your ideas into stunning visual experiences. 
             From brand identity to digital interfaces, we create designs that make an impact.
@@ -199,26 +199,27 @@ const OtherServicesPage: React.FC = () => {
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
           >
             <a 
               href="https://newdesignerhere.my.canva.site/graphicodexportfolio" 
               target="_blank" 
               rel="noopener noreferrer"
+              className="w-full sm:w-auto"
             >
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl text-white font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/30"
+                className="w-full sm:w-auto px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl text-white font-semibold text-base sm:text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/30"
               >
                 View Design Portfolio
               </motion.button>
             </a>
-            <Link href="/contact">
+            <Link href="/contact" className="w-full sm:w-auto">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 border-2 border-gray-600 rounded-xl font-semibold text-lg transition-all duration-300 hover:border-purple-400 hover:bg-purple-500/10"
+                className="w-full sm:w-auto px-8 py-3 sm:py-4 border-2 border-gray-600 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 hover:border-purple-400 hover:bg-purple-500/10"
               >
                 Start a Project
               </motion.button>
@@ -255,7 +256,7 @@ const OtherServicesPage: React.FC = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-900">
+      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-900">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
@@ -357,7 +358,7 @@ const OtherServicesPage: React.FC = () => {
       </section>
 
       {/* Design Process */}
-      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
+      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
@@ -410,7 +411,7 @@ const OtherServicesPage: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-purple-900 to-pink-900">
+      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-purple-900 to-pink-900">
         <div className="max-w-5xl mx-auto text-center">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
@@ -423,25 +424,26 @@ const OtherServicesPage: React.FC = () => {
             <p className="text-lg sm:text-xl text-purple-200 mb-8 max-w-2xl mx-auto leading-relaxed font-light">
               Lets create stunning designs that elevate your brand and captivate your audience.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <a 
                 href="https://newdesignerhere.my.canva.site/graphicodexportfolio" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                className="w-full sm:w-auto"
               >
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-white rounded-xl text-slate-900 font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-white/20"
+                  className="w-full sm:w-auto px-8 py-3 sm:py-4 bg-white rounded-xl text-slate-900 font-semibold text-base sm:text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-white/20"
                 >
                   Explore Full Portfolio
                 </motion.button>
               </a>
-              <Link href="/contact">
+              <Link href="/contact" className="w-full sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 border-2 border-white/30 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-white/10 hover:border-white/50"
+                  className="w-full sm:w-auto px-8 py-3 sm:py-4 border-2 border-white/30 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 hover:bg-white/10 hover:border-white/50"
                 >
                   Start Design Project
                 </motion.button>

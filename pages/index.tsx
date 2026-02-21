@@ -183,13 +183,15 @@ const HomePage: React.FC = () => {
   ], []);
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white font-sans overflow-hidden">
+    <div className="min-h-screen bg-slate-900 text-white font-sans">
       <Header />
       
       {/* Premium Hero Section - Dark Theme */}
-      <section className="relative min-h-[70vh] lg:min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-4 lg:pt-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
-        {/* Hero Mouse Effect with Dots and Snake */}
-        <HeroMouseEffect />
+      <section className="relative min-h-[70vh] lg:min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 pt-24 pb-8 lg:pt-20 lg:pb-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
+        {/* Hero Mouse Effect with Dots and Snake - Desktop Only */}
+        <div className="hidden lg:block">
+          <HeroMouseEffect />
+        </div>
         
         {/* Optimized Background Elements - Static gradients instead of animated */}
         <div className="absolute inset-0 pointer-events-none">
@@ -599,12 +601,12 @@ const HomePage: React.FC = () => {
             <p className="text-sm lg:text-xl text-blue-200 mb-6 lg:mb-8 max-w-2xl mx-auto leading-relaxed font-light">
               Lets discuss your vision and build AI solutions that drive real competitive advantage.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center">
-              <Link href="/contact">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <Link href="/contact" className="w-full sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group relative px-6 lg:px-8 py-3 lg:py-4 bg-white rounded-xl text-slate-900 font-semibold text-base lg:text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-white/20 w-full sm:w-auto"
+                  className="group relative w-full sm:w-auto px-6 lg:px-8 py-3 lg:py-4 bg-white rounded-xl text-slate-900 font-semibold text-base lg:text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-white/20"
                 >
                   <span className="relative z-10 flex items-center justify-center gap-2 lg:gap-3">
                     Start Your Project
@@ -614,11 +616,11 @@ const HomePage: React.FC = () => {
                   </span>
                 </motion.button>
               </Link>
-              <Link href="/demos">
+              <Link href="/demos" className="w-full sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group px-6 lg:px-8 py-3 lg:py-4 border-2 border-white/30 rounded-xl font-semibold text-base lg:text-lg transition-all duration-300 hover:bg-white/10 hover:border-white/50 w-full sm:w-auto">
+                  className="group w-full sm:w-auto px-6 lg:px-8 py-3 lg:py-4 border-2 border-white/30 rounded-xl font-semibold text-base lg:text-lg transition-all duration-300 hover:bg-white/10 hover:border-white/50">
                   <span className="flex items-center justify-center gap-2 lg:gap-3 text-white">
                     Schedule Demo Call
                     <svg className="w-4 h-4 lg:w-5 lg:h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
