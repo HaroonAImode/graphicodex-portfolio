@@ -402,18 +402,18 @@ const PortfolioPage: React.FC = () => {
                     </div>
 
                     {/* Results */}
-                    <div className="mb-4">
-                      <div className="flex flex-wrap gap-2">
+                    <div className="mb-2 sm:mb-4">
+                      <div className="flex flex-wrap gap-1 sm:gap-2">
                         {project.results.slice(0, 2).map((result, idx) => (
                           <span 
                             key={idx}
-                            className="px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full border border-blue-500/20"
+                            className="px-1.5 sm:px-3 py-0.5 sm:py-1 bg-blue-500/10 text-blue-400 text-[9px] sm:text-xs rounded-full border border-blue-500/20"
                           >
                             {result}
                           </span>
                         ))}
                         {project.results.length > 2 && (
-                          <span className="px-3 py-1 bg-slate-700/50 text-gray-400 text-xs rounded-full border border-slate-600">
+                          <span className="px-1.5 sm:px-3 py-0.5 sm:py-1 bg-slate-700/50 text-gray-400 text-[9px] sm:text-xs rounded-full border border-slate-600">
                             +{project.results.length - 2} more
                           </span>
                         )}
@@ -421,26 +421,26 @@ const PortfolioPage: React.FC = () => {
                     </div>
 
                     {/* Technologies */}
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-1 sm:gap-2 mb-2 sm:mb-4">
                       {project.technologies.slice(0, 3).map((tech, idx) => (
                         <span 
                           key={idx}
-                          className="px-2 py-1 bg-slate-700/50 text-gray-300 text-xs rounded-full border border-slate-600"
+                          className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-slate-700/50 text-gray-300 text-[9px] sm:text-xs rounded-full border border-slate-600"
                         >
                           {tech}
                         </span>
                       ))}
                       {project.technologies.length > 3 && (
-                        <span className="px-2 py-1 bg-slate-700/50 text-gray-400 text-xs rounded-full border border-slate-600">
+                        <span className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-slate-700/50 text-gray-400 text-[9px] sm:text-xs rounded-full border border-slate-600">
                           +{project.technologies.length - 3}
                         </span>
                       )}
                     </div>
 
                     {/* View Details */}
-                    <div className="flex items-center gap-2 text-blue-400 font-medium group-hover:text-blue-300 transition-colors">
-                      <span>View case study</span>
-                      <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="hidden sm:flex items-center gap-2 text-blue-400 font-medium group-hover:text-blue-300 transition-colors">
+                      <span className="text-xs sm:text-sm">View case study</span>
+                      <svg className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </div>
