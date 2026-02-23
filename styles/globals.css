@@ -37,27 +37,49 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     letter-spacing: -0.025em;
-    line-height: 1.15;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: inherit;
   }
 
   h1 {
-    font-size: clamp(1.875rem, 5vw, 3rem);
+    font-size: 1.875rem; /* 30px mobile */
     font-weight: 700;
+    letter-spacing: -0.03em;
   }
 
   h2 {
-    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-size: 1.5rem; /* 24px mobile */
     font-weight: 600;
+    letter-spacing: -0.025em;
   }
 
   h3 {
-    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    font-size: 1.25rem; /* 20px mobile */
     font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  /* Desktop typography */
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 3rem; /* 48px desktop */
+    }
+
+    h2 {
+      font-size: 2.25rem; /* 36px desktop */
+    }
+
+    h3 {
+      font-size: 1.5rem; /* 24px desktop */
+    }
   }
 
   h4, h5, h6 {
@@ -66,13 +88,31 @@
 
   p {
     line-height: 1.7;
+    margin-bottom: 1rem;
+    max-width: 70ch;
   }
 
-  button {
+  button, a[role="button"], [role="button"] {
     font-family: var(--font-body);
-    font-weight: 500;
-    letter-spacing: 0.01em;
+    font-weight: 600;
+    letter-spacing: 0.0125em;
   }
+
+  /* Better text balance for headings */
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+
+  /* Improve link appearance */
+  a {
+    transition: color 0.2s ease;
+  }
+
+  /* Strong typography emphasis */
+  strong, b {
+    font-weight: 600;
+  }
+}
 }
 
 /* Performance optimizations for animations */

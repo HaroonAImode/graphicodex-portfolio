@@ -11,6 +11,7 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
   variable: "--font-inter",
   display: "swap",
+  preload: true,
 });
 
 const spaceGrotesk = Space_Grotesk({
@@ -18,11 +19,12 @@ const spaceGrotesk = Space_Grotesk({
   weight: ["400", "500", "600", "700"],
   variable: "--font-space-grotesk",
   display: "swap",
+  preload: true,
 });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${inter.variable} ${spaceGrotesk.variable} min-h-screen bg-slate-900 text-white`}>
+    <div className={`${inter.variable} ${spaceGrotesk.variable} font-sans min-h-screen bg-slate-900 text-white antialiased`}>
       {/* Desktop Navigation - Hidden on mobile */}
       <div className="hidden lg:block">
         <TopBar />

@@ -179,68 +179,68 @@ const serviceProjects: Record<string, any> = {
     gradient: "from-cyan-500 to-teal-500",
     projects: [
       {
-        title: "Smart CRM Automation",
-        description: "AI-powered CRM workflow automation with lead scoring, email campaigns, and sales forecasting. 40% conversion boost.",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-        technologies: ["n8n", "Salesforce API", "GPT-4", "PostgreSQL"],
-        metrics: ["40% Conversion", "10K+ Leads/Month", "5 Systems Integrated"],
+        title: "PropertyPulse AI",
+        description: "An n8n-powered real estate bot that reads GHL form data (budget, location, timeline), searches listings for matching properties, and automatically sends available options—or updates—back to GoHighLevel for instant follow-up.",
+        image: "/projects/automation1-Propertypulse.jpeg",
+        technologies: ["n8n", "GoHighLevel API", "Google Maps API", "Real Estate Data APIs"],
+        metrics: ["Instant Matching", "24/7 Availability", "100% Automated"],
         features: [
-          "Automated lead scoring & routing",
-          "AI-generated email campaigns",
-          "Sales pipeline forecasting",
-          "Multi-CRM synchronization"
+          "Real-time GHL form data processing",
+          "Smart property listing matching",
+          "Budget & location-based filtering",
+          "Automated CRM follow-up integration"
         ]
       },
       {
-        title: "Invoice Processing Automation",
-        description: "OCR and NLP-powered invoice extraction and processing system handling 10,000+ invoices monthly with 99.5% accuracy.",
-        image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&h=400&fit=crop",
-        technologies: ["Tesseract", "GPT-3.5", "Make", "QuickBooks API"],
-        metrics: ["99.5% Accuracy", "10K+ Invoices/Month", "10x Faster"],
+        title: "Smart Appointment Booking Bot",
+        description: "Intelligent appointment scheduling automation that captures availability, syncs with calendars, sends confirmations, and manages rescheduling—all without human intervention. Seamlessly integrates with CRM and calendar systems.",
+        image: "/projects/automation2-appointment-booking.jpeg",
+        technologies: ["n8n", "Google Calendar API", "Twilio", "CRM Integration"],
+        metrics: ["Zero Double-Booking", "95% Show Rate", "24/7 Scheduling"],
         features: [
-          "Multi-format document processing",
-          "Automated data extraction",
-          "ERP system integration",
-          "Exception handling workflows"
+          "Real-time calendar availability checking",
+          "Automated confirmation & reminder SMS/email",
+          "Multi-timezone support",
+          "Intelligent rescheduling workflows"
         ]
       },
       {
-        title: "Customer Service Ticket Router",
-        description: "Intelligent ticket routing and prioritization system using NLP to categorize and assign support tickets automatically.",
-        image: "https://images.unsplash.com/photo-1557804506-36122d921a39?w=600&h=400&fit=crop",
-        technologies: ["Zapier", "Zendesk", "Claude", "Slack API"],
-        metrics: ["70% Auto-Resolved", "50% Faster Response", "95% Accuracy"],
+        title: "LeadIntel Campaign Engine",
+        description: "This n8n workflow starts by receiving a webhook from GoHighLevel whenever a new lead is captured. It automatically scrapes the lead's website, converts content into clean markdown, generates a concise business abstract, and uses AI agents to craft highly personalized email or SMS campaigns tailored specifically to that lead.",
+        image: "/projects/automation3- LeadIntel-Campaign-Engine.jpeg",
+        technologies: ["n8n", "GoHighLevel", "Web Scraping", "GPT-4", "Claude"],
+        metrics: ["3x Engagement", "Personalized Outreach", "10min Processing"],
         features: [
-          "Automatic ticket categorization",
-          "Priority-based routing",
-          "SLA monitoring & alerts",
-          "Team workload balancing"
+          "Automated website scraping & analysis",
+          "AI-powered business intelligence extraction",
+          "Hyper-personalized campaign generation",
+          "Seamless CRM integration & follow-up"
         ]
       },
       {
-        title: "E-commerce Inventory Sync",
-        description: "Real-time inventory synchronization across multiple sales channels with demand forecasting and auto-reordering.",
-        image: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&h=400&fit=crop",
-        technologies: ["FastAPI", "GraphQL", "Redis", "Shopify API"],
-        metrics: ["Real-time Sync", "5 Channels", "99.9% Uptime"],
+        title: "RankGrid AI – Automated Local SEO Report Engine",
+        description: "An automated local SEO reporting system that generates Google Business Profile ranking reports in real time. It pulls business data from Google Maps, runs a geo-grid visibility scan across a targeted radius, calculates average rankings, and automatically sends a professional report back to the CRM.",
+        image: "/projects/automation4-Automated-Local-SEO-Report-Engine.jpeg",
+        technologies: ["n8n", "Google Maps API", "Rank Tracking APIs", "PDF Generation", "CRM APIs"],
+        metrics: ["Real-time Reports", "Geo-Grid Accuracy", "Zero Manual Work"],
         features: [
-          "Multi-channel inventory sync",
-          "Demand forecasting",
-          "Automated reorder points",
-          "Stock level alerts"
+          "Google Business Profile data extraction",
+          "Geo-grid visibility scanning",
+          "Automated ranking calculations",
+          "Professional PDF report generation & CRM delivery"
         ]
       },
       {
-        title: "HR Onboarding Automation",
-        description: "End-to-end employee onboarding automation with document management, training scheduling, and compliance tracking.",
-        image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&h=400&fit=crop",
-        technologies: ["n8n", "DocuSign", "BambooHR", "Slack"],
-        metrics: ["90% Time Saved", "100% Compliance", "500+ Employees"],
+        title: "Advanced Website Scraping Automation",
+        description: "Enterprise-grade web scraping automation that intelligently extracts structured data from complex websites, handles dynamic content loading, bypasses anti-bot measures, and delivers clean, formatted data to your database or CRM. Perfect for competitive intelligence, lead generation, and market research.",
+        image: "/projects/automation5-Advance-Website-Scraping-Automation.png",
+        technologies: ["n8n", "Puppeteer", "Playwright", "Proxy Networks", "Data Processing"],
+        metrics: ["1000+ Pages/Hour", "99% Success Rate", "Structured Data"],
         features: [
-          "Digital document signing",
-          "Training schedule automation",
-          "Compliance checklist tracking",
-          "Welcome kit delivery"
+          "Dynamic content & JavaScript rendering",
+          "Anti-bot detection bypass",
+          "Data cleaning & normalization",
+          "Scheduled scraping & monitoring"
         ]
       }
     ]
@@ -415,22 +415,22 @@ const ServiceDetailPage: React.FC = () => {
                 }}
               >
                 {/* Project Image */}
-                <div className="relative h-64 w-full overflow-hidden">
+                <div className="relative h-80 sm:h-96 w-full overflow-hidden bg-slate-900">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="object-contain transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent pointer-events-none"></div>
                   
                   {/* Metrics Overlay */}
-                  <div className="absolute bottom-4 left-4 right-4 flex gap-2">
+                  <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
                     {project.metrics.map((metric: string, idx: number) => (
                       <div 
                         key={idx}
-                        className="px-3 py-1.5 rounded-lg text-xs font-semibold text-white backdrop-blur-sm"
-                        style={{ background: `${serviceData.color}40` }}
+                        className="px-3 py-1.5 rounded-lg text-xs font-semibold text-white backdrop-blur-md"
+                        style={{ background: `${serviceData.color}60` }}
                       >
                         {metric}
                       </div>
