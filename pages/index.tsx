@@ -252,30 +252,30 @@ const HomePage: React.FC = () => {
             transition={{ delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 lg:mb-16 px-4 sm:px-0"
           >
-            <Link href="/contact">
+            <Link href="/portfolio#filters">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl text-white font-semibold text-sm sm:text-base lg:text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/30 w-full sm:w-auto max-w-xs sm:max-w-none"
               >
                 <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
-                  Get Free AI Audit
+                  See Our Portfolio
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </span>
               </motion.button>
             </Link>
-            <Link href="/demos">
+            <Link href="/contact">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="group px-6 sm:px-8 py-3 sm:py-4 border-2 border-gray-600 rounded-xl font-semibold text-sm sm:text-base lg:text-lg transition-all duration-300 hover:border-blue-400 hover:bg-blue-500/10 w-full sm:w-auto max-w-xs sm:max-w-none"
               >
                 <span className="flex items-center justify-center gap-2 sm:gap-3 text-gray-300 group-hover:text-blue-300">
-                  View Live Demos
+                  Contact Now
                   <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </span>
               </motion.button>

@@ -1,12 +1,24 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
 const PortfolioPage: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState("all");
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
+
+  // Handle scroll to filters section if hash is present
+  useEffect(() => {
+    if (window.location.hash === '#filters') {
+      const filtersSection = document.getElementById('filters');
+      if (filtersSection) {
+        setTimeout(() => {
+          filtersSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+      }
+    }
+  }, []);
 
   const projects = [
     {
@@ -297,7 +309,7 @@ const PortfolioPage: React.FC = () => {
       </section>
 
      {/* Portfolio Filters */}
-<section className="py-12 bg-slate-900 border-b border-slate-700">
+<section id="filters" className="py-12 bg-slate-900 border-b border-slate-700">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="flex flex-wrap gap-3 justify-center">
       {filters.map((filter) => (
