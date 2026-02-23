@@ -3,8 +3,6 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -515,8 +513,6 @@ whileHover={{ scale: 1.05 }}
           </motion.div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

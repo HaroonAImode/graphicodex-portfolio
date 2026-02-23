@@ -3,8 +3,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import Link from "next/link";
 
 const OtherServicesPage: React.FC = () => {
@@ -452,8 +450,6 @@ const OtherServicesPage: React.FC = () => {
           </motion.div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

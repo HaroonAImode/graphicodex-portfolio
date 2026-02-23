@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import emailjs from "@emailjs/browser";
 
 const ContactPage: React.FC = () => {
@@ -340,8 +338,6 @@ const ContactPage: React.FC = () => {
           </motion.div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

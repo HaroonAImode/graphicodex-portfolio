@@ -2,8 +2,6 @@
 
 import React, { useMemo } from "react";
 import { motion } from "framer-motion";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import ServiceCardFlip from "../components/ServiceCardFlip";
 import HeroMouseEffect from "../components/HeroMouseEffect";
 import RecentProjects from "../components/RecentProjects";
@@ -637,8 +635,6 @@ const HomePage: React.FC = () => {
           </motion.div>
         </div>
       </section>
-
-      <Footer />
 
       <style jsx global>{`
         @keyframes marquee {

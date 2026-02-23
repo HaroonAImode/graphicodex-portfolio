@@ -2,8 +2,6 @@
 
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import AIServiceCard from "../components/AIServiceCard";
 import Link from "next/link";
 
@@ -731,8 +729,6 @@ const AIServicesPage: React.FC = () => {
           </motion.div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };
