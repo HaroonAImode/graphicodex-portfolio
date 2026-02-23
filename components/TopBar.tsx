@@ -47,7 +47,7 @@ const TopBar: React.FC = () => {
 
   const copyPhoneNumber = async () => {
     try {
-      await navigator.clipboard.writeText("+923355955525");
+      await navigator.clipboard.writeText("+923356533350");
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
@@ -104,7 +104,7 @@ const TopBar: React.FC = () => {
 
             {/* Center: Phone Number for mobile */}
             <div className="sm:hidden flex items-center justify-center w-full py-1">
-              <a href="tel:+923355955525" className="flex items-center space-x-2 group">
+              <a href="tel:+923356533350" className="flex items-center space-x-2 group">
                 <div className="relative">
                   <div className="w-6 h-6 rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 flex items-center justify-center border border-blue-500/30">
                     <svg className="w-3 h-3 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -113,7 +113,7 @@ const TopBar: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[11px] font-semibold text-white">+92 335 5955525</span>
+                  <span className="text-[11px] font-semibold text-white">+92 335 6533350</span>
                   <span className="text-[9px] text-blue-300 group-hover:text-cyan-300 transition-colors">
                     Tap to call
                   </span>
@@ -160,7 +160,7 @@ const TopBar: React.FC = () => {
                     )}
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-sm font-semibold text-white">+92 335 5955525</span>
+                    <span className="text-sm font-semibold text-white">+92 335 6533350</span>
                     <span className="text-xs text-blue-300 group-hover:text-cyan-300 transition-colors">
                       {copied ? "Copied!" : "Click to copy"}
                     </span>

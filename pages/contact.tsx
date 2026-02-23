@@ -32,8 +32,8 @@ const ContactPage: React.FC = () => {
 
     try {
       const response = await emailjs.send(
-        "service_o0qnwol", // 🔹 Replace with your actual EmailJS Service ID
-        "template_v3smnpj", // 🔹 Replace with your Template ID
+        "service_o0qnwol",
+        "template_v3smnpj",
         {
           name: formData.name,
           email: formData.email,
@@ -41,15 +41,21 @@ const ContactPage: React.FC = () => {
           message: formData.message,
           website_name: "Graphicodex",
         },
-        "7xAQieZr-XHXmgo6K" // 🔹 Replace with your EmailJS Public Key
+        "7xAQieZr-XHXmgo6K"
       );
 
       console.log("Email sent successfully:", response.status, response.text);
       setStatus("success");
       setFormData({ name: "", email: "", service: "", message: "" });
       setShowPopup(true);
-    } catch (error) {
+    } catch (error: any) {
       console.error("EmailJS Error:", error);
+      
+      // Show helpful error message based on the error type
+      if (error.text?.includes("Invalid grant") || error.text?.includes("Gmail")) {
+        alert("⚠️ Email service temporarily unavailable.\n\nPlease contact us directly via:\n📧 Email: muhammadharoon374052005@gmail.com\n📱 WhatsApp: +92 335 6533350");
+      }
+      
       setStatus("error");
     } finally {
       setLoading(false);
@@ -68,16 +74,16 @@ const ContactPage: React.FC = () => {
       icon: "📧",
       title: "Email Us",
       description: "Send us an email anytime",
-      value: "contact@graphicodex.com",
-      action: () => (window.location.href = "mailto:contact@graphicodex.com"),
+      value: "muhammadharoon374052005@gmail.com",
+      action: () => (window.location.href = "mailto:muhammadharoon374052005@gmail.com"),
       gradient: "from-blue-500 to-cyan-500",
     },
     {
       icon: "📱",
       title: "WhatsApp",
       description: "Chat with us directly",
-      value: "+92 335 5955526",
-      action: () => window.open("https://wa.me/923355955526", "_blank"),
+      value: "+92 335 6533350",
+      action: () => window.open("https://wa.me/923356533350", "_blank"),
       gradient: "from-green-500 to-emerald-500",
     },
     {
@@ -107,8 +113,6 @@ const ContactPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-900 text-white font-sans relative">
-      <Header />
-
       {/* ✅ Success Popup */}
       <AnimatePresence>
         {showPopup && (
@@ -330,9 +334,14 @@ const ContactPage: React.FC = () => {
               </motion.button>
 
               {status === "error" && (
-                <p className="text-red-400 text-center mt-2">
-                  ❌ Failed to send message. Please try again later.
-                </p>
+                <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 text-center">
+                  <p className="text-red-400 font-medium mb-2">
+                    ❌ Unable to send message via form
+                  </p>
+                  <p className="text-gray-300 text-sm">
+                    Please contact us directly via email or WhatsApp above
+                  </p>
+                </div>
               )}
             </form>
           </motion.div>

@@ -23,13 +23,13 @@ const Footer: React.FC = () => {
     Contact: [
       { 
         name: "muhammadharoon...@gmail.com", 
-        fullName: "muhammadharoon3740502005@gmail.com",
-        href: "mailto:muhammadharoon3740502005@gmail.com",
+        fullName: "muhammadharoon374052005@gmail.com",
+        href: "mailto:muhammadharoon374052005@gmail.com",
         type: "email"
       },
       { 
-        name: "+92 335 5955525", 
-        href: "tel:+923355955525",
+        name: "+92 335 6533350", 
+        href: "tel:+923356533350",
         type: "phone"
       },
     ],
@@ -274,34 +274,6 @@ const Footer: React.FC = () => {
               <span className="text-gray-400 hover:text-white text-sm transition-colors duration-300 cursor-pointer">
                 Cookie Policy
               </span>
-            </Link>
-          </div>
-        </motion.div>
-
-        {/* CTA Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-12 p-6 rounded-2xl bg-gradient-to-r from-slate-800 to-slate-900 border border-slate-700/50 shadow-xl"
-        >
-          <div className="flex flex-col lg:flex-row items-center justify-between space-y-6 lg:space-y-0">
-            <div>
-              <h3 className="text-white font-bold text-xl mb-2">
-                Ready to Transform Your Business with AI?
-              </h3>
-              <p className="text-gray-400">
-                Lets build something amazing together. Get in touch today!
-              </p>
-            </div>
-            <Link href="/contact">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 transition-all duration-300 border border-blue-500/30 whitespace-nowrap"
-              >
-                Start Your Project
-              </motion.button>
             </Link>
           </div>
         </motion.div>

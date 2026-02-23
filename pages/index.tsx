@@ -183,8 +183,6 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-900 text-white font-sans">
-      <Header />
-      
       {/* Premium Hero Section - Dark Theme */}
       <section className="relative min-h-[70vh] lg:min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 pt-24 pb-8 lg:pt-20 lg:pb-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
         {/* Hero Mouse Effect with Dots and Snake - Desktop Only */}
@@ -286,31 +284,31 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 {/* Continuous Moving Logos Section - Dark Theme */}
-<section className="py-8 lg:py-16 bg-slate-800/50 border-y border-slate-700 overflow-hidden">
+<section className="py-6 lg:py-12 bg-slate-800/50 border-y border-slate-700 overflow-hidden">
   <div className="max-w-7xl mx-auto">
     <motion.p
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="text-center text-gray-400 text-xs lg:text-sm uppercase tracking-widest mb-6 lg:mb-12 font-medium px-4"
+      className="text-center text-gray-400 text-xs lg:text-sm uppercase tracking-widest mb-4 lg:mb-8 font-medium px-4"
     >
       Powered by Industry-Leading Technologies
     </motion.p>
     
     {/* First Row - Left to Right */}
-    <div className="flex overflow-hidden mb-4 lg:mb-8">
+    <div className="flex overflow-hidden mb-2 lg:mb-4">
       <div className="flex animate-marquee whitespace-nowrap">
-        {[...aiLogosRow1, ...aiLogosRow1].map((logo, index) => (
-          <div key={index} className="mx-5 flex items-center justify-center group">
-            <div className="w-28 h-16 bg-white rounded-xl shadow-lg border border-white/30 flex items-center justify-center transition-all duration-500 hover:shadow-xl hover:shadow-blue-500/25 hover:border-blue-400 hover:scale-105 hover:bg-white/95">
+        {[...aiLogosRow1, ...aiLogosRow1, ...aiLogosRow1].map((logo, index) => (
+          <div key={index} className="mx-2 lg:mx-4 flex items-center justify-center group">
+            <div className="w-16 h-10 lg:w-24 lg:h-14 bg-white rounded-lg lg:rounded-xl shadow-lg border border-white/30 flex items-center justify-center transition-all duration-500 hover:shadow-xl hover:shadow-blue-500/25 hover:border-blue-400 hover:scale-105 hover:bg-white/95">
               {/* Professional Logo Container */}
-              <div className="relative w-20 h-10 flex items-center justify-center p-1">
+              <div className="relative w-12 h-6 lg:w-18 lg:h-9 flex items-center justify-center p-0.5 lg:p-1">
                 <Image 
                   src={logo.path} 
                   alt={logo.name}
-                  width={80}
-                  height={40}
-                  className="h-9 w-auto object-contain transition-all duration-500 group-hover:scale-110"
+                  width={60}
+                  height={30}
+                  className="h-5 lg:h-8 w-auto object-contain transition-all duration-500 group-hover:scale-110"
                   style={{ 
                     mixBlendMode: 'multiply',
                     filter: 'contrast(1.1) saturate(1.2)'
@@ -338,19 +336,19 @@ const HomePage: React.FC = () => {
     </div>
 
     {/* Second Row - Right to Left */}
-    <div className="flex overflow-hidden mb-8">
+    <div className="flex overflow-hidden mb-2 lg:mb-4">
       <div className="flex animate-marquee-reverse whitespace-nowrap">
-        {[...aiLogosRow2, ...aiLogosRow2].map((logo, index) => (
-          <div key={index} className="mx-5 flex items-center justify-center group">
-            <div className="w-28 h-16 bg-white rounded-xl shadow-lg border border-white/30 flex items-center justify-center transition-all duration-500 hover:shadow-xl hover:shadow-cyan-500/25 hover:border-cyan-400 hover:scale-105 hover:bg-white/95">
+        {[...aiLogosRow2, ...aiLogosRow2, ...aiLogosRow2].map((logo, index) => (
+          <div key={index} className="mx-2 lg:mx-4 flex items-center justify-center group">
+            <div className="w-16 h-10 lg:w-24 lg:h-14 bg-white rounded-lg lg:rounded-xl shadow-lg border border-white/30 flex items-center justify-center transition-all duration-500 hover:shadow-xl hover:shadow-cyan-500/25 hover:border-cyan-400 hover:scale-105 hover:bg-white/95">
               {/* Professional Logo Container */}
-              <div className="relative w-20 h-10 flex items-center justify-center p-1">
+              <div className="relative w-12 h-6 lg:w-18 lg:h-9 flex items-center justify-center p-0.5 lg:p-1">
                 <Image 
                   src={logo.path} 
                   alt={logo.name}
-                  width={80}
-                  height={40}
-                  className="h-9 w-auto object-contain transition-all duration-500 group-hover:scale-110"
+                  width={60}
+                  height={30}
+                  className="h-5 lg:h-8 w-auto object-contain transition-all duration-500 group-hover:scale-110"
                   style={{ 
                     mixBlendMode: 'multiply',
                     filter: 'contrast(1.1) saturate(1.2)'
@@ -380,17 +378,17 @@ const HomePage: React.FC = () => {
     {/* Third Row - Left to Right (Different Speed) */}
     <div className="flex overflow-hidden">
       <div className="flex animate-marquee-slow whitespace-nowrap">
-        {[...aiLogosRow3, ...aiLogosRow3].map((logo, index) => (
-          <div key={index} className="mx-5 flex items-center justify-center group">
-            <div className="w-28 h-16 bg-white rounded-xl shadow-lg border border-white/30 flex items-center justify-center transition-all duration-500 hover:shadow-xl hover:shadow-purple-500/25 hover:border-purple-400 hover:scale-105 hover:bg-white/95">
+        {[...aiLogosRow3, ...aiLogosRow3, ...aiLogosRow3].map((logo, index) => (
+          <div key={index} className="mx-2 lg:mx-4 flex items-center justify-center group">
+            <div className="w-16 h-10 lg:w-24 lg:h-14 bg-white rounded-lg lg:rounded-xl shadow-lg border border-white/30 flex items-center justify-center transition-all duration-500 hover:shadow-xl hover:shadow-purple-500/25 hover:border-purple-400 hover:scale-105 hover:bg-white/95">
               {/* Professional Logo Container */}
-              <div className="relative w-20 h-10 flex items-center justify-center p-1">
+              <div className="relative w-12 h-6 lg:w-18 lg:h-9 flex items-center justify-center p-0.5 lg:p-1">
                 <Image 
                   src={logo.path} 
                   alt={logo.name}
-                  width={80}
-                  height={40}
-                  className="h-9 w-auto object-contain transition-all duration-500 group-hover:scale-110"
+                  width={60}
+                  height={30}
+                  className="h-5 lg:h-8 w-auto object-contain transition-all duration-500 group-hover:scale-110"
                   style={{ 
                     mixBlendMode: 'multiply',
                     filter: 'contrast(1.1) saturate(1.2)'
@@ -639,24 +637,24 @@ const HomePage: React.FC = () => {
       <style jsx global>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          100% { transform: translateX(-33.333%); }
         }
         @keyframes marquee-reverse {
-          0% { transform: translateX(-50%); }
+          0% { transform: translateX(-33.333%); }
           100% { transform: translateX(0); }
         }
         @keyframes marquee-slow {
           0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          100% { transform: translateX(-33.333%); }
         }
         .animate-marquee {
-          animation: marquee 40s linear infinite;
+          animation: marquee 25s linear infinite;
         }
         .animate-marquee-reverse {
-          animation: marquee-reverse 35s linear infinite;
+          animation: marquee-reverse 22s linear infinite;
         }
         .animate-marquee-slow {
-          animation: marquee-slow 45s linear infinite;
+          animation: marquee-slow 28s linear infinite;
         }
       `}</style>
     </div>

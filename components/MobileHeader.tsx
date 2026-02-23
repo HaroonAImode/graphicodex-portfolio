@@ -64,12 +64,12 @@ const MobileHeader: React.FC = () => {
                 📅 Book Free Demo
               </motion.button>
             </Link>
-            <a href="tel:+923355955525">
+            <a href="tel:+923356533350">
               <motion.button
                 className="w-full px-4 py-3 bg-slate-800 text-white text-sm font-semibold rounded-lg border border-slate-700 active:scale-95 transition-transform"
                 style={{ touchAction: "manipulation" }}
               >
-                📞 Call: +92 335 5955525
+                📞 Call: +92 335 6533350
               </motion.button>
             </a>
             <div className="grid grid-cols-2 gap-2">
