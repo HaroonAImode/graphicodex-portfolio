@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ServiceCardFlip from "../components/ServiceCardFlip";
 import HeroMouseEffect from "../components/HeroMouseEffect";
+import RecentProjects from "../components/RecentProjects";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -419,6 +420,9 @@ const HomePage: React.FC = () => {
     </div>
   </div>
 </section>
+
+      {/* Recent Projects Showcase */}
+      <RecentProjects />
 
       {/* Services Section - Dark Theme with Flip Cards */}
       <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-900">
