@@ -1,11 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
 const RecentProjects: React.FC = () => {
+  const [isPaused, setIsPaused] = useState(false);
+  
   const projects = [
     {
       id: 1,
@@ -62,7 +64,7 @@ const RecentProjects: React.FC = () => {
       title: "AI Facial Analyzer",
       category: "Computer Vision",
       description: "Real-time facial recognition and emotion detection system",
-      image: "https://images.unsplash.com/photo-1617802690658-1173a812650d?w=600&h=400&fit=crop",
+      image: "/projects/ai-facial-analyzer.jpg",
       technologies: ["PyTorch", "OpenCV", "FastAPI"],
       gradient: "from-pink-500 to-rose-500",
       badge: "AI Model",
@@ -82,7 +84,7 @@ const RecentProjects: React.FC = () => {
       title: "Restaurant Staff Tracker",
       category: "Computer Vision",
       description: "AI-powered staff detection using existing camera feeds",
-      image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&h=400&fit=crop",
+      image: "/projects/restaurant-camera-ai.png",
       technologies: ["YOLO", "Computer Vision", "Edge AI"],
       gradient: "from-teal-500 to-cyan-500",
       badge: "AI Model",
@@ -94,36 +96,37 @@ const RecentProjects: React.FC = () => {
 
   return (
     <section className="py-12 lg:py-20 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 overflow-hidden border-y border-slate-700/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 lg:mb-12">
+      {/* Section Header - Fixed for better mobile visibility */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 lg:mb-12">
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <div className="inline-block px-4 py-2 bg-purple-500/10 rounded-full text-purple-400 text-sm font-medium mb-4 border border-purple-500/20">
+          <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-purple-500/10 rounded-full text-purple-400 text-xs sm:text-sm font-medium mb-3 sm:mb-4 border border-purple-500/20">
             🚀 Portfolio Showcase
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-2 sm:mb-4">
             Our Latest <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">Projects</span>
           </h2>
-          <p className="text-base lg:text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base lg:text-xl text-gray-400 max-w-3xl mx-auto">
             Real-world AI solutions delivering measurable results for our clients
           </p>
         </motion.div>
       </div>
 
       {/* Continuous Scrolling Projects */}
-      <div className="relative group/scroll">
-        {/* Gradient Overlays */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 lg:w-32 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-20 lg:w-32 bg-gradient-to-l from-slate-900 via-slate-900/80 to-transparent z-10 pointer-events-none"></div>
+      <div className="relative">
+        {/* Gradient Overlays - Hidden on mobile for better scroll visibility */}
+        <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-20 lg:w-32 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent z-10 pointer-events-none"></div>
+        <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-20 lg:w-32 bg-gradient-to-l from-slate-900 via-slate-900/80 to-transparent z-10 pointer-events-none"></div>
 
-        {/* Scrolling Container */}
-        <div className="flex overflow-hidden">
+        {/* Scrolling Container - Horizontal scroll on mobile, auto-scroll on desktop */}
+        <div className="overflow-x-auto lg:overflow-hidden scroll-smooth scrollbar-none">
           <motion.div
-            className="flex gap-4 lg:gap-6"
-            animate={{
+            className="flex gap-4 lg:gap-6 px-4 lg:px-0"
+            animate={isPaused ? {} : {
               x: [0, -3264], // 8 cards * (384px width + 24px gap)
             }}
             transition={{
@@ -134,16 +137,15 @@ const RecentProjects: React.FC = () => {
                 ease: "linear",
               },
             }}
-            whileHover={{
-              animationPlayState: "paused",
-            }}
           >
             {duplicatedProjects.map((project, index) => (
               <div
                 key={`${project.id}-${index}`}
-                className="flex-shrink-0 w-52 sm:w-72 md:w-80 lg:w-[22rem] group"
+                className="flex-shrink-0 w-52 sm:w-72 md:w-80 lg:w-[22rem]"
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
               >
-                <div className="relative bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-2 h-full">
+                <div className="relative bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-2 h-full group">
                   {/* Badge */}
                   <div className="absolute top-2 sm:top-3 right-2 sm:right-3 z-20">
                     <span className={`px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-semibold bg-gradient-to-r ${project.gradient} text-white shadow-lg`}>
@@ -197,6 +199,11 @@ const RecentProjects: React.FC = () => {
               </div>
             ))}
           </motion.div>
+        </div>
+        
+        {/* Mobile Scroll Hint */}
+        <div className="lg:hidden text-center mt-4">
+          <p className="text-xs text-gray-500">← Swipe to explore more projects →</p>
         </div>
       </div>
 

@@ -96,7 +96,7 @@ const PortfolioPage: React.FC = () => {
       name: "AI Facial Analyzer",
       description: "Real-time facial recognition and emotion detection system for security and customer experience applications.",
       fullDescription: "Real-time facial recognition and emotion detection AI system using computer vision. Detects faces, analyzes emotions, estimates age and gender, and can be integrated with existing security cameras or customer experience systems. Built with privacy compliance and edge deployment capabilities.",
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop&q=80",
+      image: "/projects/ai-facial-analyzer.jpg",
       category: "custom-models",
       technologies: ["PyTorch", "OpenCV", "FastAPI", "YOLO", "TensorRT", "Docker"],
       results: ["99% accuracy", "Real-time processing", "Edge deployment", "Privacy compliant"],
@@ -124,7 +124,7 @@ const PortfolioPage: React.FC = () => {
       name: "Restaurant Staff Tracking AI",
       description: "AI-powered staff detection and activity monitoring using existing camera infrastructure.",
       fullDescription: "AI-powered staff detection and activity monitoring system using existing camera feeds. Tracks employee movements, monitors work zones, detects safety violations, and provides analytics on staff efficiency. Helps restaurant managers optimize operations and ensure compliance with safety protocols.",
-      image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop&q=80",
+      image: "/projects/restaurant-camera-ai.png",
       category: "custom-models",
       technologies: ["YOLO v8", "Computer Vision", "Edge AI", "OpenCV", "FastAPI", "PostgreSQL"],
       results: ["Real-time tracking", "98% detection rate", "Zone monitoring", "Safety alerts"],
@@ -358,7 +358,7 @@ const PortfolioPage: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8">
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
@@ -369,34 +369,34 @@ const PortfolioPage: React.FC = () => {
                 className="group cursor-pointer"
                 onClick={() => setSelectedProject(project.id)}
               >
-                <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700 shadow-lg hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 overflow-hidden h-full">
+                <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl lg:rounded-2xl border border-slate-700 shadow-lg hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 overflow-hidden h-full">
                   {/* Project Image */}
-                  <div className="relative h-48 bg-gradient-to-br from-slate-700 to-slate-800 overflow-hidden">
+                  <div className="relative h-32 sm:h-40 lg:h-48 bg-gradient-to-br from-slate-700 to-slate-800 overflow-hidden">
                     <img 
                       src={project.image} 
                       alt={project.name}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                     />
                     <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-30 mix-blend-overlay`}></div>
-                    <div className="absolute top-4 right-4">
-                      <span className="px-3 py-1 bg-green-500/20 backdrop-blur-sm text-green-400 text-sm rounded-full border border-green-500/30">
+                    <div className="absolute top-2 sm:top-4 right-2 sm:right-4">
+                      <span className="px-2 sm:px-3 py-0.5 sm:py-1 bg-green-500/20 backdrop-blur-sm text-green-400 text-[10px] sm:text-sm rounded-full border border-green-500/30">
                         {project.status}
                       </span>
                     </div>
                   </div>
 
                   {/* Project Content */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors line-clamp-2">
+                  <div className="p-3 sm:p-4 lg:p-6">
+                    <h3 className="text-sm sm:text-lg lg:text-xl font-bold text-white mb-2 sm:mb-3 group-hover:text-blue-400 transition-colors line-clamp-2">
                       {project.name}
                     </h3>
                     
-                    <p className="text-gray-400 mb-4 leading-relaxed font-light line-clamp-3">
+                    <p className="text-xs sm:text-sm lg:text-base text-gray-400 mb-2 sm:mb-4 leading-relaxed font-light line-clamp-2 sm:line-clamp-3">
                       {project.description}
                     </p>
 
                     {/* Client & Duration */}
-                    <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                    <div className="hidden sm:flex items-center justify-between text-xs sm:text-sm text-gray-500 mb-2 sm:mb-4">
                       <span>{project.client}</span>
                       <span>{project.duration}</span>
                     </div>
