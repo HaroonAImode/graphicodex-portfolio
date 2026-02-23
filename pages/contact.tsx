@@ -121,10 +121,10 @@ const ContactPage: React.FC = () => {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -50, opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="fixed top-6 right-6 z-50 bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 backdrop-blur-sm"
+            className="fixed top-20 lg:top-24 right-4 sm:right-6 z-[70] bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-2xl shadow-2xl flex items-center gap-2 sm:gap-3 backdrop-blur-sm max-w-[90vw] sm:max-w-md"
           >
-            <span className="text-2xl">✨</span>
-            <p className="text-sm font-medium">
+            <span className="text-xl sm:text-2xl">✨</span>
+            <p className="text-xs sm:text-sm font-medium">
               Your message has been sent to{" "}
               <span className="font-semibold text-white">Graphicodex</span> team.
               We’ll contact you soon!

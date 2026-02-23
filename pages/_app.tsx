@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { Inter, Space_Grotesk } from "next/font/google";
 import TopBar from "@/components/TopBar";
 import Header from "@/components/Header";
+import MobileHeader from "@/components/MobileHeader";
 import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
 
@@ -25,13 +26,18 @@ const spaceGrotesk = Space_Grotesk({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className={`${inter.variable} ${spaceGrotesk.variable} font-sans min-h-screen bg-slate-900 text-white antialiased`}>
+      {/* Mobile Navigation - Hidden on desktop */}
+      <div className="lg:hidden">
+        <MobileHeader />
+      </div>
+      
       {/* Desktop Navigation - Hidden on mobile */}
       <div className="hidden lg:block">
         <TopBar />
         <Header />
       </div>
       
-      <main className="pt-0 pb-20 lg:pt-32 lg:pb-0 min-h-screen">
+      <main className="pt-14 pb-20 lg:pt-32 lg:pb-0 min-h-screen">
         <Component {...pageProps} />
       </main>
 
