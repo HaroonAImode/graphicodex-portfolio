@@ -22,7 +22,8 @@ const Footer: React.FC = () => {
     ],
     Contact: [
       { 
-        name: "muhammadharoon3740502005@gmail.com", 
+        name: "muhammadharoon...@gmail.com", 
+        fullName: "muhammadharoon3740502005@gmail.com",
         href: "mailto:muhammadharoon3740502005@gmail.com",
         type: "email"
       },
@@ -180,11 +181,11 @@ const Footer: React.FC = () => {
                   <motion.div
                     whileHover={{ x: 5 }}
                     className="group cursor-pointer"
-                    onClick={() => copyToClipboard(link.name.replace(/\s+/g, ''), link.type as 'email' | 'phone')}
+                    onClick={() => copyToClipboard((link as any).fullName || link.name.replace(/\s+/g, ''), link.type as 'email' | 'phone')}
                   >
                     <div className="flex items-center justify-between p-3 bg-slate-800/50 rounded-xl border border-slate-700 hover:border-blue-500/50 transition-all duration-300 group">
-                      <div className="flex items-center space-x-3">
-                        <div className="relative">
+                      <div className="flex items-center space-x-3 min-w-0 flex-1">
+                        <div className="relative flex-shrink-0">
                           <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
                             {link.type === 'email' ? (
                               <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -198,7 +199,7 @@ const Footer: React.FC = () => {
                           </div>
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-white truncate">
+                          <p className="text-sm font-medium text-white truncate overflow-hidden text-ellipsis">
                             {link.name}
                           </p>
                           <p className="text-xs text-gray-400">
@@ -211,10 +212,10 @@ const Footer: React.FC = () => {
                       <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
-                        className="ml-2 p-2 rounded-lg bg-slate-700/50 hover:bg-slate-600/50 transition-colors duration-300"
+                        className="ml-2 p-2 rounded-lg bg-slate-700/50 hover:bg-slate-600/50 transition-colors duration-300 flex-shrink-0"
                         onClick={(e) => {
                           e.stopPropagation();
-                          copyToClipboard(link.name.replace(/\s+/g, ''), link.type as 'email' | 'phone');
+                          copyToClipboard((link as any).fullName || link.name.replace(/\s+/g, ''), link.type as 'email' | 'phone');
                         }}
                         aria-label={`Copy ${link.type}`}
                       >

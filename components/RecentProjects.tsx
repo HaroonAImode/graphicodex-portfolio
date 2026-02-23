@@ -141,18 +141,18 @@ const RecentProjects: React.FC = () => {
             {duplicatedProjects.map((project, index) => (
               <div
                 key={`${project.id}-${index}`}
-                className="flex-shrink-0 w-72 sm:w-80 lg:w-[22rem] group"
+                className="flex-shrink-0 w-52 sm:w-72 md:w-80 lg:w-[22rem] group"
               >
                 <div className="relative bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-2 h-full">
                   {/* Badge */}
-                  <div className="absolute top-3 right-3 z-20">
-                    <span className={`px-2.5 py-1 rounded-full text-xs font-semibold bg-gradient-to-r ${project.gradient} text-white shadow-lg`}>
+                  <div className="absolute top-2 sm:top-3 right-2 sm:right-3 z-20">
+                    <span className={`px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-semibold bg-gradient-to-r ${project.gradient} text-white shadow-lg`}>
                       {project.badge}
                     </span>
                   </div>
 
                   {/* Project Image */}
-                  <div className="relative h-44 lg:h-48 overflow-hidden bg-slate-900">
+                  <div className="relative h-32 sm:h-40 lg:h-48 overflow-hidden bg-slate-900">
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -163,27 +163,27 @@ const RecentProjects: React.FC = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="p-5">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-xs font-semibold text-purple-400 uppercase tracking-wider">
+                  <div className="p-3 sm:p-4 lg:p-5">
+                    <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
+                      <span className="text-[10px] sm:text-xs font-semibold text-purple-400 uppercase tracking-wider">
                         {project.category}
                       </span>
                     </div>
 
-                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-purple-300 transition-colors line-clamp-1">
+                    <h3 className="text-base sm:text-lg font-bold text-white mb-1.5 sm:mb-2 group-hover:text-purple-300 transition-colors line-clamp-1">
                       {project.title}
                     </h3>
 
-                    <p className="text-sm text-gray-400 mb-4 line-clamp-2 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-gray-400 mb-3 sm:mb-4 line-clamp-2 leading-relaxed">
                       {project.description}
                     </p>
 
                     {/* Technologies */}
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
                       {project.technologies.slice(0, 3).map((tech, idx) => (
                         <span
                           key={idx}
-                          className="px-2 py-1 text-xs rounded-md bg-slate-700/50 text-gray-300 border border-slate-600"
+                          className="px-1.5 sm:px-2 py-0.5 sm:py-1 text-[10px] sm:text-xs rounded-md bg-slate-700/50 text-gray-300 border border-slate-600"
                         >
                           {tech}
                         </span>

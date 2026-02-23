@@ -521,4 +521,23 @@ whileHover={{ scale: 1.05 }}
   );
 };
 
+// Required for static site generation with output: "export"
+export async function getStaticPaths() {
+  // Generate paths for all service IDs
+  const paths = Object.keys(serviceProjects).map((id) => ({
+    params: { id },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps() {
+  return {
+    props: {},
+  };
+}
+
 export default ServiceDetailPage;
