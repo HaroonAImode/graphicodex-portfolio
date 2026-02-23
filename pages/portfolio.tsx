@@ -364,14 +364,14 @@ const PortfolioPage: React.FC = () => {
                 <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700 shadow-lg hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 overflow-hidden h-full">
                   {/* Project Image */}
                   <div className="relative h-48 bg-gradient-to-br from-slate-700 to-slate-800 overflow-hidden">
-                    <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-20`}></div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className={`w-16 h-16 bg-gradient-to-r ${project.gradient} rounded-2xl flex items-center justify-center text-2xl text-white shadow-lg`}>
-                        {project.name.split(' ').map(word => word[0]).join('').slice(0, 2)}
-                      </div>
-                    </div>
+                    <img 
+                      src={project.image} 
+                      alt={project.name}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-30 mix-blend-overlay`}></div>
                     <div className="absolute top-4 right-4">
-                      <span className="px-3 py-1 bg-green-500/20 text-green-400 text-sm rounded-full border border-green-500/30">
+                      <span className="px-3 py-1 bg-green-500/20 backdrop-blur-sm text-green-400 text-sm rounded-full border border-green-500/30">
                         {project.status}
                       </span>
                     </div>
@@ -497,6 +497,16 @@ const PortfolioPage: React.FC = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                       {/* Main Content */}
                       <div className="lg:col-span-2">
+                        {/* Project Image */}
+                        <div className="relative h-64 bg-gradient-to-br from-slate-700 to-slate-800 rounded-2xl overflow-hidden mb-6">
+                          <img 
+                            src={project.image} 
+                            alt={project.name}
+                            className="w-full h-full object-cover"
+                          />
+                          <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-20 mix-blend-overlay`}></div>
+                        </div>
+
                         <div className="bg-slate-700/50 rounded-2xl p-6 mb-6">
                           <h3 className="text-xl font-bold text-white mb-4">Project Overview</h3>
                           <p className="text-gray-300 leading-relaxed">
