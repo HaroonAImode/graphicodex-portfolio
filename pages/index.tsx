@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useMemo } from "react";
 import { motion } from "framer-motion";
@@ -45,204 +45,258 @@ const HomePage: React.FC = () => {
 
   const services = useMemo(() => [
     {
-      title: "AI Agents & Assistants",
-      subtitle: "Intelligent conversational agents with memory, context awareness, and multi-modal capabilities.",
-      description: "Build intelligent AI agents that understand context, remember conversations, and integrate seamlessly with your business processes.",
+      title: "AI Agents & Conversational Assistants",
+      subtitle: "Deploy 24/7 AI agents that handle customer queries, qualify leads, and book appointments automatically.",
+      description: "Custom AI agents trained on your business data to handle real conversations, answer questions, and take action — without human involvement.",
       icon: "🤖",
-      features: ["Custom chatbot development", "RAG implementation", "Voice interface integration", "Real-time knowledge base"],
-      href: "/ai-services",
-      gradient: "from-purple-500 to-blue-500",
+      features: ["Custom chatbot development", "RAG knowledge base", "WhatsApp & web integration", "Lead qualification"],
+      href: "/services/agents",
+      gradient: "from-orange-500 to-amber-500",
       examples: [
         {
-          title: "Customer Support Bot",
-          description: "24/7 automated customer support with 85% resolution rate",
+          title: "24/7 Customer Support Bot",
+          description: "AI agent reducing support workload by 65% for a SaaS company",
           image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=400&h=300&fit=crop"
         },
         {
-          title: "Virtual Sales Assistant",
-          description: "AI-powered sales agent handling lead qualification and follow-ups",
+          title: "Lead Qualification Agent",
+          description: "Automated lead scoring increasing conversions by 40%",
           image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=300&fit=crop"
         }
       ]
     },
     {
-      title: "Custom Model Development",
-      subtitle: "Tailored AI models fine-tuned on your specific data to solve unique business challenges.",
-      description: "Domain-specific AI models trained on your data for maximum accuracy and performance in your industry.",
-      icon: "⚡",
-      features: ["LLM fine-tuning", "Domain-specific training", "Performance optimization", "Model evaluation"],
-      href: "/ai-services",
-      gradient: "from-blue-500 to-cyan-500",
+      title: "AI Workflow Automation",
+      subtitle: "Eliminate repetitive manual tasks with intelligent automations that run 24/7 across your entire business.",
+      description: "We map your existing processes and build AI-powered workflows that complete tasks automatically — from lead follow-up to invoice processing.",
+      icon: "⚙️",
+      features: ["n8n/Make workflow builds", "CRM automation", "Email & SMS sequences", "Data processing pipelines"],
+      href: "/services/integrations",
+      gradient: "from-orange-500 to-amber-500",
       examples: [
         {
-          title: "Medical Diagnosis AI",
-          description: "Custom model achieving 94% accuracy in disease detection",
-          image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=300&fit=crop"
+          title: "PropertyPulse AI",
+          description: "Real estate bot matching clients to listings automatically",
+          image: "/projects/automation1-Propertypulse.jpeg"
         },
         {
-          title: "Financial Fraud Detector",
-          description: "Real-time transaction monitoring with 99% precision",
-          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop"
+          title: "LeadIntel Campaign Engine",
+          description: "AI scrapes leads & generates personalized outreach campaigns",
+          image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop"
         }
       ]
     },
     {
-      title: "AI Integrations & Automation",
-      subtitle: "Seamless integration of AI capabilities into your existing workflows.",
-      description: "Connect AI to your existing systems and automate complex business processes with intelligent workflows.",
-      icon: "🔗",
-      features: ["n8n/Make workflows", "Custom API development", "CRM/ERP integration", "Real-time data processing"],
-      href: "/ai-services",
-      gradient: "from-cyan-500 to-teal-500",
+      title: "Custom AI Model Development",
+      subtitle: "AI models trained specifically on your industry data to solve problems no off-the-shelf tool can handle.",
+      description: "Domain-specific models fine-tuned on your data for classification, detection, analysis, or prediction with maximum accuracy.",
+      icon: "⚡",
+      features: ["LLM fine-tuning", "Domain-specific training", "Computer vision models", "Performance optimization"],
+      href: "/services/models",
+      gradient: "from-orange-500 to-amber-500",
       examples: [
         {
-          title: "Smart CRM Automation",
-          description: "Automated lead scoring and email campaigns with 40% conversion boost",
-          image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop"
+          title: "Staff Activity Monitor",
+          description: "Computer vision AI tracking staff efficiency in real time",
+          image: "/projects/restaurant-camera-ai.png"
         },
         {
-          title: "Invoice Processing AI",
-          description: "Extract and process invoices 10x faster with 99.5% accuracy",
+          title: "Manufacturing QC AI",
+          description: "99.8% defect detection accuracy on production lines",
+          image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop"
+        }
+      ]
+    },
+    {
+      title: "AI Integrations",
+      subtitle: "Connect AI capabilities into your existing CRM, ERP, website, or business tools without disruption.",
+      description: "We integrate AI into your current stack — GoHighLevel, HubSpot, Salesforce, custom APIs — so your tools work smarter automatically.",
+      icon: "🔗",
+      features: ["CRM/ERP AI integration", "REST API development", "Real-time data sync", "Third-party connectors"],
+      href: "/services/integrations",
+      gradient: "from-orange-600 to-amber-500",
+      examples: [
+        {
+          title: "Smart Appointment Bot",
+          description: "AI booking system with zero double-bookings — +34 monthly appointments",
+          image: "/projects/automation2-appointment-booking.jpeg"
+        },
+        {
+          title: "RankGrid Local SEO Engine",
+          description: "Automated SEO reporting delivered to CRM in real time",
+          image: "/projects/automation4-Automated-Local-SEO-Report-Engine.jpeg"
+        }
+      ]
+    },
+    {
+      title: "Computer Vision Systems",
+      subtitle: "Give your business the ability to see and analyze visual data automatically and in real time.",
+      description: "AI systems that analyze video feeds, images, and documents — for quality control, safety monitoring, and intelligent data extraction.",
+      icon: "👁️",
+      features: ["Object detection & recognition", "Facial analysis systems", "OCR & document scanning", "Real-time monitoring"],
+      href: "/services/computer-vision",
+      gradient: "from-red-500 to-pink-500",
+      examples: [
+        {
+          title: "Restaurant Camera AI",
+          description: "Real-time staff tracking and safety zone monitoring",
+          image: "/projects/restaurant-camera-ai.png"
+        },
+        {
+          title: "Document Extraction AI",
+          description: "Intelligent OCR reducing manual data entry by 90%",
           image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=400&h=300&fit=crop"
         }
       ]
     },
     {
-      title: "Production & MLOps",
-      subtitle: "Enterprise-grade deployment, monitoring, and maintenance of AI systems.",
-      description: "Deploy and scale AI models with confidence using our enterprise MLOps infrastructure.",
-      icon: "🚀",
-      features: ["Cloud deployment", "Performance monitoring", "CI/CD pipelines", "Cost optimization"],
-      href: "/ai-services",
-      gradient: "from-teal-500 to-green-500",
+      title: "Predictive Analytics & Forecasting",
+      subtitle: "Turn your existing business data into accurate forecasts and actionable decisions automatically.",
+      description: "ML models that analyze historical data to predict demand, customer behavior, and business outcomes so you can act before problems arise.",
+      icon: "📈",
+      features: ["Sales & revenue forecasting", "Customer churn prediction", "Demand planning", "Anomaly detection"],
+      href: "/services/predictive-analytics",
+      gradient: "from-yellow-500 to-amber-500",
       examples: [
         {
-          title: "Auto-Scaling AI Infrastructure",
-          description: "Handle 10M+ requests/day with 99.9% uptime guarantee",
-          image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop"
+          title: "Sales Forecasting Model",
+          description: "32% more accurate revenue forecasts for SaaS company",
+          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop"
         },
         {
-          title: "Real-time Monitoring Dashboard",
-          description: "Track model performance and costs with live alerts",
-          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop"
+          title: "Churn Prediction System",
+          description: "Identifies at-risk customers 30 days before they leave",
+          image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop"
         }
       ]
     }
   ], []);
 
   const stats = useMemo(() => [
-    { number: "50+", label: "AI Projects Deployed", description: "Across multiple industries" },
-    { number: "40%", label: "Avg. Efficiency Gain", description: "For our enterprise clients" },
-    { number: "24/7", label: "Production Monitoring", description: "Enterprise-grade reliability" },
-    { number: "99.9%", label: "Uptime SLA", description: "Guaranteed performance" }
+    { number: "50+", label: "AI Systems Deployed", description: "Across multiple industries" },
+    { number: "40–70%", label: "Workload Reduction", description: "Achieved by our clients" },
+    { number: "24/7", label: "Automated Operations", description: "AI runs while you sleep" },
+    { number: "3–6", label: "Weeks to Deploy", description: "Fast, reliable delivery" }
   ], []);
 
   const caseStudies = useMemo(() => [
     {
-      title: "Enterprise Customer Support Automation",
-      company: "Fortune 500 Retail",
-      result: "65% cost reduction",
-      description: "AI agents handling 80% of customer queries automatically"
+      title: "Real Estate Lead Automation",
+      company: "Property Agency",
+      result: "3× faster lead follow-up",
+      description: "PropertyPulse AI bot automatically matches leads with listings and sends follow-ups via GoHighLevel — zero manual work required."
     },
     {
-      title: "Financial Document Processing",
-      company: "Global Banking Institution",
-      result: "4hrs → 8mins processing",
-      description: "Custom NLP models for automated financial analysis"
+      title: "Appointment Booking Automation",
+      company: "Healthcare Clinic",
+      result: "+34 monthly appointments",
+      description: "AI booking system integrated with website and WhatsApp — eliminated phone calls and double-bookings completely."
     },
     {
-      title: "E-commerce Personalization Engine",
-      company: "Leading E-commerce Platform",
-      result: "32% conversion lift",
-      description: "AI-driven recommendations and personalized experiences"
+      title: "Personalized Lead Campaign Engine",
+      company: "Marketing Agency",
+      result: "3× higher engagement",
+      description: "LeadIntel AI scrapes each prospect’s website and crafts personalized email campaigns — 90% open rate vs 22% industry average."
     }
   ], []);
 
   const processSteps = useMemo(() => [
     {
       step: "01",
-      title: "Discovery & Strategy",
-      description: "Deep dive into your business needs and AI opportunity assessment"
+      title: "Discovery & Audit",
+      description: "We map your existing workflows and identify tasks AI can automate for immediate impact."
     },
     {
       step: "02",
-      title: "Development & Testing",
-      description: "Build, test, and refine AI solutions with continuous feedback"
+      title: "Build & Integrate",
+      description: "We build the AI system and connect it directly to your existing tools and platforms."
     },
     {
       step: "03",
-      title: "Deployment & Scaling",
-      description: "Production deployment with monitoring and optimization"
+      title: "Deploy & Go Live",
+      description: "Your AI system is tested, refined, and deployed — live within 3–6 weeks."
     },
     {
       step: "04",
-      title: "Support & Evolution",
-      description: "Ongoing maintenance and continuous improvement"
+      title: "Monitor & Improve",
+      description: "We monitor performance and continuously improve your system as your business grows."
     }
   ], []);
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white font-sans">
-      {/* Premium Hero Section - Dark Theme */}
-      <section className="relative min-h-[70vh] lg:min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 pt-24 pb-8 lg:pt-20 lg:pb-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
-        {/* Hero Mouse Effect with Dots and Snake - Desktop Only */}
+    <div className="min-h-screen bg-zinc-950 text-white font-sans">
+      {/* Hero Section */}
+      <section className="relative min-h-[70vh] lg:min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 pt-24 pb-8 lg:pt-20 lg:pb-0 overflow-hidden" style={{ background: '#080808' }}>
+        {/* Cursor trail - Desktop Only */}
         <div className="hidden lg:block">
           <HeroMouseEffect />
         </div>
-        
-        {/* Optimized Background Elements - Static gradients instead of animated */}
+
+        {/* Background: subtle warm radial glow, not blinding orange */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl opacity-40" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl opacity-30" />
-          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl opacity-20" />
-          
-          {/* Grid Pattern */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
+          <div className="absolute inset-0" style={{
+            background: 'radial-gradient(ellipse 65% 55% at 50% 45%, rgba(145,32,0,0.5) 0%, rgba(70,16,0,0.22) 52%, transparent 80%)',
+          }} />
+          {/* Subtle vignette edges */}
+          <div className="absolute inset-0" style={{
+            background: 'radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(0,0,0,0.55) 100%)',
+          }} />
+          {/* Fine grid */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.018)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.018)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_50%,black,transparent)]" />
         </div>
 
-        <div className="relative z-10 text-center max-w-6xl mx-auto w-full">
-          {/* Premium Badge */}
+        <div className="relative z-10 text-center max-w-5xl mx-auto w-full">
+
+          {/* Eyebrow label */}
           <motion.div
-            initial={{ y: 20, opacity: 0 }}
+            initial={{ y: 16, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 lg:gap-3 px-4 lg:px-6 py-2 lg:py-3 rounded-full bg-white/10 backdrop-blur-sm border border-blue-500/20 shadow-lg mb-6 lg:mb-8"
+            transition={{ duration: 0.55 }}
+            className="flex items-center justify-center gap-3 mb-7 lg:mb-9"
           >
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-              <span className="text-xs lg:text-sm font-semibold text-blue-300">Enterprise AI Solutions</span>
-            </div>
-            <div className="hidden sm:block w-px h-4 bg-blue-400/30"></div>
-            <span className="hidden sm:inline text-xs lg:text-sm text-blue-200/80">Trusted by industry leaders</span>
+            <span className="block w-10 h-px" style={{ background: 'linear-gradient(to right, transparent, rgba(232,69,0,0.7))' }} />
+            <span className="text-[10px] lg:text-[11px] font-semibold tracking-[0.22em] uppercase" style={{ color: '#E84500' }}>
+              B2B AI Automation Agency
+            </span>
+            <span className="block w-10 h-px" style={{ background: 'linear-gradient(to left, transparent, rgba(232,69,0,0.7))' }} />
           </motion.div>
 
           {/* Main Heading */}
           <motion.h1
-            initial={{ y: 20, opacity: 0 }}
+            initial={{ y: 22, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 lg:mb-6 leading-tight px-4 sm:px-0"
+            transition={{ duration: 0.6, delay: 0.08 }}
+            className="font-black tracking-tight leading-[1.04] mb-4 lg:mb-5"
+            style={{
+              fontFamily: 'var(--font-space-grotesk), sans-serif',
+              fontSize: 'clamp(2.4rem, 6.5vw, 5rem)',
+            }}
           >
-            <span className="bg-gradient-to-r from-white via-blue-200 to-cyan-200 bg-clip-text text-transparent">
-              Intelligent
-            </span>
-            <br />
-            <span className="text-white">AI Solutions for</span>
-            <br />
-            <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-white bg-clip-text text-transparent">
-              Enterprise
-            </span>
+            <span className="block text-white">Custom AI Agents &</span>
+            <span className="block text-white">Automation Systems</span>
           </motion.h1>
+
+          {/* Stat accent line */}
+          <motion.p
+            initial={{ y: 12, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.16 }}
+            className="text-base sm:text-lg lg:text-xl font-normal mb-6 lg:mb-7"
+            style={{ color: 'rgba(255,255,255,0.52)', fontFamily: 'var(--font-space-grotesk), sans-serif' }}
+          >
+            that reduce your workload by{' '}
+            <strong className="font-black" style={{ color: '#E84500' }}>40–70%</strong>
+          </motion.p>
 
           {/* Subheading */}
           <motion.p
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-300 mb-6 lg:mb-8 max-w-4xl mx-auto leading-relaxed font-light px-4 sm:px-6"
+            transition={{ delay: 0.22 }}
+            className="text-sm sm:text-base lg:text-lg mb-8 lg:mb-10 max-w-2xl mx-auto leading-relaxed font-normal px-2"
+            style={{ color: 'rgba(255,255,255,0.45)' }}
           >
-            We architect, build, and scale production-ready AI systems that drive measurable business outcomes 
-            for forward-thinking organizations worldwide.
+            We design and deploy AI systems that automate operations, generate leads, and handle customer interactions — so your team can focus on growth.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -254,13 +308,14 @@ const HomePage: React.FC = () => {
           >
             <Link href="/portfolio#filters">
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl text-white font-semibold text-sm sm:text-base lg:text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/30 w-full sm:w-auto max-w-xs sm:max-w-none"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+                className="group relative px-7 sm:px-9 py-3.5 sm:py-4 rounded-xl text-white font-semibold text-sm sm:text-base transition-all duration-300 w-full sm:w-auto"
+                style={{ background: 'linear-gradient(135deg, #E84500 0%, #bf3800 100%)', boxShadow: '0 2px 20px rgba(232,69,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1)' }}
               >
-                <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
-                  See Our Portfolio
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  View Our Work
+                  <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </span>
@@ -268,13 +323,14 @@ const HomePage: React.FC = () => {
             </Link>
             <Link href="/contact">
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="group px-6 sm:px-8 py-3 sm:py-4 border-2 border-gray-600 rounded-xl font-semibold text-sm sm:text-base lg:text-lg transition-all duration-300 hover:border-blue-400 hover:bg-blue-500/10 w-full sm:w-auto max-w-xs sm:max-w-none"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+                className="group px-7 sm:px-9 py-3.5 sm:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 w-full sm:w-auto"
+                style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(8px)' }}
               >
-                <span className="flex items-center justify-center gap-2 sm:gap-3 text-gray-300 group-hover:text-blue-300">
-                  Contact Now
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span className="flex items-center justify-center gap-2">
+                  Start Your AI Project
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </span>
@@ -284,7 +340,7 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 {/* Continuous Moving Logos Section - Dark Theme */}
-<section className="py-6 lg:py-12 bg-slate-800/50 border-y border-slate-700 overflow-hidden">
+<section className="py-6 lg:py-12 bg-zinc-900/50 border-y border-zinc-800 overflow-hidden">
   <div className="max-w-7xl mx-auto">
     <motion.p
       initial={{ opacity: 0 }}
@@ -300,7 +356,7 @@ const HomePage: React.FC = () => {
       <div className="flex animate-marquee whitespace-nowrap">
         {[...aiLogosRow1, ...aiLogosRow1, ...aiLogosRow1].map((logo, index) => (
           <div key={index} className="mx-2 lg:mx-4 flex items-center justify-center group">
-            <div className="w-16 h-10 lg:w-24 lg:h-14 bg-white rounded-lg lg:rounded-xl shadow-lg border border-white/30 flex items-center justify-center transition-all duration-500 hover:shadow-xl hover:shadow-blue-500/25 hover:border-blue-400 hover:scale-105 hover:bg-white/95">
+            <div className="w-16 h-10 lg:w-24 lg:h-14 bg-white rounded-lg lg:rounded-xl shadow-lg border border-white/30 flex items-center justify-center transition-all duration-500 hover:shadow-xl hover:shadow-orange-500/25 hover:border-orange-400 hover:scale-105 hover:bg-white/95">
               {/* Professional Logo Container */}
               <div className="relative w-12 h-6 lg:w-18 lg:h-9 flex items-center justify-center p-0.5 lg:p-1">
                 <Image 
@@ -340,7 +396,7 @@ const HomePage: React.FC = () => {
       <div className="flex animate-marquee-reverse whitespace-nowrap">
         {[...aiLogosRow2, ...aiLogosRow2, ...aiLogosRow2].map((logo, index) => (
           <div key={index} className="mx-2 lg:mx-4 flex items-center justify-center group">
-            <div className="w-16 h-10 lg:w-24 lg:h-14 bg-white rounded-lg lg:rounded-xl shadow-lg border border-white/30 flex items-center justify-center transition-all duration-500 hover:shadow-xl hover:shadow-cyan-500/25 hover:border-cyan-400 hover:scale-105 hover:bg-white/95">
+            <div className="w-16 h-10 lg:w-24 lg:h-14 bg-white rounded-lg lg:rounded-xl shadow-lg border border-white/30 flex items-center justify-center transition-all duration-500 hover:shadow-xl hover:shadow-orange-500/25 hover:border-orange-400 hover:scale-105 hover:bg-white/95">
               {/* Professional Logo Container */}
               <div className="relative w-12 h-6 lg:w-18 lg:h-9 flex items-center justify-center p-0.5 lg:p-1">
                 <Image 
@@ -380,7 +436,7 @@ const HomePage: React.FC = () => {
       <div className="flex animate-marquee-slow whitespace-nowrap">
         {[...aiLogosRow3, ...aiLogosRow3, ...aiLogosRow3].map((logo, index) => (
           <div key={index} className="mx-2 lg:mx-4 flex items-center justify-center group">
-            <div className="w-16 h-10 lg:w-24 lg:h-14 bg-white rounded-lg lg:rounded-xl shadow-lg border border-white/30 flex items-center justify-center transition-all duration-500 hover:shadow-xl hover:shadow-purple-500/25 hover:border-purple-400 hover:scale-105 hover:bg-white/95">
+            <div className="w-16 h-10 lg:w-24 lg:h-14 bg-white rounded-lg lg:rounded-xl shadow-lg border border-white/30 flex items-center justify-center transition-all duration-500 hover:shadow-xl hover:shadow-orange-500/25 hover:border-orange-400 hover:scale-105 hover:bg-white/95">
               {/* Professional Logo Container */}
               <div className="relative w-12 h-6 lg:w-18 lg:h-9 flex items-center justify-center p-0.5 lg:p-1">
                 <Image 
@@ -421,7 +477,7 @@ const HomePage: React.FC = () => {
       <RecentProjects />
 
       {/* Services Section - Dark Theme with Flip Cards */}
-      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-900">
+      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-zinc-950">
        <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
@@ -429,18 +485,18 @@ const HomePage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-8 lg:mb-16"
           >
-            <div className="inline-block px-3 py-1.5 lg:px-4 lg:py-2 bg-blue-500/10 rounded-full text-blue-400 text-xs lg:text-sm font-medium mb-3 lg:mb-4 border border-blue-500/20">
-              Our Expertise
+            <div className="inline-block px-3 py-1.5 lg:px-4 lg:py-2 bg-orange-500/10 rounded-full text-orange-400 text-xs lg:text-sm font-medium mb-3 lg:mb-4 border border-orange-500/20">
+              What We Build
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-3 lg:mb-6">
-              Comprehensive <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">AI Services</span>
+              AI Services <span className="bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent">Focused on Results</span>
             </h2>
             <p className="text-sm lg:text-xl text-gray-400 max-w-3xl mx-auto font-light">
-              End-to-end AI development services designed to solve complex business challenges and drive innovation at scale.
+              We build AI agents, automations, and integrations that reduce your workload and generate results — not just technology for technology’s sake.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={index}
@@ -465,7 +521,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Stats Section - Dark Theme */}
-      <section className="py-8 lg:py-20 bg-slate-800/30">
+      <section className="py-8 lg:py-20 bg-zinc-900/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-8">
             {stats.map((stat, index) => (
@@ -477,8 +533,8 @@ const HomePage: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 className="text-center group"
               >
-                <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl lg:rounded-2xl p-4 lg:p-8 border border-slate-700 shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10">
-                  <div className="text-2xl lg:text-5xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2 lg:mb-3">
+                <div className="bg-zinc-900/50 backdrop-blur-sm rounded-xl lg:rounded-2xl p-4 lg:p-8 border border-zinc-800 shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/10">
+                  <div className="text-2xl lg:text-5xl font-bold bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent mb-2 lg:mb-3">
                     {stat.number}
                   </div>
                   <div className="text-xs lg:text-lg font-semibold text-white mb-1 lg:mb-2">
@@ -494,8 +550,54 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* Industries Section */}
+      <section className="py-12 lg:py-20 px-4 sm:px-6 lg:px-8 bg-zinc-950">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-8 lg:mb-12"
+          >
+            <div className="inline-block px-3 py-1.5 lg:px-4 lg:py-2 bg-orange-500/10 rounded-full text-orange-400 text-xs lg:text-sm font-medium mb-3 lg:mb-4 border border-orange-500/20">
+              Industry Focus
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 lg:mb-4">
+              Industries We <span className="bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent">Work With</span>
+            </h2>
+            <p className="text-sm lg:text-lg text-gray-400 max-w-2xl mx-auto font-light">
+              We build AI automation systems for businesses that want to stop doing things manually.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            {[
+              { icon: "🏠", name: "Real Estate", desc: "Lead follow-up & property matching" },
+              { icon: "🏥", name: "Healthcare Clinics", desc: "Appointment booking & reminders" },
+              { icon: "📣", name: "Marketing Agencies", desc: "Personalized campaigns at scale" },
+              { icon: "💻", name: "SaaS Startups", desc: "Onboarding & support automation" },
+              { icon: "🛒", name: "E-commerce", desc: "Recommendations & cart recovery" },
+              { icon: "🔧", name: "Service Businesses", desc: "Scheduling & follow-up automation" },
+            ].map((industry, index) => (
+              <motion.div
+                key={index}
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.07 }}
+                whileHover={{ scale: 1.05 }}
+                className="bg-zinc-900/50 backdrop-blur-sm rounded-xl lg:rounded-2xl p-4 border border-zinc-800 text-center transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/10 hover:border-orange-500/30"
+              >
+                <div className="text-3xl mb-2">{industry.icon}</div>
+                <div className="text-sm font-semibold text-white mb-1">{industry.name}</div>
+                <div className="text-xs text-gray-400 font-light leading-snug">{industry.desc}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Case Studies Section - Dark Theme */}
-      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-900">
+      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
@@ -522,7 +624,7 @@ const HomePage: React.FC = () => {
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
-                className="group bg-slate-800/50 backdrop-blur-sm rounded-xl lg:rounded-2xl p-4 lg:p-8 border border-slate-700 shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-green-500/10"
+                className="group bg-zinc-900/50 backdrop-blur-sm rounded-xl lg:rounded-2xl p-4 lg:p-8 border border-zinc-800 shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-green-500/10"
               >
                 <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl lg:rounded-2xl flex items-center justify-center text-white text-base lg:text-lg font-bold mb-3 lg:mb-6">
                   {index + 1}
@@ -542,7 +644,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Process Section - Dark Theme */}
-      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
+      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-zinc-900/40">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
@@ -551,7 +653,7 @@ const HomePage: React.FC = () => {
             className="text-center mb-8 lg:mb-16"
           >
             <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-3 lg:mb-6">
-              Our <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Process</span>
+              Our <span className="bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent">Process</span>
             </h2>
             <p className="text-sm lg:text-xl text-gray-400 max-w-2xl mx-auto font-light">
               A structured approach that ensures successful AI implementation from concept to production.
@@ -566,9 +668,9 @@ const HomePage: React.FC = () => {
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
-                className="relative text-center bg-slate-800/50 backdrop-blur-sm rounded-xl lg:rounded-2xl p-4 lg:p-8 border border-slate-700 shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10"
+                className="relative text-center bg-zinc-900/50 backdrop-blur-sm rounded-xl lg:rounded-2xl p-4 lg:p-8 border border-zinc-800 shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/10"
               >
-                <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl lg:rounded-2xl flex items-center justify-center text-white text-base lg:text-xl font-bold mb-3 lg:mb-6 mx-auto">
+                <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-r from-orange-500 to-amber-500 rounded-xl lg:rounded-2xl flex items-center justify-center text-white text-base lg:text-xl font-bold mb-3 lg:mb-6 mx-auto">
                   {step.step}
                 </div>
                 <h3 className="text-sm lg:text-xl font-bold text-white mb-2 lg:mb-4">
@@ -579,7 +681,7 @@ const HomePage: React.FC = () => {
                 </p>
                 {/* Connecting line for desktop */}
                 {index < processSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-blue-500/30 transform -translate-y-1/2"></div>
+                  <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-orange-500/30 transform -translate-y-1/2"></div>
                 )}
               </motion.div>
             ))}
@@ -588,7 +690,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Final CTA Section - Dark Theme */}
-      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-900">
+      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-zinc-950 via-orange-950 to-zinc-950">
         <div className="max-w-5xl mx-auto text-center">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
@@ -596,33 +698,33 @@ const HomePage: React.FC = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-4 lg:mb-6">
-              Ready to Transform Your Business with AI?
+              Ready to Automate Your Business Operations?
             </h2>
-            <p className="text-sm lg:text-xl text-blue-200 mb-6 lg:mb-8 max-w-2xl mx-auto leading-relaxed font-light">
-              Lets discuss your vision and build AI solutions that drive real competitive advantage.
+            <p className="text-sm lg:text-xl text-orange-200 mb-6 lg:mb-8 max-w-2xl mx-auto leading-relaxed font-light">
+              Let’s talk about which parts of your business can be automated — and how quickly we can get them running.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Link href="/contact" className="w-full sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group relative w-full sm:w-auto px-6 lg:px-8 py-3 lg:py-4 bg-white rounded-xl text-slate-900 font-semibold text-base lg:text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-white/20"
+                  className="group relative w-full sm:w-auto px-6 lg:px-8 py-3 lg:py-4 bg-white rounded-xl text-zinc-950 font-semibold text-base lg:text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-white/20"
                 >
                   <span className="relative z-10 flex items-center justify-center gap-2 lg:gap-3">
-                    Start Your Project
+                    Start Your AI Project
                     <svg className="w-4 h-4 lg:w-5 lg:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
                   </span>
                 </motion.button>
               </Link>
-              <Link href="/demos" className="w-full sm:w-auto">
+              <Link href="/contact" className="w-full sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="group w-full sm:w-auto px-6 lg:px-8 py-3 lg:py-4 border-2 border-white/30 rounded-xl font-semibold text-base lg:text-lg transition-all duration-300 hover:bg-white/10 hover:border-white/50">
                   <span className="flex items-center justify-center gap-2 lg:gap-3 text-white">
-                    Schedule Demo Call
+                    Book a Free Strategy Call
                     <svg className="w-4 h-4 lg:w-5 lg:h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>

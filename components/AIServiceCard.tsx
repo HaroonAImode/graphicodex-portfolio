@@ -45,9 +45,9 @@ function AIServiceCard({
         }}
         className={cn(
           "group relative flex flex-col gap-5 overflow-hidden rounded-2xl border p-6 cursor-pointer",
-          "bg-slate-800/50 backdrop-blur-sm border-slate-700",
+          "bg-zinc-900/50 backdrop-blur-sm border-zinc-800",
           "shadow-lg transition-all duration-300",
-          "hover:shadow-xl hover:border-slate-600 hover:-translate-y-1"
+          "hover:shadow-xl hover:border-zinc-700 hover:-translate-y-1"
         )}
         style={{
           willChange: dimmed ? "transform, opacity" : "auto",
@@ -127,13 +127,13 @@ function AIServiceCard({
             {technologies.slice(0, 4).map((tech, idx) => (
               <span
                 key={idx}
-                className="px-2 py-1 text-xs rounded-md bg-slate-700/50 text-gray-300 border border-slate-600"
+                className="px-2 py-1 text-xs rounded-md bg-zinc-800/50 text-gray-300 border border-zinc-700"
               >
                 {tech}
               </span>
             ))}
             {technologies.length > 4 && (
-              <span className="px-2 py-1 text-xs rounded-md bg-slate-700/50 text-gray-300 border border-slate-600">
+              <span className="px-2 py-1 text-xs rounded-md bg-zinc-800/50 text-gray-300 border border-zinc-700">
                 +{technologies.length - 4} more
               </span>
             )}

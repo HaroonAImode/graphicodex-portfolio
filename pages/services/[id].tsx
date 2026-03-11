@@ -13,7 +13,7 @@ const serviceProjects: Record<string, any> = {
     description: "Intelligent conversational agents with memory, context awareness, and multi-modal capabilities for enterprise applications.",
     icon: "🤖",
     color: "#a78bfa",
-    gradient: "from-purple-500 to-blue-500",
+    gradient: "from-orange-500 to-amber-500",
     projects: [
       {
         title: "Enterprise Customer Support Bot",
@@ -100,7 +100,7 @@ const serviceProjects: Record<string, any> = {
     description: "Tailored AI models fine-tuned on your specific data to solve unique business challenges with maximum accuracy.",
     icon: "⚡",
     color: "#38bdf8",
-    gradient: "from-blue-500 to-cyan-500",
+    gradient: "from-orange-500 to-amber-500",
     projects: [
       {
         title: "Medical Diagnosis AI System",
@@ -174,7 +174,7 @@ const serviceProjects: Record<string, any> = {
     description: "Seamless integration of AI capabilities into your existing workflows and automation of business processes.",
     icon: "🔗",
     color: "#34d399",
-    gradient: "from-cyan-500 to-teal-500",
+    gradient: "from-orange-500 to-amber-500",
     projects: [
       {
         title: "PropertyPulse AI",
@@ -248,7 +248,7 @@ const serviceProjects: Record<string, any> = {
     description: "Enterprise-grade deployment, monitoring, and maintenance of AI systems with guaranteed performance SLAs.",
     icon: "🚀",
     color: "#10b981",
-    gradient: "from-teal-500 to-green-500",
+    gradient: "from-orange-600 to-amber-500",
     projects: [
       {
         title: "Auto-Scaling AI Infrastructure",
@@ -327,10 +327,10 @@ const ServiceDetailPage: React.FC = () => {
 
   if (!serviceData) {
     return (
-      <div className="min-h-screen bg-slate-900 flex items-center justify-center">
+      <div className="min-h-screen bg-zinc-950 flex items-center justify-center">
         <div className="text-center">
           <p className="text-white text-xl">Service not found</p>
-          <Link href="/ai-services" className="text-blue-400 mt-4 inline-block">
+          <Link href="/ai-services" className="text-orange-400 mt-4 inline-block">
             Back to Services
           </Link>
         </div>
@@ -339,9 +339,9 @@ const ServiceDetailPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white">
+    <div className="min-h-screen bg-zinc-950 text-white">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950">
         <div className="max-w-7xl mx-auto">
           <Link href="/ai-services" className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -379,7 +379,7 @@ const ServiceDetailPage: React.FC = () => {
       </section>
 
       {/* Projects Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
@@ -402,7 +402,7 @@ const ServiceDetailPage: React.FC = () => {
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700 hover:border-slate-600 transition-all duration-300 hover:shadow-xl"
+                className="group bg-zinc-900/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-zinc-800 hover:border-zinc-700 transition-all duration-300 hover:shadow-xl"
                 style={{
                   boxShadow: `0 0 0 0 ${serviceData.color}00`,
                 }}
@@ -411,14 +411,14 @@ const ServiceDetailPage: React.FC = () => {
                 }}
               >
                 {/* Project Image */}
-                <div className="relative h-80 sm:h-96 w-full overflow-hidden bg-slate-900">
+                <div className="relative h-80 sm:h-96 w-full overflow-hidden bg-zinc-950">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
                     className="object-contain transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent pointer-events-none"></div>
                   
                   {/* Metrics Overlay */}
                   <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
@@ -465,11 +465,11 @@ const ServiceDetailPage: React.FC = () => {
                   </div>
 
                   {/* Technologies */}
-                  <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-700">
+                  <div className="flex flex-wrap gap-2 pt-4 border-t border-zinc-800">
                     {project.technologies.map((tech: string, idx: number) => (
                       <span
                         key={idx}
-                        className="px-3 py-1 text-xs rounded-full bg-slate-700/50 text-gray-300 border border-slate-600"
+                        className="px-3 py-1 text-xs rounded-full bg-zinc-900/50 text-gray-300 border border-zinc-700"
                       >
                         {tech}
                       </span>
@@ -483,7 +483,7 @@ const ServiceDetailPage: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-zinc-900/40">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ y: 20, opacity: 0 }}

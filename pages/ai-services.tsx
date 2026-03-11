@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -13,283 +13,146 @@ const AIServicesPage: React.FC = () => {
   const services = useMemo(() => [
     {
       id: "agents",
-      title: "AI Agents & Conversational AI",
-      description: "Intelligent conversational agents with memory, context awareness, and multi-modal capabilities for enterprise applications.",
+      title: "AI Agents & Conversational Assistants",
+      description: "Deploy 24/7 AI agents that qualify leads, answer customer queries, and book appointments — automatically, without human involvement.",
       icon: "🤖",
       features: [
         "Custom chatbot development & deployment",
         "Retrieval-Augmented Generation (RAG) systems",
-        "Multi-turn conversation management",
-        "Voice interface integration",
-        "Real-time knowledge base connectors",
-        "Context-aware memory systems",
-        "Emotional intelligence & sentiment analysis",
-        "Multi-language support"
+        "Multi-channel support (web, WhatsApp, SMS)",
+        "Lead qualification & automated follow-up",
+        "Appointment scheduling integration",
+        "Context-aware conversation memory",
+        "Multi-language support",
+        "CRM & helpdesk integration"
       ],
-      technologies: ["OpenAI GPT-4", "Anthropic Claude", "LangChain", "Vector Databases", "WebSocket APIs", "Speech Recognition", "Twilio", "Dialogflow"],
+      technologies: ["OpenAI GPT-4", "Anthropic Claude", "LangChain", "Pinecone", "WhatsApp API", "Twilio", "n8n", "GoHighLevel"],
       href: "/services/agents",
-      gradient: "from-purple-500 to-blue-500",
+      gradient: "from-orange-500 to-amber-500",
       color: "#a78bfa",
       category: "agents",
-      keywords: ["chatbot", "conversational", "assistant", "voice", "messaging", "support", "customer service", "virtual agent"]
+      keywords: ["chatbot", "conversational", "assistant", "voice", "messaging", "support", "customer service", "virtual agent", "lead", "appointment", "booking"]
+    },
+    {
+      id: "automation",
+      title: "AI Workflow Automation",
+      description: "Automate repetitive business operations end-to-end — from lead follow-up to data processing — so your team can focus on growth.",
+      icon: "⚙️",
+      features: [
+        "Business workflow mapping & automation",
+        "n8n & Make workflow development",
+        "CRM automation & lead nurturing",
+        "Email & SMS automation sequences",
+        "Data processing & reporting pipelines",
+        "Invoice & document automation",
+        "Multi-step task automation",
+        "Real-time webhook & trigger systems"
+      ],
+      technologies: ["n8n", "Make", "GoHighLevel", "Zapier", "Google Workspace", "Slack", "REST APIs", "Webhooks"],
+      href: "/services/automation",
+      gradient: "from-orange-500 to-amber-500",
+      color: "#34d399",
+      category: "automation",
+      keywords: ["automation", "workflow", "n8n", "make", "zapier", "crm", "email", "sms", "trigger", "webhook", "repetitive", "manual", "process"]
     },
     {
       id: "models",
-      title: "Custom Model Development & Fine-tuning",
-      description: "Tailored AI models fine-tuned on your specific data to solve unique business challenges with maximum accuracy.",
+      title: "Custom AI Model Development",
+      description: "AI models trained on your specific business data for classification, detection, and prediction — tasks no generic AI tool can solve.",
       icon: "⚡",
       features: [
-        "LLM fine-tuning & optimization",
-        "Domain-specific model training",
-        "Performance benchmarking & evaluation",
-        "Custom architecture design",
+        "LLM fine-tuning on domain-specific data",
+        "Image & document classification models",
+        "Sentiment & intent analysis",
+        "Custom scoring & ranking systems",
         "Data preprocessing pipelines",
-        "Model deployment & serving",
-        "Transfer learning implementation",
-        "Model compression & optimization"
+        "Model deployment & API serving",
+        "Performance benchmarking & evaluation",
+        "Model versioning & governance"
       ],
-      technologies: ["PyTorch", "TensorFlow", "Hugging Face", "Custom Datasets", "MLflow", "Weights & Biases", "Keras", "Transformers"],
+      technologies: ["PyTorch", "TensorFlow", "Hugging Face", "MLflow", "FastAPI", "Python", "ONNX", "Transformers"],
       href: "/services/models",
-      gradient: "from-blue-500 to-cyan-500",
+      gradient: "from-orange-500 to-amber-500",
       color: "#38bdf8",
       category: "models",
-      keywords: ["fine-tuning", "training", "machine learning", "neural networks", "custom model", "ai model", "transfer learning"]
+      keywords: ["fine-tuning", "training", "machine learning", "neural networks", "custom model", "ai model", "classification", "prediction", "domain specific"]
     },
     {
       id: "integrations",
-      title: "AI Integrations & Automation",
-      description: "Seamless integration of AI capabilities into your existing workflows and automation of business processes.",
+      title: "AI Integrations",
+      description: "Connect AI capabilities directly into your CRM, ERP, website, or existing business tools — without rebuilding anything from scratch.",
       icon: "🔗",
       features: [
-        "n8n/Make workflow automation",
+        "CRM & ERP AI integration",
         "Custom REST API development",
-        "CRM & ERP system integration",
-        "Real-time data processing pipelines",
-        "Webhook implementations",
+        "Real-time data sync pipelines",
         "Third-party service connectors",
         "Legacy system modernization",
-        "Real-time synchronization"
+        "Webhook implementations",
+        "Database integration & management",
+        "Multi-platform synchronization"
       ],
-      technologies: ["n8n", "Make", "Zapier", "FastAPI", "WebSocket", "GraphQL", "PostgreSQL", "Redis"],
+      technologies: ["FastAPI", "GraphQL", "PostgreSQL", "Redis", "Stripe", "HubSpot", "Salesforce", "GoHighLevel"],
       href: "/services/integrations",
-      gradient: "from-cyan-500 to-teal-500",
-      color: "#34d399",
-      category: "integrations",
-      keywords: ["automation", "workflow", "api", "integration", "connectors", "webhook", "n8n", "make", "zapier"]
-    },
-    {
-      id: "production",
-      title: "Production & MLOps",
-      description: "Enterprise-grade deployment, monitoring, and maintenance of AI systems with guaranteed performance SLAs.",
-      icon: "🚀",
-      features: [
-        "Cloud deployment & auto-scaling",
-        "Performance monitoring & alerting",
-        "CI/CD pipelines for ML",
-        "Cost optimization & resource management",
-        "Security & compliance frameworks",
-        "Disaster recovery planning",
-        "A/B testing infrastructure",
-        "Model versioning & governance"
-      ],
-      technologies: ["Docker", "Kubernetes", "AWS/GCP/Azure", "Prometheus", "Grafana", "Terraform", "Jenkins", "GitHub Actions"],
-      href: "/services/production",
-      gradient: "from-teal-500 to-green-500",
+      gradient: "from-orange-600 to-amber-500",
       color: "#10b981",
-      category: "production",
-      keywords: ["deployment", "mlops", "monitoring", "scaling", "infrastructure", "cloud", "devops", "kubernetes"]
-    },
-    {
-      id: "web-app-integration",
-      title: "AI Model Integration for Websites & Apps",
-      description: "Seamlessly integrate cutting-edge AI capabilities directly into your web and mobile applications.",
-      icon: "🌐",
-      features: [
-        "Real-time AI feature integration",
-        "API development & management",
-        "Frontend AI component development",
-        "Mobile app AI integration",
-        "Progressive Web App (PWA) AI features",
-        "Cross-platform compatibility",
-        "Performance optimization",
-        "User experience enhancement"
-      ],
-      technologies: ["React", "Next.js", "Vue.js", "Flutter", "React Native", "Node.js", "FastAPI", "WebRTC"],
-      href: "/services/web-app-integration",
-      gradient: "from-indigo-500 to-purple-500",
-      color: "#8b5cf6",
-      category: "integration",
-      keywords: ["website", "web app", "mobile app", "integration", "frontend", "react", "nextjs", "api", "real-time"]
-    },
-    {
-      id: "prompt-engineering",
-      title: "Prompt Engineering & Conversational UX",
-      description: "Expert prompt design and conversational user experience optimization for maximum AI performance.",
-      icon: "🎯",
-      features: [
-        "Advanced prompt engineering",
-        "Conversational flow design",
-        "A/B testing & optimization",
-        "Guardrail implementation",
-        "User intent classification",
-        "Response quality monitoring",
-        "Persona development",
-        "Tone & style customization"
-      ],
-      technologies: ["Prompt Libraries", "A/B Testing", "User Analytics", "Quality Metrics", "Feedback Systems", "Hotjar", "Mixpanel"],
-      href: "/services/prompt-engineering",
-      gradient: "from-green-500 to-emerald-500",
-      color: "#22c55e",
-      category: "prompt-engineering",
-      keywords: ["prompt", "conversational", "ux", "user experience", "optimization", "testing", "design", "persona"]
-    },
-    {
-      id: "data",
-      title: "Data Preparation & Labeling",
-      description: "Comprehensive data pipelines and preprocessing solutions to fuel your AI initiatives with quality data.",
-      icon: "📊",
-      features: [
-        "Data collection & web scraping",
-        "Data cleaning & preprocessing",
-        "Automated data labeling",
-        "Quality assurance pipelines",
-        "GDPR & compliance handling",
-        "Data versioning & management",
-        "Data augmentation",
-        "Synthetic data generation"
-      ],
-      technologies: ["Python", "Apache Spark", "Airflow", "SQL", "Data Lakes", "Label Studio", "Beautiful Soup", "Scrapy"],
-      href: "/services/data",
-      gradient: "from-emerald-500 to-blue-500",
-      color: "#06b6d4",
-      category: "data",
-      keywords: ["data", "labeling", "preprocessing", "cleaning", "collection", "pipeline", "etl", "scraping"]
+      category: "integrations",
+      keywords: ["integration", "api", "crm", "erp", "connector", "sync", "webhook", "database", "salesforce", "hubspot", "gohighlevel"]
     },
     {
       id: "computer-vision",
-      title: "Computer Vision & Image Processing",
-      description: "Advanced visual intelligence solutions for image recognition, object detection, and visual data analysis.",
+      title: "Computer Vision Systems",
+      description: "AI systems that analyze images, video feeds, and documents in real time — for monitoring, quality control, and intelligent data extraction.",
       icon: "👁️",
       features: [
         "Object detection & recognition",
-        "Image classification & segmentation",
-        "Facial recognition systems",
-        "Optical Character Recognition (OCR)",
-        "Video analysis & processing",
-        "Medical imaging analysis",
-        "Quality control automation",
-        "Augmented reality integration"
+        "Staff & activity monitoring",
+        "Quality control defect detection",
+        "Facial analysis & recognition",
+        "OCR & document data extraction",
+        "Video stream analysis",
+        "Edge AI deployment",
+        "Real-time alert systems"
       ],
-      technologies: ["OpenCV", "YOLO", "TensorFlow", "PyTorch", "CNN", "GAN", "Tesseract", "MediaPipe"],
+      technologies: ["YOLO v8", "OpenCV", "TensorRT", "MediaPipe", "Tesseract", "FastAPI", "Docker", "Edge AI"],
       href: "/services/computer-vision",
       gradient: "from-red-500 to-pink-500",
       color: "#f472b6",
       category: "vision",
-      keywords: ["computer vision", "image processing", "object detection", "facial recognition", "ocr", "video analysis"]
-    },
-    {
-      id: "nlp",
-      title: "Natural Language Processing (NLP)",
-      description: "Transform text data into actionable insights with advanced language understanding and generation capabilities.",
-      icon: "📝",
-      features: [
-        "Text classification & sentiment analysis",
-        "Named Entity Recognition (NER)",
-        "Text summarization & generation",
-        "Language translation services",
-        "Document analysis & processing",
-        "Speech-to-text & text-to-speech",
-        "Content moderation",
-        "Knowledge extraction"
-      ],
-      technologies: ["spaCy", "NLTK", "BERT", "GPT", "Transformers", "CoreNLP", "OpenNLP", "AllenNLP"],
-      href: "/services/nlp",
-      gradient: "from-orange-500 to-yellow-500",
-      color: "#fb923c",
-      category: "nlp",
-      keywords: ["nlp", "natural language", "text analysis", "sentiment", "translation", "summarization", "ner"]
+      keywords: ["computer vision", "image", "video", "detection", "ocr", "camera", "monitoring", "facial recognition", "quality control", "defect", "restaurant"]
     },
     {
       id: "predictive-analytics",
       title: "Predictive Analytics & Forecasting",
-      description: "Leverage historical data to predict future trends, behaviors, and outcomes with machine learning models.",
+      description: "Turn your historical business data into forecasts and early-warning signals — so you act on opportunities before they disappear.",
       icon: "📈",
       features: [
-        "Time series forecasting",
-        "Customer behavior prediction",
         "Sales & revenue forecasting",
+        "Customer churn prediction",
+        "Demand & inventory planning",
         "Risk assessment models",
-        "Demand prediction",
-        "Anomaly detection",
+        "Anomaly detection systems",
         "Market trend analysis",
-        "Predictive maintenance"
+        "Predictive lead scoring",
+        "Automated reporting dashboards"
       ],
-      technologies: ["Prophet", "ARIMA", "XGBoost", "LightGBM", "Scikit-learn", "Pandas", "NumPy", "Statsmodels"],
+      technologies: ["Prophet", "XGBoost", "LightGBM", "Scikit-learn", "Pandas", "NumPy", "PostgreSQL", "Plotly"],
       href: "/services/predictive-analytics",
       gradient: "from-yellow-500 to-amber-500",
       color: "#fbbf24",
       category: "analytics",
-      keywords: ["predictive", "forecasting", "analytics", "time series", "prediction", "trends", "risk assessment"]
-    },
-    {
-      id: "ai-consulting",
-      title: "AI Strategy & Consulting",
-      description: "Strategic guidance and roadmap development to help organizations successfully implement AI solutions.",
-      icon: "💡",
-      features: [
-        "AI opportunity assessment",
-        "Technology stack recommendation",
-        "ROI analysis & business case development",
-        "Implementation roadmap",
-        "Team training & capability building",
-        "Ethical AI guidelines",
-        "Vendor selection assistance",
-        "Proof of concept development"
-      ],
-      technologies: ["Strategy Frameworks", "Business Analysis", "ROI Modeling", "Training Programs", "Ethical Guidelines", "Vendor Evaluation"],
-      href: "/services/ai-consulting",
-      gradient: "from-gray-500 to-slate-500",
-      color: "#64748b",
-      category: "consulting",
-      keywords: ["consulting", "strategy", "roadmap", "business case", "training", "ethics", "implementation"]
-    },
-    {
-      id: "generative-ai",
-      title: "Generative AI Solutions",
-      description: "Create novel content, designs, and solutions using state-of-the-art generative AI models.",
-      icon: "🎨",
-      features: [
-        "Content generation (text, images, video)",
-        "Creative design assistance",
-        "Code generation & automation",
-        "Music & audio generation",
-        "3D model generation",
-        "Personalized content creation",
-        "Brand voice development",
-        "Multi-modal generation"
-      ],
-      technologies: ["DALL-E", "Midjourney", "Stable Diffusion", "GPT-4", "Claude", "RunwayML", "Synthesia", "Jukebox"],
-      href: "/services/generative-ai",
-      gradient: "from-pink-500 to-rose-500",
-      color: "#ec4899",
-      category: "generative",
-      keywords: ["generative ai", "content creation", "design", "code generation", "creative", "multi-modal"]
+      keywords: ["predictive", "forecasting", "analytics", "time series", "prediction", "trends", "churn", "demand", "revenue", "sales forecast"]
     }
   ], []);
 
   const categories = [
     { id: "all", name: "All Services", icon: "🌟", count: services.length },
     { id: "agents", name: "AI Agents", icon: "🤖", count: services.filter(s => s.category === "agents").length },
+    { id: "automation", name: "Automation", icon: "⚙️", count: services.filter(s => s.category === "automation").length },
     { id: "models", name: "Custom Models", icon: "⚡", count: services.filter(s => s.category === "models").length },
-    { id: "integration", name: "Integrations", icon: "🔗", count: services.filter(s => s.category === "integration").length },
-    { id: "production", name: "Production", icon: "🚀", count: services.filter(s => s.category === "production").length },
+    { id: "integrations", name: "Integrations", icon: "🔗", count: services.filter(s => s.category === "integrations").length },
     { id: "vision", name: "Computer Vision", icon: "👁️", count: services.filter(s => s.category === "vision").length },
-    { id: "nlp", name: "NLP", icon: "📝", count: services.filter(s => s.category === "nlp").length },
-    { id: "generative", name: "Generative AI", icon: "🎨", count: services.filter(s => s.category === "generative").length },
     { id: "analytics", name: "Analytics", icon: "📈", count: services.filter(s => s.category === "analytics").length },
-    { id: "data", name: "Data Services", icon: "📊", count: services.filter(s => s.category === "data").length },
-    { id: "prompt-engineering", name: "Prompt Engineering", icon: "🎯", count: services.filter(s => s.category === "prompt-engineering").length },
-    { id: "consulting", name: "Consulting", icon: "💡", count: services.filter(s => s.category === "consulting").length }
   ];
 
   // Commenting out unused processSteps variable
@@ -366,20 +229,20 @@ const AIServicesPage: React.FC = () => {
   }, [searchQuery, services]);
 
   const stats = [
-    { number: "100+", label: "AI Projects Deployed", description: "Across various industries" },
-    { number: "99.9%", label: "Client Satisfaction", description: "Based on client feedback" },
-    { number: "24/7", label: "AI Support", description: "Dedicated technical support" },
-    { number: "2-6", label: "Weeks Delivery", description: "Average project timeline" }
+    { number: "50+", label: "AI Systems Deployed", description: "Across various industries" },
+    { number: "40\u201370%", label: "Workload Reduction", description: "Achieved by our clients" },
+    { number: "24/7", label: "Automated Operations", description: "AI works while you sleep" },
+    { number: "3\u20136", label: "Weeks to Deliver", description: "From kickoff to go-live" }
   ];
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white font-sans">
+    <div className="min-h-screen bg-zinc-950 text-white font-sans">
       {/* Hero Section with Search */}
-      <section className="relative pt-24 pb-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
+      <section className="relative pt-24 pb-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-zinc-950 via-orange-950 to-zinc-950 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-400/8 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto text-center">
@@ -387,10 +250,10 @@ const AIServicesPage: React.FC = () => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 rounded-full mb-6 border border-blue-500/20"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500/10 rounded-full mb-6 border border-orange-500/20"
           >
-            <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium text-blue-300">Comprehensive AI Services</span>
+            <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
+            <span className="text-sm font-medium text-orange-300">AI Automation & Agent Development</span>
           </motion.div>
 
           <motion.h1
@@ -399,9 +262,9 @@ const AIServicesPage: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight"
           >
-            Find Your Perfect{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              AI Solution
+            AI Automation Services{" "}
+            <span className="bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent">
+              That Get Results
             </span>
           </motion.h1>
 
@@ -411,7 +274,7 @@ const AIServicesPage: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed font-light"
           >
-            Discover our comprehensive AI services portfolio - from AI agents and custom models to website integrations and generative AI solutions.
+            We build AI agents and automation systems that reduce workload by 40–70%, generate more leads, and help your business run on autopilot.
           </motion.p>
 
           {/* Search Bar */}
@@ -427,7 +290,7 @@ const AIServicesPage: React.FC = () => {
                 placeholder="Search AI services... (e.g., chatbot, computer vision, generative AI, website integration)"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-6 py-4 bg-slate-800/50 backdrop-blur-sm border border-slate-600 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg"
+                className="w-full px-6 py-4 bg-zinc-900/50 backdrop-blur-sm border border-zinc-700 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-lg"
               />
               <svg 
                 className="absolute right-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-400" 
@@ -446,7 +309,7 @@ const AIServicesPage: React.FC = () => {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="absolute left-0 right-0 mt-2 bg-slate-800/90 backdrop-blur-sm border border-slate-600 rounded-2xl shadow-2xl z-20 max-w-2xl mx-auto"
+                  className="absolute left-0 right-0 mt-2 bg-zinc-900/90 backdrop-blur-sm border border-zinc-700 rounded-2xl shadow-2xl z-20 max-w-2xl mx-auto"
                 >
                   <div className="p-4">
                     <p className="text-sm text-gray-400 mb-3">Quick matches:</p>
@@ -457,11 +320,11 @@ const AIServicesPage: React.FC = () => {
                           setSearchQuery(match.title);
                           setActiveCategory(match.category);
                         }}
-                        className="w-full text-left p-3 rounded-xl hover:bg-slate-700/50 transition-all duration-200 flex items-center gap-3 group"
+                        className="w-full text-left p-3 rounded-xl hover:bg-zinc-900/50 transition-all duration-200 flex items-center gap-3 group"
                       >
                         <span className="text-2xl">{match.icon}</span>
                         <div className="flex-1">
-                          <p className="text-white font-medium group-hover:text-blue-300 transition-colors">
+                          <p className="text-white font-medium group-hover:text-orange-300 transition-colors">
                             {match.title}
                           </p>
                           <p className="text-sm text-gray-400 truncate">
@@ -486,18 +349,18 @@ const AIServicesPage: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl text-white font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/30"
+                className="px-8 py-4 bg-gradient-to-r from-orange-500 to-amber-500 rounded-xl text-white font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/30"
               >
                 Get Custom Proposal
               </motion.button>
             </Link>
-            <Link href="/case-studies">
+              <Link href="/portfolio">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 border-2 border-gray-600 rounded-xl font-semibold text-lg transition-all duration-300 hover:border-blue-400 hover:bg-blue-500/10"
+                className="px-8 py-4 border-2 border-gray-600 rounded-xl font-semibold text-lg transition-all duration-300 hover:border-orange-400 hover:bg-orange-500/10"
               >
-                View Case Studies
+                View Portfolio
               </motion.button>
             </Link>
           </motion.div>
@@ -505,7 +368,7 @@ const AIServicesPage: React.FC = () => {
       </section>
 
       {/* Quick Stats Section */}
-      <section className="py-12 bg-slate-800/30 border-y border-slate-700">
+      <section className="py-12 bg-zinc-900/40 border-y border-zinc-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
@@ -516,7 +379,7 @@ const AIServicesPage: React.FC = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="text-2xl sm:text-3xl font-bold text-blue-400 mb-2">
+                <div className="text-2xl sm:text-3xl font-bold text-orange-400 mb-2">
                   {stat.number}
                 </div>
                 <div className="text-sm font-semibold text-white mb-1">
@@ -532,7 +395,7 @@ const AIServicesPage: React.FC = () => {
       </section>
 
       {/* Category Filters */}
-      <section className="py-8 bg-slate-900 border-b border-slate-700">
+      <section className="py-8 bg-zinc-950 border-b border-zinc-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-2 sm:gap-3 overflow-x-auto pb-2 lg:flex-wrap lg:justify-center scrollbar-none">
             {categories.map((category) => (
@@ -543,14 +406,14 @@ const AIServicesPage: React.FC = () => {
                 onClick={() => setActiveCategory(category.id)}
                 className={`flex-shrink-0 px-3 sm:px-6 py-2.5 sm:py-3 rounded-xl font-medium transition-all duration-300 flex items-center gap-1.5 sm:gap-2 text-xs sm:text-base ${
                   activeCategory === category.id
-                    ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/25"
-                    : "bg-slate-800/50 text-gray-300 hover:bg-slate-700/50 hover:text-white border border-slate-600"
+                    ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-lg shadow-orange-500/25"
+                    : "bg-zinc-900/50 text-gray-300 hover:bg-zinc-900/50 hover:text-white border border-zinc-700"
                 }`}
               >
                 <span className="text-lg">{category.icon}</span>
                 <span>{category.name}</span>
                 <span className={`px-2 py-1 rounded-full text-xs ${
-                  activeCategory === category.id ? "bg-white/20" : "bg-slate-600"
+                  activeCategory === category.id ? "bg-white/20" : "bg-zinc-700"
                 }`}>
                   {category.count}
                 </span>
@@ -561,7 +424,7 @@ const AIServicesPage: React.FC = () => {
       </section>
 
       {/* Services Grid with Search Results */}
-      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-900">
+      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           {/* Results Header */}
           <motion.div
@@ -573,11 +436,11 @@ const AIServicesPage: React.FC = () => {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
               {searchQuery ? (
                 <>
-                  Search Results for &quot;<span className="text-blue-400">{searchQuery}</span>&quot;
+                  Search Results for &quot;<span className="text-orange-400">{searchQuery}</span>&quot;
                 </>
               ) : (
                 <>
-                  Our <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">AI Service Portfolio</span>
+                  Our <span className="bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent">AI Service Portfolio</span>
                 </>
               )}
             </h2>
@@ -634,7 +497,7 @@ const AIServicesPage: React.FC = () => {
                     setSearchQuery("");
                     setActiveCategory("all");
                   }}
-                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-xl text-white font-medium transition-colors duration-300"
+                  className="px-6 py-3 bg-orange-600 hover:bg-orange-700 rounded-xl text-white font-medium transition-colors duration-300"
                 >
                   Show All Services
                 </button>
@@ -645,7 +508,7 @@ const AIServicesPage: React.FC = () => {
       </section>
 
       {/* Technologies Section */}
-      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-900">
+      <section className="py-12 lg:py-32 px-4 sm:px-6 lg:px-8 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
@@ -654,7 +517,7 @@ const AIServicesPage: React.FC = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-              Technology <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">Stack</span>
+              Technology <span className="bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">Stack</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto font-light">
               We work with industry-leading technologies to build robust, scalable AI solutions across all domains.
@@ -669,7 +532,7 @@ const AIServicesPage: React.FC = () => {
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ scale: 1.02 }}
-                className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700 shadow-lg transition-all duration-300"
+                className="bg-zinc-900/50 backdrop-blur-sm rounded-2xl p-8 border border-zinc-800 shadow-lg transition-all duration-300"
               >
                 <h3 className="text-xl font-bold text-white mb-6 text-center">
                   {category.category}
@@ -678,7 +541,7 @@ const AIServicesPage: React.FC = () => {
                   {category.items.map((item, idx) => (
                     <span 
                       key={idx}
-                      className="px-4 py-2 bg-slate-700/50 text-gray-300 text-sm rounded-xl border border-slate-600 transition-all duration-300 hover:bg-slate-600/50 hover:border-cyan-500/30"
+                      className="px-4 py-2 bg-zinc-900/50 text-gray-300 text-sm rounded-xl border border-zinc-700 transition-all duration-300 hover:bg-zinc-800/50 hover:border-orange-500/30"
                     >
                       {item}
                     </span>
@@ -691,7 +554,7 @@ const AIServicesPage: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-900">
+      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-zinc-950 via-orange-950 to-zinc-950">
         <div className="max-w-5xl mx-auto text-center">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
@@ -701,7 +564,7 @@ const AIServicesPage: React.FC = () => {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
               Ready to Start Your AI Project?
             </h2>
-            <p className="text-lg sm:text-xl text-blue-200 mb-8 max-w-2xl mx-auto leading-relaxed font-light">
+            <p className="text-lg sm:text-xl text-orange-200 mb-8 max-w-2xl mx-auto leading-relaxed font-light">
               Let&apos;s discuss your requirements and build an AI solution that drives real business value.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -709,7 +572,7 @@ const AIServicesPage: React.FC = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-white rounded-xl text-slate-900 font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-white/20"
+                  className="px-8 py-4 bg-white rounded-xl text-zinc-950 font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-white/20"
                 >
                   Get Started Today
                 </motion.button>

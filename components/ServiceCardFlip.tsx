@@ -60,11 +60,11 @@ function ServiceCardFlip({
             "absolute inset-0 h-full w-full",
             "[backface-visibility:hidden] [transform:rotateY(0deg)]",
             "overflow-hidden rounded-2xl",
-            "bg-slate-800/50 backdrop-blur-sm",
-            "border border-slate-700",
+            "bg-zinc-900/50 backdrop-blur-sm",
+            "border border-zinc-800",
             "shadow-lg",
             "transition-all duration-500",
-            "group-hover:shadow-xl group-hover:shadow-blue-500/10",
+            "group-hover:shadow-xl group-hover:shadow-orange-500/10",
             isFlipped ? "opacity-0" : "opacity-100"
           )}
         >
@@ -101,7 +101,7 @@ function ServiceCardFlip({
               </p>
               
               {/* Flip Indicator */}
-              <div className="flex items-center gap-2 text-blue-400 text-xs pt-2">
+              <div className="flex items-center gap-2 text-orange-400 text-xs pt-2">
                 <svg className="w-4 h-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                 </svg>
@@ -118,18 +118,18 @@ function ServiceCardFlip({
             "absolute inset-0 h-full w-full",
             "[backface-visibility:hidden] [transform:rotateY(180deg)]",
             "rounded-2xl p-6",
-            "bg-slate-800/95 backdrop-blur-sm",
-            "border border-slate-700",
+            "bg-zinc-900/95 backdrop-blur-sm",
+            "border border-zinc-800",
             "shadow-lg",
             "flex flex-col overflow-y-auto",
             "transition-all duration-700",
-            "group-hover:shadow-xl group-hover:shadow-blue-500/10",
+            "group-hover:shadow-xl group-hover:shadow-orange-500/10",
             isFlipped ? "opacity-100" : "opacity-0"
           )}
         >
           <div className="flex-1 space-y-4 overflow-y-auto">
             {/* Title */}
-            <div className="space-y-2 pb-3 border-b border-slate-700">
+            <div className="space-y-2 pb-3 border-b border-zinc-800">
               <h3 className="font-bold text-lg text-white leading-tight tracking-tight flex items-center gap-2">
                 <span className="text-2xl">{icon}</span>
                 {title}
@@ -141,7 +141,7 @@ function ServiceCardFlip({
 
             {/* Examples Section */}
             <div className="space-y-3">
-              <h4 className="text-sm font-semibold text-blue-400 flex items-center gap-2">
+              <h4 className="text-sm font-semibold text-orange-400 flex items-center gap-2">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
@@ -152,10 +152,10 @@ function ServiceCardFlip({
                 {examples.map((example, index) => (
                   <div
                     key={index}
-                    className="relative overflow-hidden rounded-lg bg-slate-900/50 border border-slate-700 hover:border-blue-500/50 transition-all duration-300"
+                    className="relative overflow-hidden rounded-lg bg-zinc-900/50 border border-zinc-800 hover:border-orange-500/50 transition-all duration-300"
                   >
                     {/* Image */}
-                    <div className="relative h-24 w-full bg-slate-800">
+                    <div className="relative h-24 w-full bg-zinc-900">
                       <Image
                         src={example.image}
                         alt={example.title}
@@ -164,7 +164,7 @@ function ServiceCardFlip({
                         className="object-cover opacity-70 hover:opacity-100 transition-opacity duration-300"
                         loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/50 to-transparent"></div>
                     </div>
                     
                     {/* Content */}
@@ -183,14 +183,14 @@ function ServiceCardFlip({
 
             {/* Key Features */}
             <div className="space-y-2 pt-2">
-              <h4 className="text-sm font-semibold text-blue-400">Key Features</h4>
+              <h4 className="text-sm font-semibold text-orange-400">Key Features</h4>
               <div className="space-y-1.5">
                 {features.slice(0, 3).map((feature) => (
                   <div
                     className="flex items-start gap-2 text-xs text-gray-300"
                     key={feature}
                   >
-                    <svg className="w-3 h-3 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3 h-3 text-orange-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                     <span className="leading-tight">{feature}</span>
@@ -201,7 +201,7 @@ function ServiceCardFlip({
           </div>
 
           {/* CTA Button */}
-          <div className="mt-4 pt-4 border-t border-slate-700">
+          <div className="mt-4 pt-4 border-t border-zinc-800">
             <Link href={href}>
               <div
                 className={cn(

@@ -60,12 +60,12 @@ const TopBar: React.FC = () => {
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="hidden lg:block fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 border-b border-blue-500/30 shadow-xl"
+      className="hidden lg:block fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 border-b border-orange-500/30 shadow-xl"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute -top-10 -left-10 w-40 h-40 bg-orange-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-amber-500/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative z-10">
@@ -73,31 +73,31 @@ const TopBar: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center justify-between py-2 sm:py-2.5 gap-2 sm:gap-3">
             {/* Left: Announcement with Typing Animation */}
             <div className="flex items-center justify-center sm:justify-start w-full sm:w-auto">
-              <div className="flex items-center space-x-2 px-2.5 py-1 sm:px-3 sm:py-1.5 bg-blue-500/10 rounded-full border border-blue-500/20">
-                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400 rounded-full animate-pulse"></div>
-                <span className="text-[10px] sm:text-xs font-medium text-blue-300">Limited Offer</span>
+              <div className="flex items-center space-x-2 px-2.5 py-1 sm:px-3 sm:py-1.5 bg-orange-500/10 rounded-full border border-orange-500/20">
+                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-orange-400 rounded-full animate-pulse"></div>
+                <span className="text-[10px] sm:text-xs font-medium text-orange-300">Limited Offer</span>
               </div>
 
               {/* Desktop: Typing Animation */}
               <div className="hidden sm:flex ml-3 text-sm text-white font-medium min-h-[24px] items-center">
-                <span className="text-blue-300 font-semibold mr-1">
+                <span className="text-orange-300 font-semibold mr-1">
                   {displayText}
                 </span>
                 {/* Blinking cursor */}
                 <motion.span
                   animate={{ opacity: [0, 1, 0] }}
                   transition={{ duration: 0.8, repeat: Infinity }}
-                  className="inline-block w-[2px] h-4 bg-blue-400 ml-[1px]"
+                  className="inline-block w-[2px] h-4 bg-orange-400 ml-[1px]"
                 />
               </div>
               
               {/* Mobile: Simplified message */}
               <div className="sm:hidden ml-2 text-[10px] sm:text-xs text-white font-medium text-center flex-1 min-h-[16px] flex items-center justify-center">
-                <span className="text-blue-300 font-semibold">Free Demo Available!</span>
+                <span className="text-orange-300 font-semibold">Free Demo Available!</span>
                 <motion.span
                   animate={{ opacity: [0, 1, 0] }}
                   transition={{ duration: 0.8, repeat: Infinity }}
-                  className="inline-block w-[1px] h-2.5 bg-blue-400 ml-[1px]"
+                  className="inline-block w-[1px] h-2.5 bg-orange-400 ml-[1px]"
                 />
               </div>
             </div>
@@ -106,22 +106,22 @@ const TopBar: React.FC = () => {
             <div className="sm:hidden flex items-center justify-center w-full py-1">
               <a href="tel:+923356533350" className="flex items-center space-x-2 group">
                 <div className="relative">
-                  <div className="w-6 h-6 rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 flex items-center justify-center border border-blue-500/30">
-                    <svg className="w-3 h-3 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-6 h-6 rounded-full bg-gradient-to-r from-orange-500/20 to-amber-500/20 flex items-center justify-center border border-orange-500/30">
+                    <svg className="w-3 h-3 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[11px] font-semibold text-white">+92 335 6533350</span>
-                  <span className="text-[9px] text-blue-300 group-hover:text-cyan-300 transition-colors">
+                  <span className="text-[9px] text-orange-300 group-hover:text-amber-300 transition-colors">
                     Tap to call
                   </span>
                 </div>
               </a>
               <button
                 onClick={copyPhoneNumber}
-                className="ml-2 p-1.5 rounded-lg bg-blue-500/20 hover:bg-blue-500/30 transition-colors"
+                className="ml-2 p-1.5 rounded-lg bg-orange-500/20 hover:bg-orange-500/30 transition-colors"
                 aria-label="Copy phone number"
               >
                 {copied ? (
@@ -129,7 +129,7 @@ const TopBar: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                   </svg>
                 ) : (
-                  <svg className="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-3.5 h-3.5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                   </svg>
                 )}
@@ -142,8 +142,8 @@ const TopBar: React.FC = () => {
               <div className="flex items-center space-x-2">
                 <div className="flex items-center space-x-2 group cursor-pointer" onClick={copyPhoneNumber}>
                   <div className="relative">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 flex items-center justify-center border border-blue-500/30">
-                      <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-orange-500/20 to-amber-500/20 flex items-center justify-center border border-orange-500/30">
+                      <svg className="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                       </svg>
                     </div>
@@ -161,13 +161,13 @@ const TopBar: React.FC = () => {
                   </div>
                   <div className="flex flex-col">
                     <span className="text-sm font-semibold text-white">+92 335 6533350</span>
-                    <span className="text-xs text-blue-300 group-hover:text-cyan-300 transition-colors">
+                    <span className="text-xs text-orange-300 group-hover:text-amber-300 transition-colors">
                       {copied ? "Copied!" : "Click to copy"}
                     </span>
                   </div>
                 </div>
 
-                <div className="h-6 w-px bg-blue-500/30"></div>
+                <div className="h-6 w-px bg-orange-500/30"></div>
               </div>
 
               {/* Book Now Button - Desktop */}
@@ -175,7 +175,7 @@ const TopBar: React.FC = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-sm font-semibold rounded-lg shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300 border border-blue-500/30 whitespace-nowrap"
+                  className="px-4 py-2 bg-gradient-to-r from-orange-600 to-amber-500 text-white text-sm font-semibold rounded-lg shadow-lg shadow-orange-500/20 hover:shadow-xl hover:shadow-orange-500/30 transition-all duration-300 border border-orange-500/30 whitespace-nowrap"
                 >
                   Book Free Demo
                 </motion.button>
@@ -188,7 +188,7 @@ const TopBar: React.FC = () => {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-[11px] font-semibold rounded-lg border border-blue-500/30 shadow-sm text-center"
+                  className="w-full px-4 py-2 bg-gradient-to-r from-orange-600 to-amber-500 text-white text-[11px] font-semibold rounded-lg border border-orange-500/30 shadow-sm text-center"
                 >
                   📅 Book Free Demo
                 </motion.button>
@@ -199,7 +199,7 @@ const TopBar: React.FC = () => {
       </div>
 
       {/* Animated Progress Bar - Mobile optimized */}
-      <div className="h-0.5 w-full bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500"></div>
+      <div className="h-0.5 w-full bg-gradient-to-r from-orange-500 via-amber-500 to-orange-500"></div>
     </motion.div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+﻿import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -48,9 +48,8 @@ const Header: React.FC = () => {
     { name: "Home", href: "/" },
     { name: "AI Services", href: "/ai-services" },
     { name: "Portfolio", href: "/portfolio" },
-    { name: "Team", href: "/team" },
-    { name: "Other Services", href: "/other-services" },
     { name: "About", href: "/about" },
+    { name: "Team", href: "/team" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -78,8 +77,8 @@ const Header: React.FC = () => {
           }}
           className={`fixed top-0 lg:top-[60px] left-0 right-0 z-50 transition-all duration-200 ${
             isScrolled
-              ? "bg-slate-900/95 backdrop-blur-xl shadow-2xl shadow-blue-500/20 border-b border-slate-700/50"
-              : "bg-slate-900 border-b border-slate-700/30"
+              ? "bg-zinc-950/95 backdrop-blur-xl shadow-2xl shadow-orange-500/20 border-b border-zinc-800/50"
+              : "bg-zinc-950 border-b border-zinc-800/30"
           }`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -103,7 +102,7 @@ const Header: React.FC = () => {
                             sizes="(max-width: 640px) 144px, (max-width: 1024px) 192px, 224px"
                             priority
                           />
-                          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl blur-sm group-hover:blur-md transition-all duration-300 opacity-0 group-hover:opacity-70"></div>
+                          <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-amber-500/20 rounded-xl blur-sm group-hover:blur-md transition-all duration-300 opacity-0 group-hover:opacity-70"></div>
                         </div>
                       </div>
                     </div>
@@ -132,14 +131,14 @@ const Header: React.FC = () => {
                           
                           {/* Hover Effect */}
                           <motion.div
-                            className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-lg border border-blue-500/30 opacity-0 group-hover:opacity-100"
+                            className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-amber-500/20 rounded-lg border border-orange-500/30 opacity-0 group-hover:opacity-100"
                             initial={false}
                             transition={{ duration: 0.3 }}
                           />
                           
                           {/* Active Indicator */}
                           <motion.div
-                            className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full group-hover:w-4/5 group-hover:left-1/10 transition-all duration-300"
+                            className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-orange-400 to-amber-300 rounded-full group-hover:w-4/5 group-hover:left-1/10 transition-all duration-300"
                             whileHover={{ width: "80%", left: "10%" }}
                           />
                         </motion.div>
@@ -160,7 +159,7 @@ const Header: React.FC = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold text-sm rounded-xl shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 transition-all duration-300 border border-blue-500/30"
+                    className="px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold text-sm rounded-xl shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 transition-all duration-300 border border-orange-500/30"
                   >
                     Get Started
                   </motion.button>
@@ -171,7 +170,7 @@ const Header: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className="lg:hidden relative w-10 h-10 flex flex-col items-center justify-center bg-slate-800 rounded-xl border border-slate-700 shadow-lg hover:border-blue-500/50 transition-all duration-300"
+                className="lg:hidden relative w-10 h-10 flex flex-col items-center justify-center bg-zinc-900 rounded-xl border border-zinc-800 shadow-lg hover:border-orange-500/50 transition-all duration-300"
                 onClick={toggleMenu}
               >
                 <motion.span
@@ -198,7 +197,7 @@ const Header: React.FC = () => {
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.3 }}
-                className="lg:hidden bg-slate-900 border-t border-slate-700/50 shadow-2xl"
+                className="lg:hidden bg-zinc-950 border-t border-zinc-800/50 shadow-2xl"
               >
                 <div className="px-4 py-6 space-y-2">
                   {navItems.map((item, index) => (
@@ -213,10 +212,10 @@ const Header: React.FC = () => {
                           whileHover={{ x: 10 }}
                           whileTap={{ scale: 0.95 }}
                           onClick={() => setIsOpen(false)}
-                          className="group px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 hover:border-blue-500/50 transition-all duration-300 mb-2"
+                          className="group px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-orange-500/50 transition-all duration-300 mb-2"
                         >
                           <div className="flex items-center space-x-3">
-                            <div className="w-2 h-2 bg-blue-500 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                            <div className="w-2 h-2 bg-orange-500 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
                             <span className="text-gray-300 group-hover:text-white font-medium group-hover:translate-x-2 transition-all duration-300">
                               {item.name}
                             </span>
@@ -238,7 +237,7 @@ const Header: React.FC = () => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={() => setIsOpen(false)}
-                        className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/30 border border-blue-500/30 text-center"
+                        className="w-full px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold rounded-xl shadow-lg shadow-orange-500/30 border border-orange-500/30 text-center"
                       >
                         Start Your Project
                       </motion.button>
@@ -250,10 +249,10 @@ const Header: React.FC = () => {
           </AnimatePresence>
 
           {/* Subtle Background Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900 to-slate-900 -z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950 to-zinc-950 -z-10"></div>
           
           {/* Accent Glow */}
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent"></div>
         </motion.header>
       )}
     </AnimatePresence>

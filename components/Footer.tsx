@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-slate-900 border-t border-slate-700/50 pt-12 pb-8 relative">
+    <footer className="bg-zinc-950 border-t border-zinc-800/50 pt-12 pb-8 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo and Description - Updated with larger logo */}
@@ -80,7 +80,7 @@ const Footer: React.FC = () => {
                     sizes="(max-width: 640px) 160px, (max-width: 1024px) 208px, 256px"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl blur-sm group-hover:blur-md transition-all duration-300 opacity-0 group-hover:opacity-70"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-amber-500/20 rounded-xl blur-sm group-hover:blur-md transition-all duration-300 opacity-0 group-hover:opacity-70"></div>
                 </div>
               </div>
             </Link>
@@ -98,7 +98,7 @@ const Footer: React.FC = () => {
                   href={social.href}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-10 h-10 flex items-center justify-center bg-slate-800 rounded-lg border border-slate-700 hover:border-blue-500/50 hover:bg-slate-700/50 transition-all duration-300"
+                  className="w-10 h-10 flex items-center justify-center bg-zinc-900 rounded-lg border border-zinc-800 hover:border-orange-500/50 hover:bg-zinc-900/50 transition-all duration-300"
                   aria-label={social.name}
                 >
                   <span className="text-lg">{social.icon}</span>
@@ -114,7 +114,7 @@ const Footer: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="space-y-4"
           >
-            <h3 className="text-white font-semibold text-lg bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            <h3 className="text-white font-semibold text-lg bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent">
               Services
             </h3>
             <ul className="space-y-3">
@@ -125,7 +125,7 @@ const Footer: React.FC = () => {
                       whileHover={{ x: 5 }}
                       className="flex items-center space-x-2 group cursor-pointer"
                     >
-                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                      <div className="w-1.5 h-1.5 bg-orange-500 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
                       <span className="text-gray-400 hover:text-white transition-colors duration-300 text-sm">
                         {link.name}
                       </span>
@@ -143,7 +143,7 @@ const Footer: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-4"
           >
-            <h3 className="text-white font-semibold text-lg bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            <h3 className="text-white font-semibold text-lg bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent">
               Company
             </h3>
             <ul className="space-y-3">
@@ -154,7 +154,7 @@ const Footer: React.FC = () => {
                       whileHover={{ x: 5 }}
                       className="flex items-center space-x-2 group cursor-pointer"
                     >
-                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                      <div className="w-1.5 h-1.5 bg-orange-500 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
                       <span className="text-gray-400 hover:text-white transition-colors duration-300 text-sm">
                         {link.name}
                       </span>
@@ -172,7 +172,7 @@ const Footer: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="space-y-4"
           >
-            <h3 className="text-white font-semibold text-lg bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            <h3 className="text-white font-semibold text-lg bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent">
               Contact
             </h3>
             <ul className="space-y-4">
@@ -183,16 +183,16 @@ const Footer: React.FC = () => {
                     className="group cursor-pointer"
                     onClick={() => copyToClipboard((link as any).fullName || link.name.replace(/\s+/g, ''), link.type as 'email' | 'phone')}
                   >
-                    <div className="flex items-center justify-between p-3 bg-slate-800/50 rounded-xl border border-slate-700 hover:border-blue-500/50 transition-all duration-300 group">
+                    <div className="flex items-center justify-between p-3 bg-zinc-900/50 rounded-xl border border-zinc-800 hover:border-orange-500/50 transition-all duration-300 group">
                       <div className="flex items-center space-x-3 min-w-0 flex-1">
                         <div className="relative flex-shrink-0">
-                          <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
+                          <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-orange-500/20 to-amber-500/20 flex items-center justify-center">
                             {link.type === 'email' ? (
-                              <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <svg className="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                               </svg>
                             ) : (
-                              <svg className="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                               </svg>
                             )}
@@ -212,7 +212,7 @@ const Footer: React.FC = () => {
                       <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
-                        className="ml-2 p-2 rounded-lg bg-slate-700/50 hover:bg-slate-600/50 transition-colors duration-300 flex-shrink-0"
+                        className="ml-2 p-2 rounded-lg bg-zinc-900/50 hover:bg-zinc-800/50 transition-colors duration-300 flex-shrink-0"
                         onClick={(e) => {
                           e.stopPropagation();
                           copyToClipboard((link as any).fullName || link.name.replace(/\s+/g, ''), link.type as 'email' | 'phone');
@@ -247,7 +247,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Divider */}
-        <div className="my-8 h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent"></div>
+        <div className="my-8 h-px bg-gradient-to-r from-transparent via-zinc-700 to-transparent"></div>
 
         {/* Copyright */}
         <motion.div
@@ -280,8 +280,8 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Background Glow Effects */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"></div>
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-500/30 to-transparent"></div>
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-500/20 to-transparent"></div>
     </footer>
   );
 };

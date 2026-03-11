@@ -25,7 +25,7 @@ const spaceGrotesk = Space_Grotesk({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${inter.variable} ${spaceGrotesk.variable} font-sans min-h-screen bg-slate-900 text-white antialiased`}>
+    <div className={`${inter.variable} ${spaceGrotesk.variable} font-sans min-h-screen bg-zinc-950 text-white antialiased`}>
       {/* Mobile Navigation - Hidden on desktop */}
       <div className="lg:hidden">
         <MobileHeader />

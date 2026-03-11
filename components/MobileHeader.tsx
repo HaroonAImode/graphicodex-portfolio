@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -12,7 +12,7 @@ const MobileHeader: React.FC = () => {
     <motion.header
       initial={{ y: -50 }}
       animate={{ y: 0 }}
-      className="fixed top-0 left-0 right-0 z-50 lg:hidden bg-slate-900/95 backdrop-blur-xl border-b border-slate-700/50 shadow-xl"
+      className="fixed top-0 left-0 right-0 z-50 lg:hidden bg-zinc-950/95 backdrop-blur-xl border-b border-zinc-800/50 shadow-xl"
     >
       <div className="flex items-center justify-between px-4 py-2.5">
         {/* Logo */}
@@ -33,7 +33,7 @@ const MobileHeader: React.FC = () => {
         {/* Menu Button */}
         <button
           onClick={() => setShowMenu(!showMenu)}
-          className="p-2 rounded-lg bg-slate-800/50 border border-slate-700 hover:bg-slate-700/50 transition-colors"
+          className="p-2 rounded-lg bg-zinc-900/50 border border-zinc-800 hover:bg-zinc-900/50 transition-colors"
         >
           <svg className="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {showMenu ? (
@@ -52,12 +52,12 @@ const MobileHeader: React.FC = () => {
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.2 }}
-          className="border-t border-slate-700/50 bg-slate-900/98 backdrop-blur-xl"
+          className="border-t border-zinc-800/50 bg-zinc-950/98 backdrop-blur-xl"
         >
           <div className="px-4 py-3 space-y-2 max-h-[calc(100vh-60px)] overflow-y-auto">
             <Link href="/contact">
               <motion.button
-                className="w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-sm font-semibold rounded-lg shadow-lg active:scale-95 transition-transform"
+                className="w-full px-4 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white text-sm font-semibold rounded-lg shadow-lg active:scale-95 transition-transform"
                 onClick={() => setShowMenu(false)}
                 style={{ touchAction: "manipulation" }}
               >
@@ -66,7 +66,7 @@ const MobileHeader: React.FC = () => {
             </Link>
             <a href="tel:+923356533350">
               <motion.button
-                className="w-full px-4 py-3 bg-slate-800 text-white text-sm font-semibold rounded-lg border border-slate-700 active:scale-95 transition-transform"
+                className="w-full px-4 py-3 bg-zinc-900 text-white text-sm font-semibold rounded-lg border border-zinc-800 active:scale-95 transition-transform"
                 style={{ touchAction: "manipulation" }}
               >
                 📞 Call: +92 335 6533350
@@ -75,7 +75,7 @@ const MobileHeader: React.FC = () => {
             <div className="grid grid-cols-2 gap-2">
               <Link href="/team">
                 <motion.button
-                  className="w-full px-3 py-2.5 bg-slate-800 text-white text-xs font-semibold rounded-lg border border-slate-700 active:scale-95 transition-transform"
+                  className="w-full px-3 py-2.5 bg-zinc-900 text-white text-xs font-semibold rounded-lg border border-zinc-800 active:scale-95 transition-transform"
                   onClick={() => setShowMenu(false)}
                   style={{ touchAction: "manipulation" }}
                 >
@@ -84,7 +84,7 @@ const MobileHeader: React.FC = () => {
               </Link>
               <Link href="/about">
                 <motion.button
-                  className="w-full px-3 py-2.5 bg-slate-800 text-white text-xs font-semibold rounded-lg border border-slate-700 active:scale-95 transition-transform"
+                  className="w-full px-3 py-2.5 bg-zinc-900 text-white text-xs font-semibold rounded-lg border border-zinc-800 active:scale-95 transition-transform"
                   onClick={() => setShowMenu(false)}
                   style={{ touchAction: "manipulation" }}
                 >
