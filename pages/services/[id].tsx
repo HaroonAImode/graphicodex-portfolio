@@ -9,31 +9,30 @@ import Link from "next/link";
 // Service Projects Data
 const serviceProjects: Record<string, any> = {
   agents: {
-    title: "AI Agents & Conversational AI",
-    description: "Intelligent conversational agents with memory, context awareness, and multi-modal capabilities for enterprise applications.",
+    title: "AI Agents & Conversational Assistants",
+    description: "Intelligent conversational agents — chatbots, RAG systems, and customer support automation — that engage customers 24/7 and drive real business results.",
     icon: "🤖",
-    color: "#a78bfa",
-    gradient: "from-orange-500 to-amber-500",
+    color: "#E84500",
     projects: [
       {
         title: "Enterprise Customer Support Bot",
         description: "24/7 AI-powered customer support system handling 10,000+ queries daily with 85% resolution rate. Integrated with CRM and ticketing systems.",
         image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&h=400&fit=crop",
         technologies: ["GPT-4", "LangChain", "Pinecone", "Twilio"],
-        metrics: ["85% Resolution Rate", "10K+ Daily Queries", "30s Avg Response Time"],
+        metrics: ["85% Resolution Rate", "10K+ Daily Queries", "65% Cost Reduction"],
         features: [
           "Multi-language support (15+ languages)",
           "Context-aware conversation memory",
-          "Sentiment analysis & escalation",
+          "Sentiment analysis & escalation routing",
           "Integration with Zendesk & Salesforce"
         ]
       },
       {
         title: "AI Sales Assistant",
-        description: "Intelligent sales agent for lead qualification, product recommendations, and follow-up automation. Increased conversion rates by 40%.",
+        description: "Intelligent sales agent for lead qualification, product recommendations, and follow-up automation that runs 24/7 without missing a lead.",
         image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=400&fit=crop",
         technologies: ["Claude", "RAG", "PostgreSQL", "n8n"],
-        metrics: ["40% Conversion Boost", "500+ Leads/Month", "95% Accuracy"],
+        metrics: ["40% Conversion Boost", "500+ Leads/Month", "Zero Missed Leads"],
         features: [
           "Automated lead scoring & qualification",
           "Personalized product recommendations",
@@ -42,50 +41,24 @@ const serviceProjects: Record<string, any> = {
         ]
       },
       {
-        title: "Voice-Enabled Virtual Assistant",
-        description: "Hands-free voice assistant for warehouse operations with real-time inventory management and task coordination.",
-        image: "https://images.unsplash.com/photo-1589254065878-42c9da997008?w=600&h=400&fit=crop",
-        technologies: ["Whisper", "GPT-4", "WebSocket", "Redis"],
-        metrics: ["50% Time Saved", "99% Accuracy", "Real-time Processing"],
-        features: [
-          "Voice command recognition",
-          "Real-time inventory updates",
-          "Multi-user task coordination",
-          "Offline mode support"
-        ]
-      },
-      {
         title: "Healthcare Patient Assistant",
-        description: "HIPAA-compliant AI assistant for appointment scheduling, medication reminders, and health information queries.",
+        description: "HIPAA-compliant AI assistant for appointment scheduling, medication reminders, and health information queries — reducing front-desk workload by 60%.",
         image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop",
         technologies: ["Azure OpenAI", "FHIR", "Encrypted DB", "SMS API"],
-        metrics: ["HIPAA Compliant", "5K+ Patients", "98% Satisfaction"],
+        metrics: ["60% Workload Reduction", "5K+ Patients Served", "98% Satisfaction"],
         features: [
           "Secure appointment scheduling",
           "Medication reminder system",
           "Health records integration",
-          "Emergency alert system"
-        ]
-      },
-      {
-        title: "E-commerce Shopping Assistant",
-        description: "Conversational shopping assistant with product search, comparison, and personalized recommendations for online retail.",
-        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-        technologies: ["GPT-3.5", "Elasticsearch", "Stripe", "React"],
-        metrics: ["35% Cart Increase", "2M+ Products", "< 1s Response"],
-        features: [
-          "Natural language product search",
-          "Visual product comparison",
-          "Personalized recommendations",
-          "Order tracking & support"
+          "Emergency alert escalation"
         ]
       },
       {
         title: "HR Recruitment Chatbot",
-        description: "Automated recruitment assistant for candidate screening, interview scheduling, and onboarding support.",
+        description: "Automated recruitment assistant that screens candidates, schedules interviews, and handles onboarding — saving 70% of HR time per hire.",
         image: "https://images.unsplash.com/photo-1553484771-0b0f5b7d4c6f?w=600&h=400&fit=crop",
         technologies: ["Claude", "ATS Integration", "Calendar API", "Email"],
-        metrics: ["70% Time Saved", "1000+ Candidates", "92% Satisfaction"],
+        metrics: ["70% Time Saved", "1000+ Candidates Processed", "92% Satisfaction"],
         features: [
           "Resume screening & parsing",
           "Automated interview scheduling",
@@ -95,24 +68,96 @@ const serviceProjects: Record<string, any> = {
       }
     ]
   },
-  models: {
-    title: "Custom Model Development & Fine-tuning",
-    description: "Tailored AI models fine-tuned on your specific data to solve unique business challenges with maximum accuracy.",
-    icon: "⚡",
-    color: "#38bdf8",
-    gradient: "from-orange-500 to-amber-500",
+  automation: {
+    title: "AI Workflow Automation",
+    description: "End-to-end automation of repetitive business operations — from lead nurturing and data processing to reporting and multi-system orchestration.",
+    icon: "⚙️",
+    color: "#E84500",
     projects: [
       {
-        title: "Medical Diagnosis AI System",
-        description: "Custom deep learning model for disease detection from medical imaging with 94% accuracy, FDA validation pending.",
-        image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop",
-        technologies: ["PyTorch", "ResNet", "DICOM", "TensorBoard"],
-        metrics: ["94% Accuracy", "10K+ Scans", "FDA Pending"],
+        title: "PropertyPulse AI",
+        description: "An n8n-powered real estate bot that reads GHL form data (budget, location, timeline), searches listings for matching properties, and automatically sends available options back to GoHighLevel for instant follow-up.",
+        image: "/projects/automation1-Propertypulse.jpeg",
+        technologies: ["n8n", "GoHighLevel API", "Google Maps API", "Real Estate APIs"],
+        metrics: ["Instant Matching", "24/7 Availability", "100% Automated"],
         features: [
-          "Multi-class disease detection",
-          "DICOM image processing",
-          "Explainable AI visualizations",
-          "Clinical validation workflows"
+          "Real-time GHL form data processing",
+          "Smart property listing matching",
+          "Budget & location-based filtering",
+          "Automated CRM follow-up integration"
+        ]
+      },
+      {
+        title: "Smart Appointment Booking Bot",
+        description: "Intelligent appointment scheduling automation that captures availability, syncs with calendars, sends confirmations, and manages rescheduling — all without human intervention.",
+        image: "/projects/automation2-appointment-booking.jpeg",
+        technologies: ["n8n", "Google Calendar API", "Twilio", "CRM Integration"],
+        metrics: ["Zero Double-Booking", "95% Show Rate", "+34 Appointments/Mo"],
+        features: [
+          "Real-time calendar availability checking",
+          "Automated confirmation & reminder SMS/email",
+          "Multi-timezone support",
+          "Intelligent rescheduling workflows"
+        ]
+      },
+      {
+        title: "LeadIntel Campaign Engine",
+        description: "Receives a webhook from GoHighLevel on new lead capture, scrapes the lead's website, generates a business abstract, and uses AI to craft hyper-personalized email or SMS campaigns.",
+        image: "/projects/automation3- LeadIntel-Campaign-Engine.jpeg",
+        technologies: ["n8n", "GoHighLevel", "Web Scraping", "GPT-4", "Claude"],
+        metrics: ["3x Engagement Rate", "Personalized at Scale", "10min Processing"],
+        features: [
+          "Automated website scraping & analysis",
+          "AI-powered business intelligence extraction",
+          "Hyper-personalized campaign generation",
+          "Seamless CRM integration & follow-up"
+        ]
+      },
+      {
+        title: "RankGrid AI – Local SEO Report Engine",
+        description: "Automated local SEO reporting that generates Google Business Profile ranking reports in real time — pulling data, running geo-grid scans, and delivering a PDF report to the CRM automatically.",
+        image: "/projects/automation4-Automated-Local-SEO-Report-Engine.jpeg",
+        technologies: ["n8n", "Google Maps API", "Rank Tracking APIs", "PDF Generation"],
+        metrics: ["Real-time Reports", "Geo-Grid Accuracy", "Zero Manual Work"],
+        features: [
+          "Google Business Profile data extraction",
+          "Geo-grid visibility scanning",
+          "Automated ranking calculations",
+          "Professional PDF report generation & CRM delivery"
+        ]
+      },
+      {
+        title: "Advanced Website Scraping Automation",
+        description: "Enterprise-grade web scraping automation that extracts structured data from complex websites, handles dynamic content, and delivers clean data to your database or CRM.",
+        image: "/projects/automation5-Advance-Website-Scraping-Automation.png",
+        technologies: ["n8n", "Puppeteer", "Playwright", "Proxy Networks"],
+        metrics: ["1000+ Pages/Hour", "99% Success Rate", "Structured Output"],
+        features: [
+          "Dynamic content & JavaScript rendering",
+          "Anti-bot detection handling",
+          "Data cleaning & normalization",
+          "Scheduled scraping & monitoring"
+        ]
+      }
+    ]
+  },
+  models: {
+    title: "Custom AI Model Development",
+    description: "Fine-tuned and purpose-built AI models trained on your specific business data — delivering higher accuracy than generic models for your exact use case.",
+    icon: "⚡",
+    color: "#E84500",
+    projects: [
+      {
+        title: "Legal Document Analysis LLM",
+        description: "Fine-tuned language model for legal contract analysis, clause extraction, and compliance checking — saving 80% of manual review time.",
+        image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop",
+        technologies: ["LLaMA-2", "LangChain", "Chroma", "FastAPI"],
+        metrics: ["91% Accuracy", "10K+ Contracts Processed", "80% Time Saved"],
+        features: [
+          "Clause extraction & categorization",
+          "Compliance risk assessment",
+          "Contract comparison analysis",
+          "Jurisdiction-specific fine-tuning"
         ]
       },
       {
@@ -129,34 +174,21 @@ const serviceProjects: Record<string, any> = {
         ]
       },
       {
-        title: "Legal Document Analysis LLM",
-        description: "Fine-tuned language model for legal contract analysis, clause extraction, and compliance checking.",
-        image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop",
-        technologies: ["LLaMA-2", "LangChain", "Chroma", "FastAPI"],
-        metrics: ["91% Accuracy", "10K+ Contracts", "80% Time Saved"],
+        title: "E-commerce Product Recommendation AI",
+        description: "Custom recommendation model trained on customer behavior data — increasing average cart value by 35% through personalized product suggestions.",
+        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+        technologies: ["PyTorch", "Collaborative Filtering", "FastAPI", "Redis"],
+        metrics: ["35% Cart Value Increase", "2M+ Products", "< 50ms Response"],
         features: [
-          "Clause extraction & categorization",
-          "Compliance risk assessment",
-          "Contract comparison analysis",
-          "Jurisdiction-specific training"
-        ]
-      },
-      {
-        title: "Manufacturing Quality Control AI",
-        description: "Computer vision model for defect detection on production lines with real-time inference and quality scoring.",
-        image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
-        technologies: ["YOLO v8", "EdgeAI", "OpenCV", "Jetson"],
-        metrics: ["98% Detection Rate", "< 50ms Inference", "24/7 Operation"],
-        features: [
-          "Real-time defect detection",
-          "Multi-camera synchronization",
-          "Quality trend analytics",
-          "Production line integration"
+          "Real-time personalization",
+          "Behavioral pattern learning",
+          "A/B testing framework",
+          "Business rules integration"
         ]
       },
       {
         title: "Content Moderation AI",
-        description: "Custom NLP model for automated content moderation across text, images, and video with policy compliance.",
+        description: "Custom NLP model for automated content moderation across text and images — enforcing policy compliance at scale with 96% accuracy.",
         image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=600&h=400&fit=crop",
         technologies: ["BERT", "CLIP", "TensorFlow", "Kubernetes"],
         metrics: ["96% Accuracy", "1M+ Items/Day", "Multi-modal"],
@@ -164,155 +196,187 @@ const serviceProjects: Record<string, any> = {
           "Multi-language text moderation",
           "Image & video analysis",
           "Custom policy enforcement",
-          "Human-in-the-loop review"
+          "Human-in-the-loop review queue"
         ]
       }
     ]
   },
   integrations: {
-    title: "AI Integrations & Automation",
-    description: "Seamless integration of AI capabilities into your existing workflows and automation of business processes.",
+    title: "AI Integrations",
+    description: "Seamlessly connect AI capabilities with your existing CRM, ERP, website, and APIs — adding intelligence to the tools your team already uses.",
     icon: "🔗",
-    color: "#34d399",
-    gradient: "from-orange-500 to-amber-500",
+    color: "#E84500",
     projects: [
       {
-        title: "PropertyPulse AI",
-        description: "An n8n-powered real estate bot that reads GHL form data (budget, location, timeline), searches listings for matching properties, and automatically sends available options—or updates—back to GoHighLevel for instant follow-up.",
-        image: "/projects/automation1-Propertypulse.jpeg",
-        technologies: ["n8n", "GoHighLevel API", "Google Maps API", "Real Estate Data APIs"],
-        metrics: ["Instant Matching", "24/7 Availability", "100% Automated"],
+        title: "CRM AI Intelligence Layer",
+        description: "Integrated AI into a Salesforce CRM to automatically score leads, summarize call recordings, and suggest next actions — cutting rep prep time by 50%.",
+        image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=400&fit=crop",
+        technologies: ["Salesforce API", "OpenAI", "n8n", "Whisper"],
+        metrics: ["50% Time Saved", "3x Lead Conversion", "Auto-summaries"],
         features: [
-          "Real-time GHL form data processing",
-          "Smart property listing matching",
-          "Budget & location-based filtering",
-          "Automated CRM follow-up integration"
+          "AI-powered lead scoring",
+          "Call recording transcription & summary",
+          "Next-action recommendations",
+          "Automated CRM data enrichment"
         ]
       },
       {
-        title: "Smart Appointment Booking Bot",
-        description: "Intelligent appointment scheduling automation that captures availability, syncs with calendars, sends confirmations, and manages rescheduling—all without human intervention. Seamlessly integrates with CRM and calendar systems.",
-        image: "/projects/automation2-appointment-booking.jpeg",
-        technologies: ["n8n", "Google Calendar API", "Twilio", "CRM Integration"],
-        metrics: ["Zero Double-Booking", "95% Show Rate", "24/7 Scheduling"],
+        title: "ERP Automation Integration",
+        description: "Connected an AI layer to an existing ERP system to automate purchase order creation, vendor communication, and inventory forecasting.",
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop",
+        technologies: ["SAP API", "Python", "FastAPI", "OpenAI"],
+        metrics: ["70% Faster PO Processing", "40% Inventory Accuracy", "Zero Manual Entry"],
         features: [
-          "Real-time calendar availability checking",
-          "Automated confirmation & reminder SMS/email",
-          "Multi-timezone support",
-          "Intelligent rescheduling workflows"
+          "Automated purchase order generation",
+          "Vendor email parsing & response",
+          "Inventory level forecasting",
+          "Exception alerting & routing"
         ]
       },
       {
-        title: "LeadIntel Campaign Engine",
-        description: "This n8n workflow starts by receiving a webhook from GoHighLevel whenever a new lead is captured. It automatically scrapes the lead's website, converts content into clean markdown, generates a concise business abstract, and uses AI agents to craft highly personalized email or SMS campaigns tailored specifically to that lead.",
-        image: "/projects/automation3- LeadIntel-Campaign-Engine.jpeg",
-        technologies: ["n8n", "GoHighLevel", "Web Scraping", "GPT-4", "Claude"],
-        metrics: ["3x Engagement", "Personalized Outreach", "10min Processing"],
+        title: "Website AI Chat Integration",
+        description: "Embedded a context-aware AI assistant into an e-commerce website — answering product questions, processing returns, and booking demos automatically.",
+        image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&h=400&fit=crop",
+        technologies: ["React Widget", "OpenAI", "RAG", "Stripe API"],
+        metrics: ["45% Support Ticket Reduction", "24/7 Coverage", "+28% Conversions"],
         features: [
-          "Automated website scraping & analysis",
-          "AI-powered business intelligence extraction",
-          "Hyper-personalized campaign generation",
-          "Seamless CRM integration & follow-up"
+          "Product knowledge base integration",
+          "Order status & return handling",
+          "Demo booking automation",
+          "Live chat escalation fallback"
         ]
       },
       {
-        title: "RankGrid AI – Automated Local SEO Report Engine",
-        description: "An automated local SEO reporting system that generates Google Business Profile ranking reports in real time. It pulls business data from Google Maps, runs a geo-grid visibility scan across a targeted radius, calculates average rankings, and automatically sends a professional report back to the CRM.",
-        image: "/projects/automation4-Automated-Local-SEO-Report-Engine.jpeg",
-        technologies: ["n8n", "Google Maps API", "Rank Tracking APIs", "PDF Generation", "CRM APIs"],
-        metrics: ["Real-time Reports", "Geo-Grid Accuracy", "Zero Manual Work"],
+        title: "Multi-Platform Data Pipeline",
+        description: "Built an AI-powered data aggregation pipeline connecting 6 marketing platforms — automatically analyzing performance and generating weekly strategy reports.",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+        technologies: ["n8n", "Google Ads API", "Meta API", "GPT-4", "Google Sheets"],
+        metrics: ["6 Platforms Connected", "Weekly Auto-Reports", "5hrs Saved/Week"],
         features: [
-          "Google Business Profile data extraction",
-          "Geo-grid visibility scanning",
-          "Automated ranking calculations",
-          "Professional PDF report generation & CRM delivery"
-        ]
-      },
-      {
-        title: "Advanced Website Scraping Automation",
-        description: "Enterprise-grade web scraping automation that intelligently extracts structured data from complex websites, handles dynamic content loading, bypasses anti-bot measures, and delivers clean, formatted data to your database or CRM. Perfect for competitive intelligence, lead generation, and market research.",
-        image: "/projects/automation5-Advance-Website-Scraping-Automation.png",
-        technologies: ["n8n", "Puppeteer", "Playwright", "Proxy Networks", "Data Processing"],
-        metrics: ["1000+ Pages/Hour", "99% Success Rate", "Structured Data"],
-        features: [
-          "Dynamic content & JavaScript rendering",
-          "Anti-bot detection bypass",
-          "Data cleaning & normalization",
-          "Scheduled scraping & monitoring"
+          "Multi-platform data aggregation",
+          "AI-generated performance insights",
+          "Automated weekly report delivery",
+          "Anomaly detection & alerts"
         ]
       }
     ]
   },
-  production: {
-    title: "Production & MLOps",
-    description: "Enterprise-grade deployment, monitoring, and maintenance of AI systems with guaranteed performance SLAs.",
-    icon: "🚀",
-    color: "#10b981",
-    gradient: "from-orange-600 to-amber-500",
+  "computer-vision": {
+    title: "Computer Vision Systems",
+    description: "AI-powered image and video analysis systems — from object detection and facial analysis to quality control and real-time surveillance intelligence.",
+    icon: "👁️",
+    color: "#E84500",
     projects: [
       {
-        title: "Auto-Scaling AI Infrastructure",
-        description: "Enterprise ML infrastructure handling 10M+ daily requests with auto-scaling, load balancing, and 99.9% uptime SLA.",
-        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop",
-        technologies: ["Kubernetes", "AWS EKS", "Prometheus", "Grafana"],
-        metrics: ["10M+ Requests/Day", "99.9% Uptime", "Auto-Scaling"],
+        title: "AI Facial Analyzer",
+        description: "Real-time facial recognition and emotion detection system for retail stores — analyzing customer sentiment and demographics to improve in-store experience.",
+        image: "/projects/ai-facial-analyzer.jpg",
+        technologies: ["PyTorch", "OpenCV", "FastAPI", "DeepFace"],
+        metrics: ["98% Detection Accuracy", "Real-time Processing", "30fps Analysis"],
         features: [
-          "Horizontal pod autoscaling",
-          "Multi-region deployment",
-          "Real-time monitoring",
-          "Cost optimization"
+          "Real-time facial detection & recognition",
+          "Emotion and sentiment analysis",
+          "Age and demographic estimation",
+          "Privacy-compliant data handling"
         ]
       },
       {
-        title: "ML Model Monitoring Dashboard",
-        description: "Comprehensive monitoring system tracking model performance, data drift, and system health with real-time alerts.",
+        title: "Restaurant Staff Tracker",
+        description: "AI-powered staff activity detection using existing CCTV camera feeds — tracking station coverage, idle time, and hygiene compliance automatically.",
+        image: "/projects/restaurant-camera-ai.png",
+        technologies: ["YOLO v8", "OpenCV", "Edge AI", "Python"],
+        metrics: ["95% Detection Rate", "24/7 Monitoring", "Zero New Hardware"],
+        features: [
+          "Staff position & activity tracking",
+          "Station coverage monitoring",
+          "Hygiene compliance detection",
+          "Real-time alert system"
+        ]
+      },
+      {
+        title: "Manufacturing Quality Control AI",
+        description: "Computer vision model for defect detection on production lines — catching defects invisible to the human eye at production speed.",
+        image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
+        technologies: ["YOLO v8", "EdgeAI", "OpenCV", "NVIDIA Jetson"],
+        metrics: ["98% Defect Detection", "< 50ms Inference", "24/7 Operation"],
+        features: [
+          "Real-time defect classification",
+          "Multi-camera synchronization",
+          "Quality trend analytics dashboard",
+          "Production line integration"
+        ]
+      },
+      {
+        title: "Document OCR & Extraction Pipeline",
+        description: "Intelligent document processing system that extracts structured data from invoices, contracts, and forms — eliminating manual data entry entirely.",
+        image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop",
+        technologies: ["Tesseract", "LayoutLM", "FastAPI", "PostgreSQL"],
+        metrics: ["99.1% Extraction Accuracy", "10K+ Docs/Day", "100% Manual Entry Eliminated"],
+        features: [
+          "Multi-format document support",
+          "Structured data extraction",
+          "Validation & error checking",
+          "ERP/CRM data push integration"
+        ]
+      }
+    ]
+  },
+  "predictive-analytics": {
+    title: "Predictive Analytics & Forecasting",
+    description: "Data-driven decision systems that analyze historical patterns and predict future outcomes — giving businesses the intelligence to act before problems occur.",
+    icon: "📈",
+    color: "#E84500",
+    projects: [
+      {
+        title: "Crypto Price Predictor",
+        description: "ML model forecasting cryptocurrency price movements using historical data, sentiment analysis, and on-chain metrics — achieving 73% directional accuracy.",
+        image: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=600&h=400&fit=crop",
+        technologies: ["TensorFlow", "LSTM", "Python", "Sentiment NLP"],
+        metrics: ["73% Directional Accuracy", "15-min Forecast Intervals", "Real-time Feed"],
+        features: [
+          "Multi-signal price prediction",
+          "Sentiment & news integration",
+          "On-chain data analysis",
+          "Risk-adjusted confidence scoring"
+        ]
+      },
+      {
+        title: "E-commerce Demand Forecasting",
+        description: "Inventory demand forecasting model for an online retailer — reducing overstock by 42% and eliminating stockouts on top-selling products.",
+        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+        technologies: ["Prophet", "XGBoost", "Python", "PostgreSQL"],
+        metrics: ["42% Overstock Reduction", "Zero Stockouts on Top SKUs", "12-Week Forecast"],
+        features: [
+          "SKU-level demand forecasting",
+          "Seasonal trend modeling",
+          "Automated reorder point calculation",
+          "ERP inventory integration"
+        ]
+      },
+      {
+        title: "Customer Churn Prediction",
+        description: "ML model identifying at-risk customers 30 days before churn — enabling proactive retention campaigns that saved 18% of churning revenue.",
         image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-        technologies: ["Evidently AI", "Grafana", "PostgreSQL", "PagerDuty"],
-        metrics: ["Real-time Alerts", "15+ Metrics", "99.99% Reliability"],
+        technologies: ["XGBoost", "Python", "Scikit-learn", "CRM API"],
+        metrics: ["85% Churn Prediction Accuracy", "30-Day Early Warning", "18% Revenue Saved"],
         features: [
-          "Data drift detection",
-          "Model performance tracking",
-          "Anomaly alerting",
-          "Custom metric dashboards"
+          "Behavioral pattern analysis",
+          "Risk score calculation per customer",
+          "Automated retention campaign triggers",
+          "CRM real-time integration"
         ]
       },
       {
-        title: "CI/CD Pipeline for ML Models",
-        description: "Automated ML pipeline with version control, testing, deployment, and rollback capabilities for production models.",
-        image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=600&h=400&fit=crop",
-        technologies: ["GitHub Actions", "MLflow", "Docker", "ArgoCD"],
-        metrics: ["5min Deployment", "Automated Testing", "Zero Downtime"],
-        features: [
-          "Automated model testing",
-          "A/B deployment strategies",
-          "Model versioning",
-          "Instant rollback capability"
-        ]
-      },
-      {
-        title: "Multi-Model Serving Platform",
-        description: "Unified serving platform for multiple ML models with dynamic routing, caching, and cost optimization.",
+        title: "Sales Revenue Forecasting",
+        description: "Predictive revenue forecasting model integrating CRM pipeline data, historical trends, and market signals — giving leadership accurate 90-day revenue visibility.",
         image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop",
-        technologies: ["TorchServe", "NVIDIA Triton", "Redis", "Kong"],
-        metrics: ["50+ Models", "< 100ms P95", "60% Cost Reduction"],
+        technologies: ["Prophet", "Python", "Salesforce API", "Power BI"],
+        metrics: ["±4% Forecast Accuracy", "90-Day Horizon", "Weekly Auto-Refresh"],
         features: [
-          "Dynamic model routing",
-          "Response caching",
-          "GPU optimization",
-          "Usage-based billing"
-        ]
-      },
-      {
-        title: "Disaster Recovery System",
-        description: "Enterprise-grade DR solution with automated backups, geo-redundancy, and sub-60s recovery time objectives.",
-        image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop",
-        technologies: ["AWS Multi-Region", "Terraform", "Velero", "S3"],
-        metrics: ["< 60s RTO", "Geo-Redundant", "Automated Backups"],
-        features: [
-          "Automated daily backups",
-          "Multi-region replication",
-          "Point-in-time recovery",
-          "Disaster drill automation"
+          "CRM pipeline signal integration",
+          "Seasonal & market trend modeling",
+          "Scenario planning (best/base/worst)",
+          "Executive dashboard delivery"
         ]
       }
     ]

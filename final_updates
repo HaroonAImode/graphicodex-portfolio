@@ -1,0 +1,331 @@
+You are a senior AI agency website designer, conversion optimization expert, and senior Next.js developer.
+
+Your task is to upgrade and finalize my AI agency portfolio website so it becomes a HIGH-CONVERSION professional portfolio that attracts and converts real business clients.
+
+The project is a Next.js portfolio website for an AI automation company called "Graphicodex".
+
+The company provides:
+• AI automation systems
+• AI agents
+• AI integrations
+• custom AI models
+• business workflow automation
+
+Goal of the website:
+Convince businesses to hire us to implement AI solutions that increase efficiency and generate more appointments or revenue.
+
+The website already exists with these pages:
+
+/ (Home)
+/about
+/ai-services
+/portfolio
+/team
+/contact
+/services/[id]
+
+There is also a page:
+/other-services
+
+which currently contains graphic design services.
+
+Your task is to MODIFY and OPTIMIZE the existing pages for better positioning, clarity, and conversion.
+
+---
+
+GLOBAL BRAND POSITIONING
+
+The company should be positioned as:
+
+"AI Automation & AI Agent Development Company for Businesses"
+
+Not a general freelancer agency.
+
+Messaging must focus on BUSINESS RESULTS.
+
+Examples of messaging tone:
+• Reduce workload by 40–70%
+• Automate repetitive operations
+• Generate more leads and appointments
+• AI systems that run 24/7
+
+Avoid generic buzzwords like:
+"cutting-edge AI"
+"next generation AI"
+
+Instead focus on outcomes.
+
+---
+
+NAVIGATION STRUCTURE
+
+Keep the main navigation simple:
+
+Home
+AI Services
+Portfolio
+About
+Team
+Contact
+
+Remove the “Other Services” link from the main navigation.
+
+---
+
+REMOVE OR RESTRUCTURE OTHER SERVICES PAGE
+
+The current page "/other-services" contains:
+
+Logo Design
+Packaging Design
+Print Design
+Branding
+etc
+
+This weakens the AI positioning.
+
+Do one of the following:
+
+Option A (Preferred):
+Completely remove the page and any links to it.
+
+Option B:
+Rename it to "Digital Solutions" and ONLY include:
+
+• Website Development
+• AI Website Integrations
+• AI-Powered Web Apps
+• UI/UX for AI Products
+
+Remove:
+• packaging design
+• brochure design
+• print design
+• logo design
+
+---
+
+HOME PAGE IMPROVEMENTS
+
+The homepage must be optimized for conversion.
+
+Hero section should clearly explain the VALUE.
+
+Replace the current headline with something results-driven.
+
+Example structure:
+
+Badge:
+"AI Automation Solutions for Modern Businesses"
+
+Headline:
+"Custom AI Agents & Automation Systems That Reduce Business Workload by 40–70%"
+
+Subheading:
+"We design and deploy AI systems that automate operations, generate leads, and handle customer interactions — so your team can focus on growth."
+
+Primary CTA:
+"View Our Work"
+
+Secondary CTA:
+"Start Your AI Project"
+
+---
+
+INDUSTRY TARGETING
+
+Add a small section on the homepage titled:
+
+"Industries We Work With"
+
+Include examples:
+
+• Real Estate
+• Healthcare Clinics
+• Marketing Agencies
+• SaaS Startups
+• E-commerce Businesses
+• Service Businesses
+
+---
+
+AI SERVICES PAGE
+
+Currently there are 12 services.
+
+Reduce them to 6 core services.
+
+The final services should be:
+
+1. AI Agents & Conversational Assistants
+   (Chatbots, RAG systems, customer support automation)
+
+2. AI Workflow Automation
+   (Automating repetitive business operations using AI)
+
+3. Custom AI Model Development
+   (Training models for specific business tasks)
+
+4. AI Integrations
+   (Connecting AI with CRM, ERP, websites, and APIs)
+
+5. Computer Vision Systems
+   (Image analysis, object detection, facial analysis)
+
+6. Predictive Analytics & Forecasting
+   (Data-driven decision systems)
+
+Each service card should include:
+
+• short description
+• technologies used
+• link to detail page
+
+---
+
+SERVICE DETAIL PAGE STRUCTURE
+
+Each service detail page should follow this structure:
+
+1. Hero section (service title + description)
+
+2. Business problems solved
+
+3. Example use cases
+
+4. Case studies or example projects
+
+Each project example should include:
+
+Problem
+Solution
+Result
+
+Example format:
+
+Problem:
+Manual appointment scheduling wasting staff time.
+
+Solution:
+AI booking assistant integrated with website and WhatsApp.
+
+Result:
++34 appointments per month without hiring additional staff.
+
+---
+
+PORTFOLIO PAGE IMPROVEMENTS
+
+Reduce the number of projects shown from 12 to around 6–8 strong projects.
+
+Each project card must include:
+
+• project name
+• short description
+• category (AI Agent / Automation / Model)
+• technologies used
+• measurable result
+
+Examples of results:
+
+• 65% reduction in support workload
+• 40% faster document processing
+• +30 monthly appointments
+• 32% increase in conversions
+
+Projects should feel realistic and business-focused.
+
+---
+
+ABOUT PAGE IMPROVEMENTS
+
+Ensure the company timeline is realistic.
+
+Example timeline:
+
+2022 – Started building AI automation solutions
+2023 – Delivered first AI client projects
+2024 – Expanded into full AI development team
+2025 – 50+ AI systems deployed across industries
+
+The About page should emphasize:
+
+• technical expertise
+• real-world business automation
+• long-term partnerships
+
+---
+
+TEAM PAGE IMPROVEMENTS
+
+Focus on expertise instead of years of experience.
+
+Each team card should include:
+
+• Name
+• Role
+• Key specialization
+
+Example:
+
+Haroon
+AI Systems Engineer
+Specializes in AI integrations, LLM systems, and automation platforms.
+
+Fassih Shahzad
+Automation Engineer
+Expert in workflow automation using n8n and Make.
+
+---
+
+CONTACT PAGE IMPROVEMENTS
+
+Keep the contact form.
+
+Add an additional option:
+
+"Book a Strategy Call"
+
+Include a section suggesting scheduling a call to discuss AI implementation.
+
+Maintain:
+
+• email
+• WhatsApp
+• contact form
+
+---
+
+DESIGN GUIDELINES
+
+The design should feel like a professional AI technology company.
+
+Keep:
+
+• dark modern theme
+• animated tech elements
+• professional typography
+
+Avoid:
+
+• overly playful design
+• freelance marketplace style visuals
+
+The website should feel like a serious B2B technology provider.
+
+---
+
+FINAL GOAL
+
+After all modifications:
+
+The website should clearly communicate that we are an AI automation company that helps businesses:
+
+• automate operations
+• reduce workload
+• increase efficiency
+• generate more leads and appointments
+
+Ensure the final site is clean, professional, and conversion-focused.
+
+Make any necessary improvements in structure, wording, or section layout to achieve this goal while keeping the existing project structure in Next.js.

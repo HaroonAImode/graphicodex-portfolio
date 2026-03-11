@@ -73,13 +73,13 @@ const ContactPage: React.FC = () => {
     {
       icon: "📧",
       title: "Email Us",
-      description: "Send us an email anytime",
+      description: "Send us a project inquiry",
       value: "muhammadharoon374052005@gmail.com",
       action: () => (window.location.href = "mailto:muhammadharoon374052005@gmail.com"),
       gradient: "from-orange-500 to-amber-500",
     },
     {
-      icon: "📱",
+      icon: "💬",
       title: "WhatsApp",
       description: "Chat with us directly",
       value: "+92 335 6533350",
@@ -87,27 +87,25 @@ const ContactPage: React.FC = () => {
       gradient: "from-green-500 to-emerald-500",
     },
     {
-      icon: "🎨",
-      title: "Design Portfolio",
-      description: "View our design work",
-      value: "Graphic Design Portfolio",
-      action: () =>
-        window.open(
-          "https://newdesignerhere.my.canva.site/graphicodexportfolio",
-          "_blank"
-        ),
+      icon: "📁",
+      title: "View Portfolio",
+      description: "See our AI projects",
+      value: "Browse Case Studies",
+      action: () => window.location.href = "/portfolio",
       gradient: "from-orange-500 to-amber-600",
     },
   ];
 
   const services = [
-    "AI Agents & Assistants",
-    "Custom Model Development",
-    "AI Integrations & Automation",
-    "Production & MLOps",
-    "Graphic Design Services",
+    "AI Agents & Conversational Assistants",
+    "AI Workflow Automation",
+    "Custom AI Model Development",
+    "AI Integrations (CRM, ERP, APIs)",
+    "Computer Vision Systems",
+    "Predictive Analytics & Forecasting",
     "Website Development",
-    "Consultation & Strategy",
+    "AI-Powered Web Applications",
+    "Free Strategy Call",
     "Other",
   ];
 

@@ -226,7 +226,7 @@ const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-zinc-950 text-white font-sans">
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] lg:min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 pt-24 pb-8 lg:pt-20 lg:pb-0 overflow-hidden" style={{ background: '#080808' }}>
+      <section className="relative min-h-[88vh] lg:min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-24 sm:pb-12 lg:pt-20 lg:pb-0 overflow-hidden" style={{ background: '#080808' }}>
         {/* Cursor trail - Desktop Only */}
         <div className="hidden lg:block">
           <HeroMouseEffect />
@@ -269,7 +269,7 @@ const HomePage: React.FC = () => {
             className="font-black tracking-tight leading-[1.04] mb-4 lg:mb-5"
             style={{
               fontFamily: 'var(--font-space-grotesk), sans-serif',
-              fontSize: 'clamp(2.4rem, 6.5vw, 5rem)',
+              fontSize: 'clamp(1.85rem, 7vw, 5rem)',
             }}
           >
             <span className="block text-white">Custom AI Agents &</span>
