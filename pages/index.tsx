@@ -226,7 +226,7 @@ const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-zinc-950 text-white font-sans">
       {/* Hero Section */}
-      <section className="relative min-h-[88vh] lg:min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-24 sm:pb-12 lg:pt-20 lg:pb-0 overflow-hidden" style={{ background: '#080808' }}>
+      <section className="relative lg:min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 pt-20 sm:pt-20 pb-14 sm:pb-12 lg:pt-20 lg:pb-0 overflow-hidden" style={{ background: '#080808' }}>
         {/* Cursor trail - Desktop Only */}
         <div className="hidden lg:block">
           <HeroMouseEffect />
@@ -304,7 +304,7 @@ const HomePage: React.FC = () => {
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 lg:mb-16 px-4 sm:px-0"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-4 lg:mb-16 px-4 sm:px-0"
           >
             <Link href="/portfolio#filters">
               <motion.button

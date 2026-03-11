@@ -1,13 +1,24 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
 const RecentProjects: React.FC = () => {
   const [paused, setPaused] = useState(false);
+  const [swipeHintVisible, setSwipeHintVisible] = useState(true);
   const trackRef = useRef<HTMLDivElement>(null);
+  const mobileScrollRef = useRef<HTMLDivElement>(null);
+
+  // Hide swipe hint once user actually scrolls
+  useEffect(() => {
+    const el = mobileScrollRef.current;
+    if (!el) return;
+    const onScroll = () => setSwipeHintVisible(false);
+    el.addEventListener("scroll", onScroll, { once: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
 
   const projects = [
     {
@@ -87,41 +98,35 @@ const RecentProjects: React.FC = () => {
   // Triplicate so the loop is seamless at any pause point
   const looped = [...projects, ...projects, ...projects];
 
-  // Two breakpoints: mobile (< 640px) and desktop (≥ 640px)
-  const CARD_W_MOBILE = 180;
-  const GAP_MOBILE = 12;
+  // Desktop marquee dimensions
   const CARD_W = 320;
   const GAP = 24;
-  const TOTAL_MOBILE = projects.length * (CARD_W_MOBILE + GAP_MOBILE);
   const TOTAL = projects.length * (CARD_W + GAP);
 
   return (
     <section className="py-10 lg:py-20 bg-gradient-to-br from-zinc-950 via-orange-950/30 to-zinc-950 overflow-hidden border-y border-zinc-800/50">
       <style>{`
-        @keyframes marquee-mobile {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-${TOTAL_MOBILE}px); }
-        }
         @keyframes marquee-desktop {
           0%   { transform: translateX(0); }
           100% { transform: translateX(-${TOTAL}px); }
         }
         .marquee-track {
-          animation: marquee-mobile 26s linear infinite;
+          animation: marquee-desktop 40s linear infinite;
           will-change: transform;
-          gap: ${GAP_MOBILE}px;
-          padding-left: 12px;
-        }
-        @media (min-width: 640px) {
-          .marquee-track {
-            animation: marquee-desktop 40s linear infinite;
-            gap: ${GAP}px;
-            padding-left: 16px;
-          }
+          gap: ${GAP}px;
+          padding-left: 16px;
         }
         .marquee-track.paused {
           animation-play-state: paused;
         }
+        .mobile-scroll::-webkit-scrollbar { display: none; }
+        .mobile-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+        @keyframes swipe-bounce {
+          0%, 100% { transform: translateX(0); }
+          30% { transform: translateX(-6px); }
+          60% { transform: translateX(4px); }
+        }
+        .swipe-hint-arrow { animation: swipe-bounce 1.8s ease-in-out infinite; }
       `}</style>
 
       {/* Header */}
@@ -147,11 +152,73 @@ const RecentProjects: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Marquee */}
-      <div className="relative">
+      {/* ── Mobile: touch-scrollable horizontal strip ── */}
+      <div className="sm:hidden relative">
+        {/* Swipe hint */}
+        {swipeHintVisible && (
+          <motion.div
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="flex items-center justify-center gap-2 mb-3 px-4"
+          >
+            <span className="swipe-hint-arrow text-orange-400 text-base leading-none">←</span>
+            <span className="text-[11px] font-medium tracking-wide" style={{ color: "rgba(255,255,255,0.45)" }}>
+              Swipe to explore projects
+            </span>
+            <span className="swipe-hint-arrow text-orange-400 text-base leading-none">→</span>
+          </motion.div>
+        )}
+
         {/* Edge fades */}
-        <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-16 lg:w-32 bg-gradient-to-r from-zinc-950 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-16 lg:w-32 bg-gradient-to-l from-zinc-950 to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-zinc-950 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-zinc-950 to-transparent z-10 pointer-events-none" />
+
+        <div
+          ref={mobileScrollRef}
+          className="mobile-scroll overflow-x-scroll flex gap-3"
+          style={{ WebkitOverflowScrolling: "touch", scrollSnapType: "x mandatory", paddingLeft: 20, paddingRight: 20, paddingBottom: 8 }}
+        >
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="flex-shrink-0"
+              style={{ width: 190, scrollSnapAlign: "start" }}
+            >
+              <div className="relative bg-zinc-900/50 backdrop-blur-sm rounded-xl overflow-hidden border border-zinc-800 h-full">
+                {/* Badge */}
+                <div className="absolute top-2 right-2 z-20">
+                  <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-lg">
+                    {project.badge}
+                  </span>
+                </div>
+                {/* Image */}
+                <div className="relative h-28 overflow-hidden bg-zinc-950">
+                  <Image src={project.image} alt={project.title} fill className="object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
+                </div>
+                {/* Content */}
+                <div className="p-3">
+                  <span className="text-[10px] font-semibold text-orange-400 uppercase tracking-wider">{project.category}</span>
+                  <h3 className="text-sm font-bold text-white mt-1 mb-1.5 line-clamp-1">{project.title}</h3>
+                  <p className="text-xs text-gray-400 mb-2.5 line-clamp-2 leading-relaxed">{project.description}</p>
+                  <div className="flex flex-wrap gap-1">
+                    {project.technologies.map((tech, idx) => (
+                      <span key={idx} className="px-1.5 py-0.5 text-[10px] rounded-md bg-zinc-800 text-gray-300 border border-zinc-700">{tech}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ── Desktop: animated marquee ── */}
+      <div className="hidden sm:block relative">
+        {/* Edge fades */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 lg:w-32 bg-gradient-to-r from-zinc-950 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 lg:w-32 bg-gradient-to-l from-zinc-950 to-transparent z-10 pointer-events-none" />
 
         <div className="overflow-hidden">
           <div
@@ -163,46 +230,28 @@ const RecentProjects: React.FC = () => {
             {looped.map((project, index) => (
               <div
                 key={`${project.id}-${index}`}
-                className="w-[180px] sm:w-[320px] flex-shrink-0"
+                className="w-[320px] flex-shrink-0"
               >
-                <div className="relative bg-zinc-900/50 backdrop-blur-sm rounded-xl sm:rounded-2xl overflow-hidden border border-zinc-800 hover:border-orange-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/20 hover:-translate-y-1 h-full group cursor-default">
+                <div className="relative bg-zinc-900/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-zinc-800 hover:border-orange-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/20 hover:-translate-y-1 h-full group cursor-default">
                   {/* Badge */}
-                  <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-20">
-                    <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-semibold bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-lg">
+                  <div className="absolute top-3 right-3 z-20">
+                    <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-lg">
                       {project.badge}
                     </span>
                   </div>
-
                   {/* Image */}
-                  <div className="relative h-28 sm:h-44 overflow-hidden bg-zinc-950">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
+                  <div className="relative h-44 overflow-hidden bg-zinc-950">
+                    <Image src={project.image} alt={project.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
                   </div>
-
                   {/* Content */}
-                  <div className="p-3 sm:p-5">
-                    <span className="text-[10px] sm:text-[11px] font-semibold text-orange-400 uppercase tracking-wider">
-                      {project.category}
-                    </span>
-                    <h3 className="text-sm sm:text-base font-bold text-white mt-1 mb-1.5 sm:mb-2 group-hover:text-orange-300 transition-colors line-clamp-1">
-                      {project.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-gray-400 mb-2.5 sm:mb-4 line-clamp-2 leading-relaxed">
-                      {project.description}
-                    </p>
+                  <div className="p-5">
+                    <span className="text-[11px] font-semibold text-orange-400 uppercase tracking-wider">{project.category}</span>
+                    <h3 className="text-base font-bold text-white mt-1 mb-2 group-hover:text-orange-300 transition-colors line-clamp-1">{project.title}</h3>
+                    <p className="text-sm text-gray-400 mb-4 line-clamp-2 leading-relaxed">{project.description}</p>
                     <div className="flex flex-wrap gap-1">
                       {project.technologies.map((tech, idx) => (
-                        <span
-                          key={idx}
-                          className="px-1.5 py-0.5 text-[10px] sm:text-[11px] rounded-md bg-zinc-800 text-gray-300 border border-zinc-700"
-                        >
-                          {tech}
-                        </span>
+                        <span key={idx} className="px-1.5 py-0.5 text-[11px] rounded-md bg-zinc-800 text-gray-300 border border-zinc-700">{tech}</span>
                       ))}
                     </div>
                   </div>
